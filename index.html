@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Restaurante O'Noso en Sants Barcelona | Cocina española, menú y eventos</title>
-  <meta name="description" content="Restaurante O'Noso en Sants, Barcelona, situado en Carrer de Galileu 173 junto a calle Madrid. Cocina española, platos regionales, vinos, menú diario y comidas o cenas para grupos." />
-  <meta name="keywords" content="restaurante O'Noso Sants, restaurante en Sants, restaurante calle Galileu Barcelona, restaurante cerca de calle Madrid Sants, cocina española en Sants, menú del día Sants, restaurante para grupos Barcelona, comidas para grupos Sants, cenas para grupos Barcelona, vinos y cocina española Barcelona" />
+  <meta name="description" content="Restaurante O'Noso en Sants, Barcelona, situado en Carrer de Galileu 173 junto a calle Madrid. Cocina española, carnes a la parrilla, arroz caldoso los jueves, vinos, menú diario y comidas o cenas para grupos." />
+  <meta name="keywords" content="restaurante O'Noso Sants, restaurante en Sants, restaurante calle Galileu Barcelona, restaurante cerca de calle Madrid Sants, cocina española en Sants, menú del día Sants, restaurante para grupos Barcelona, comidas para grupos Sants, cenas para grupos Barcelona, vinos y cocina española Barcelona, carnes a la parrilla Sants, restaurante con parrilla Barcelona, arroz caldoso jueves Barcelona, arroz caldoso Sants, restaurante O'Noso Galileu, restaurante calle Galileu Barcelona" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -532,6 +532,28 @@
       font-style: italic; font-size: 1.05rem;
       color: var(--texto-gris);
       margin: 2rem 0;
+    }
+    .menu-especial {
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      padding: 1.35rem 1.5rem;
+      border-top: 1px solid rgba(201,146,42,0.35);
+      border-bottom: 1px solid rgba(201,146,42,0.35);
+      text-align: center;
+    }
+    .menu-especial h4 {
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rojo-vino);
+      margin-bottom: 0.5rem;
+    }
+    .menu-especial p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--texto-oscuro);
+      font-size: 1.15rem;
     }
     .menu-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
 
@@ -1119,8 +1141,20 @@
     }
 
     @media (max-width: 480px) {
+      .container { width: 100%; max-width: 100%; }
+      .hero-grid { min-width: 0; }
+      .hero-content,
+      .hero-card { width: 100%; max-width: 100%; min-width: 0; }
+      .hero-sub,
+      .hero-desc { max-width: 100%; overflow-wrap: anywhere; }
+      .hero-card-row { gap: 1rem; }
+      .hero-card-row:not(:first-child) { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+      .hero-card-row .val { min-width: 0; text-align: left; overflow-wrap: anywhere; }
       .hero-btns { flex-direction: column; }
-      .hero-btns .btn { width: 100%; justify-content: center; }
+      .hero-btns .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
+      .mobile-bar { width: 100vw; overflow: hidden; }
+      .mobile-bar-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .mobile-bar-btn { min-width: 0; padding-inline: 0.25rem; }
       .menu-precio-sello .num { font-size: 2.8rem; }
     }
 
@@ -1616,7 +1650,7 @@
           Cocina española, platos sabrosos y ambiente acogedor en Carrer de Galileu, junto a calle Madrid.
         </p>
         <p class="hero-desc">
-          Menú diario, vinos, vermut, carnes, pescado y propuestas para comidas,
+          Menú diario, vinos, vermut, carnes a la parrilla y propuestas para comidas,
           cenas y grupos en un restaurante-bar con personalidad.
         </p>
         <div class="hero-btns">
@@ -1639,7 +1673,7 @@
         </div>
         <div class="hero-card-row">
           <span class="lbl">Cocina</span>
-          <span class="val">De mercado</span>
+          <span class="val">Parrilla y mercado</span>
         </div>
         <div class="hero-card-row">
           <span class="lbl">Grupos</span>
@@ -1665,13 +1699,15 @@
     <div class="datos-grid">
       <div class="dato-item"><span class="dato-icon">🍽️</span> Menú diario</div>
       <span class="dato-sep">✦</span>
-      <div class="dato-item"><span class="dato-icon">🥩</span> Carnes y pescado</div>
+      <div class="dato-item"><span class="dato-icon">🥩</span> Carnes a la parrilla</div>
+      <span class="dato-sep">✦</span>
+      <div class="dato-item"><span class="dato-icon">🥘</span> Arroz caldoso los jueves</div>
       <span class="dato-sep">✦</span>
       <div class="dato-item"><span class="dato-icon">🍷</span> Vinos y vermut</div>
       <span class="dato-sep">✦</span>
       <div class="dato-item"><span class="dato-icon">👥</span> Grupos y eventos</div>
       <span class="dato-sep">✦</span>
-      <div class="dato-item"><span class="dato-icon">📍</span> Galileu 173 · Sants</div>
+      <div class="dato-item"><span class="dato-icon">📍</span> Galileu 173 junto a calle Madrid</div>
     </div>
   </div>
 </section>
@@ -1682,7 +1718,7 @@
   <div class="marquee-track">
     <span class="marquee-item">Cocina de mercado</span>
     <span class="marquee-sep">✦</span>
-    <span class="marquee-item italic">Carnes & Pescado</span>
+    <span class="marquee-item italic">Carnes a la parrilla</span>
     <span class="marquee-sep">✦</span>
     <span class="marquee-item">Vinos y vermut</span>
     <span class="marquee-sep">✦</span>
@@ -1695,7 +1731,7 @@
     <!-- Duplicado para loop infinito -->
     <span class="marquee-item">Cocina de mercado</span>
     <span class="marquee-sep">✦</span>
-    <span class="marquee-item italic">Carnes & Pescado</span>
+    <span class="marquee-item italic">Carnes a la parrilla</span>
     <span class="marquee-sep">✦</span>
     <span class="marquee-item">Vinos y vermut</span>
     <span class="marquee-sep">✦</span>
@@ -1831,11 +1867,15 @@
         </div>
       </div>
 
+      <div class="menu-especial">
+        <h4>Especialidad de los jueves</h4>
+        <p>Los jueves, arroz caldoso: una de las especialidades de O'Noso para quienes buscan un plato sabroso, de cuchara y con sabor a cocina de verdad.</p>
+      </div>
+
       <p class="menu-nota">— El menú cambia cada día según el mercado y la temporada —</p>
 
       <div class="menu-ctas">
-        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp -->
-        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20%C2%BFcu%C3%A1l%20es%20el%20men%C3%BA%20de%20hoy%3F" class="btn btn-whatsapp">💬 Consultar menú de hoy</a>
+        <a href="https://wa.me/34680778903?text=Hola%2C%20%C2%BFcu%C3%A1l%20es%20el%20men%C3%BA%20de%20hoy%20en%20O%27Noso%3F" class="btn btn-whatsapp">💬 Consultar menú de hoy</a>
         <a href="#reservas" class="btn btn-rojo">Reservar mesa</a>
       </div>
     </div>
@@ -1853,19 +1893,23 @@
           <span class="ornament-icon">✦</span>
           <span class="ornament-line"></span>
         </div>
-        <h2>Cocina española, <em>carnes, pescado y vinos en Sants</em></h2>
+        <h2>Carnes a la parrilla, <em>vinos y arroz caldoso los jueves</em></h2>
         <p>
-          Una cocina española sencilla, sabrosa y bien presentada, pensada para comer bien entre semana, compartir una mesa con amigos o disfrutar de una comida especial. Carnes, pescado, vinos y platos regionales preparados para que cada visita tenga sabor propio.
+          Una cocina española sencilla, sabrosa y bien presentada, con carnes a la parrilla, vinos seleccionados, vermut y platos de temporada. Los jueves, el arroz caldoso se convierte en una de las especialidades de la casa.
+        </p>
+        <p>
+          Trabajamos carnes a la parrilla y platos sabrosos preparados con producto de calidad, pensados para disfrutar con vino, vermut o una buena sobremesa.
         </p>
         <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--dorado-claro);">
           "Producto de calidad, buen vino y el ambiente de siempre."
         </p>
         <div class="cocina-tags">
           <span class="cocina-tag">Cocina española</span>
-          <span class="cocina-tag">Carnes y platos sabrosos</span>
+          <span class="cocina-tag">Carnes a la parrilla</span>
           <span class="cocina-tag">Pescado fresco</span>
           <span class="cocina-tag">Vinos seleccionados</span>
           <span class="cocina-tag">Vermut y aperitivo</span>
+          <span class="cocina-tag">Arroz caldoso los jueves</span>
           <span class="cocina-tag">Platos regionales</span>
         </div>
         <a href="#reservas" class="btn btn-dorado">Reservar mesa</a>
@@ -1959,8 +2003,7 @@
       </div>
       <div class="propuesta-ctas">
         <a href="#reservas" class="btn btn-dorado">Pedir presupuesto</a>
-        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp del restaurante (formato: 34612345678) -->
-        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20un%20evento" class="btn btn-whatsapp">💬 Consultar disponibilidad</a>
+        <a href="https://wa.me/34680778903?text=Hola%2C%20quiero%20pedir%20informaci%C3%B3n%20para%20una%20comida%20o%20cena%20de%20grupo%20en%20O%27Noso" class="btn btn-whatsapp">💬 Consultar disponibilidad</a>
       </div>
     </div>
   </div>
@@ -2135,17 +2178,15 @@
         <h2>¿Nos vemos <em class="italic">pronto?</em></h2>
         <p>Rellena el formulario y te confirmamos la reserva. También puedes contactarnos directamente.</p>
 
-        <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
-        <a href="tel:+34000000000" class="contacto-card">
+        <a href="tel:+34680778903" class="contacto-card">
           <span class="contacto-card-icon">📞</span>
           <div>
             <div class="contacto-card-label">Llamar</div>
-            <div class="contacto-card-value" style="color:var(--texto-gris); font-style:italic; font-size:0.9rem;">Número pendiente de confirmar</div>
+            <div class="contacto-card-value">+34 680 778 903</div>
           </div>
         </a>
 
-        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp (formato: 34612345678) -->
-        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20una%20reserva" class="contacto-card">
+        <a href="https://wa.me/34680778903?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20O%27Noso" class="contacto-card">
           <span class="contacto-card-icon">💬</span>
           <div>
             <div class="contacto-card-label">WhatsApp</div>
@@ -2279,15 +2320,13 @@
           <span class="ubic-dato-icon">📞</span>
           <div>
             <div class="ubic-dato-label">Reservas</div>
-            <!-- TODO: Sustituir por el teléfono real del restaurante -->
-            <div class="ubic-dato-value" style="font-style:italic; opacity:0.6; font-size:0.9rem;">Número pendiente de confirmar</div>
+            <div class="ubic-dato-value">+34 680 778 903</div>
           </div>
         </div>
 
         <div style="margin-top:2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
           <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="btn btn-dorado">📍 Cómo llegar</a>
-          <!-- TODO: Sustituir +34000000000 por el teléfono real -->
-          <a href="tel:+34000000000" class="btn btn-outline">Llamar</a>
+          <a href="tel:+34680778903" class="btn btn-outline">Llamar</a>
         </div>
       </div>
 
@@ -2315,10 +2354,8 @@
       <div class="ubic-como-llegar-btns">
         <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona"
            target="_blank" rel="noopener" class="btn btn-dorado">📍 Abrir en Google Maps</a>
-        <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
-        <a href="tel:+34000000000" class="btn btn-outline">📞 Llamar</a>
-        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp (formato: 34612345678) -->
-        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20%C2%BFc%C3%B3mo%20llego%20al%20restaurante%3F"
+        <a href="tel:+34680778903" class="btn btn-outline">📞 Llamar</a>
+        <a href="https://wa.me/34680778903"
            class="btn btn-whatsapp">💬 WhatsApp</a>
       </div>
     </div>
@@ -2336,7 +2373,7 @@
           <span class="ornament-mini italic">✦</span> O'<span>Noso</span>
         </div>
         <p class="footer-desc">
-          Restaurante de cocina de mercado en Sants, Barcelona. Menú diario, carnes, vinos, vermut y propuestas para grupos y eventos. Porque comer bien es siempre una buena razón para quedar.
+          Restaurante de cocina de mercado en Sants, Barcelona. Menú diario, carnes a la parrilla, arroz caldoso los jueves, vinos, vermut y propuestas para grupos y eventos. Porque comer bien es siempre una buena razón para quedar.
         </p>
         <div class="footer-social">
           <!-- TODO: Sustituir href="#" por la URL real del perfil de Instagram de O'Noso -->
@@ -2358,7 +2395,7 @@
         <ul>
           <li><a href="#experiencia">Nuestra cocina</a></li>
           <li><a href="#menu">Menú del día</a></li>
-          <li><a href="#cocina">Carnes y vinos</a></li>
+          <li><a href="#cocina">Carnes a la parrilla</a></li>
           <li><a href="#eventos">Grupos y eventos</a></li>
           <li><a href="#galeria">Galería</a></li>
           <li><a href="#reservas">Reservas</a></li>
@@ -2383,8 +2420,7 @@
         <ul>
           <li>Carrer de Galileu, 173</li>
           <li>Junto a calle Madrid · 08028 Barcelona</li>
-          <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
-          <li><a href="tel:+34000000000" style="opacity:0.5; font-style:italic; font-size:0.82rem;">Tlf. pendiente</a></li>
+          <li><a href="tel:+34680778903">+34 680 778 903</a></li>
           <li><a href="#reservas">Reservar mesa</a></li>
           <li><a href="#eventos">Pedir presupuesto</a></li>
         </ul>
@@ -2402,12 +2438,10 @@
 <!-- BARRA MÓVIL -->
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
-    <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
-    <a href="tel:+34000000000" class="mobile-bar-btn mbb-llamar">
+    <a href="tel:+34680778903" class="mobile-bar-btn mbb-llamar">
       <span>📞</span> Llamar
     </a>
-    <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp (formato: 34612345678) -->
-    <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20O%27Noso" class="mobile-bar-btn mbb-whatsapp">
+    <a href="https://wa.me/34680778903?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20O%27Noso" class="mobile-bar-btn mbb-whatsapp">
       <span>💬</span> WhatsApp
     </a>
     <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="mobile-bar-btn mbb-llegar">
