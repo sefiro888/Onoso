@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurante O'Noso en Sants Barcelona | Menú del día, carnes y eventos</title>
-  <meta name="description" content="Restaurante O'Noso en Sants, Barcelona. Menú del día, cocina de mercado, carnes, vinos, vermut y comidas o cenas para grupos. Reserva mesa o pide presupuesto." />
-  <meta name="keywords" content="restaurante en Sants, restaurante en Barcelona, menú del día en Sants, restaurante para grupos en Barcelona, comidas para grupos en Sants, cenas para grupos Barcelona, carnes y vinos Barcelona, vermut en Sants" />
+  <title>Restaurante O'Noso en Sants Barcelona | Cocina española, menú y eventos</title>
+  <meta name="description" content="Restaurante O'Noso en Sants, Barcelona, situado en Carrer de Galileu 173 junto a calle Madrid. Cocina española, platos regionales, vinos, menú diario y comidas o cenas para grupos." />
+  <meta name="keywords" content="restaurante O'Noso Sants, restaurante en Sants, restaurante calle Galileu Barcelona, restaurante cerca de calle Madrid Sants, cocina española en Sants, menú del día Sants, restaurante para grupos Barcelona, comidas para grupos Sants, cenas para grupos Barcelona, vinos y cocina española Barcelona" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -1415,6 +1415,119 @@
     @media (max-width: 768px) {
       .scroll-indicator { display: none; }
     }
+
+    /* ============================================================
+       GALERÍA "ASÍ SE VIVE O'NOSO" — 10 FOTOS
+    ============================================================ */
+    #galeria {
+      background: var(--negro-suave);
+      padding: 6rem 0;
+      position: relative;
+    }
+    .galeria-header { text-align: center; margin-bottom: 3.5rem; }
+    .galeria-header h2 { color: var(--blanco); }
+    .galeria-header p {
+      color: rgba(255,249,240,0.72);
+      max-width: 640px; margin: 1rem auto 0;
+      font-size: 1.02rem; line-height: 1.65;
+    }
+
+    .galeria-onoso-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 300px 220px 220px 220px;
+      gap: 0.75rem;
+    }
+    .galeria-onoso-item {
+      overflow: hidden; position: relative;
+      background: var(--antracita);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .galeria-onoso-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: brightness(0.88) saturate(1.05);
+    }
+    .galeria-onoso-item:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+    .galeria-onoso-item:hover img { transform: scale(1.06); filter: brightness(1) saturate(1.15); }
+
+    /* Posicionamiento explícito */
+    .galeria-onoso-item:nth-child(1)  { grid-column: 1 / 3; grid-row: 1; }
+    .galeria-onoso-item:nth-child(2)  { grid-column: 3;     grid-row: 1; }
+    .galeria-onoso-item:nth-child(10) { grid-column: 2 / 4; grid-row: 4; }
+
+    /* Etiqueta flotante en hover */
+    .galeria-onoso-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(10,5,2,0.88), transparent);
+      padding: 1.5rem 1rem 0.8rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1rem;
+      color: var(--dorado-suave);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .galeria-onoso-item:hover .galeria-onoso-label { transform: translateY(0); }
+
+    /* Placeholder visual para fotos pendientes */
+    .galeria-ph {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      background: rgba(42,30,18,0.75);
+      border: 1px dashed rgba(201,146,42,0.3);
+      gap: 0.5rem; text-align: center; padding: 1rem;
+    }
+    .galeria-ph-icon { font-size: 2rem; opacity: 0.45; }
+    .galeria-ph-text {
+      font-family: 'Marcellus', serif;
+      font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--dorado); opacity: 0.55;
+    }
+
+    @media (max-width: 900px) {
+      .galeria-onoso-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 260px 200px 200px 200px 200px 200px;
+      }
+      .galeria-onoso-item:nth-child(1)  { grid-column: 1 / 3; grid-row: 1; }
+      .galeria-onoso-item:nth-child(2)  { grid-column: 1;     grid-row: 2; }
+      .galeria-onoso-item:nth-child(10) { grid-column: 1 / 3; grid-row: auto; }
+    }
+    @media (max-width: 480px) {
+      .galeria-onoso-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 200px);
+      }
+      .galeria-onoso-item:nth-child(1),
+      .galeria-onoso-item:nth-child(10) { grid-column: 1; }
+    }
+
+    /* ============================================================
+       UBICACIÓN — BLOQUE "CÓMO LLEGAR FÁCILMENTE"
+    ============================================================ */
+    .ubic-como-llegar {
+      margin-top: 3.5rem;
+      background: rgba(201,146,42,0.07);
+      border: 1px solid rgba(201,146,42,0.3);
+      padding: 2.5rem 3rem;
+      position: relative;
+    }
+    .ubic-como-llegar::before, .ubic-como-llegar::after {
+      content: ''; position: absolute;
+      width: 16px; height: 16px;
+      border: 1px solid var(--dorado);
+    }
+    .ubic-como-llegar::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .ubic-como-llegar::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+    .ubic-como-llegar h3 { color: var(--dorado-claro); margin-bottom: 1rem; font-size: clamp(1.3rem, 2.5vw, 1.75rem); }
+    .ubic-como-llegar p  { color: rgba(255,249,240,0.78); margin-bottom: 1.75rem; font-size: 1.02rem; line-height: 1.7; max-width: 680px; }
+    .ubic-como-llegar-btns { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    @media (max-width: 768px) {
+      .ubic-como-llegar { padding: 2rem 1.5rem; }
+      .ubic-como-llegar-btns { flex-direction: column; }
+      .ubic-como-llegar-btns .btn { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 
@@ -1492,23 +1605,24 @@
       <div class="hero-content">
         <div class="hero-eyebrow">
           <span class="estrella">✦</span>
-          <span class="label">Sants · Barcelona</span>
+          <span class="label">Carrer de Galileu · Sants · Barcelona</span>
           <span class="estrella">✦</span>
         </div>
         <h1 class="hero-title">
           Restaurante O'Noso
-          <em>en el corazón de Sants</em>
+          <em>en Sants</em>
         </h1>
         <p class="hero-sub">
-          Carnes, vinos y cocina de mercado para disfrutar en buena compañía.
+          Cocina española, platos sabrosos y ambiente acogedor en Carrer de Galileu, junto a calle Madrid.
         </p>
         <p class="hero-desc">
-          Menú diario, vermut, platos sabrosos y propuestas personalizadas
-          para grupos, comidas, cenas y celebraciones en Barcelona.
+          Menú diario, vinos, vermut, carnes, pescado y propuestas para comidas,
+          cenas y grupos en un restaurante-bar con personalidad.
         </p>
         <div class="hero-btns">
           <a href="#reservas" class="btn btn-dorado">Reservar mesa</a>
-          <a href="#eventos" class="btn btn-outline">Grupos y eventos</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="btn btn-blanco">📍 Cómo llegar</a>
+          <a href="#eventos" class="btn btn-outline">Pedir presupuesto</a>
         </div>
       </div>
 
@@ -1549,15 +1663,15 @@
 <section id="datos">
   <div class="container">
     <div class="datos-grid">
-      <div class="dato-item"><span class="dato-icon">🍽️</span> Menú 13 €</div>
+      <div class="dato-item"><span class="dato-icon">🍽️</span> Menú diario</div>
       <span class="dato-sep">✦</span>
-      <div class="dato-item"><span class="dato-icon">🥩</span> Carnes y brasa</div>
+      <div class="dato-item"><span class="dato-icon">🥩</span> Carnes y pescado</div>
       <span class="dato-sep">✦</span>
       <div class="dato-item"><span class="dato-icon">🍷</span> Vinos y vermut</div>
       <span class="dato-sep">✦</span>
       <div class="dato-item"><span class="dato-icon">👥</span> Grupos y eventos</div>
       <span class="dato-sep">✦</span>
-      <div class="dato-item"><span class="dato-icon">📍</span> Sants, Barcelona</div>
+      <div class="dato-item"><span class="dato-icon">📍</span> Galileu 173 · Sants</div>
     </div>
   </div>
 </section>
@@ -1568,7 +1682,7 @@
   <div class="marquee-track">
     <span class="marquee-item">Cocina de mercado</span>
     <span class="marquee-sep">✦</span>
-    <span class="marquee-item italic">Carnes & Brasa</span>
+    <span class="marquee-item italic">Carnes & Pescado</span>
     <span class="marquee-sep">✦</span>
     <span class="marquee-item">Vinos y vermut</span>
     <span class="marquee-sep">✦</span>
@@ -1576,12 +1690,12 @@
     <span class="marquee-sep">✦</span>
     <span class="marquee-item">Menú del día — 13€</span>
     <span class="marquee-sep">✦</span>
-    <span class="marquee-item italic">Restaurante en Sants</span>
+    <span class="marquee-item italic">Cocina española · Sants</span>
     <span class="marquee-sep">✦</span>
     <!-- Duplicado para loop infinito -->
     <span class="marquee-item">Cocina de mercado</span>
     <span class="marquee-sep">✦</span>
-    <span class="marquee-item italic">Carnes & Brasa</span>
+    <span class="marquee-item italic">Carnes & Pescado</span>
     <span class="marquee-sep">✦</span>
     <span class="marquee-item">Vinos y vermut</span>
     <span class="marquee-sep">✦</span>
@@ -1589,7 +1703,7 @@
     <span class="marquee-sep">✦</span>
     <span class="marquee-item">Menú del día — 13€</span>
     <span class="marquee-sep">✦</span>
-    <span class="marquee-item italic">Restaurante en Sants</span>
+    <span class="marquee-item italic">Cocina española · Sants</span>
     <span class="marquee-sep">✦</span>
   </div>
 </section>
@@ -1599,54 +1713,64 @@
 <section id="experiencia">
   <div class="container">
     <div class="exp-header fade-in">
-      <span class="label">Nuestra esencia</span>
+      <span class="label">Sobre nosotros</span>
       <div class="ornament">
         <span class="ornament-line"></span>
         <span class="ornament-icon">✦</span>
         <span class="ornament-line"></span>
       </div>
-      <h2>Cocina honesta, <em class="gold italic">hecha con cariño</em></h2>
+      <h2>Un restaurante-bar con <em class="gold italic">alma española en Sants</em></h2>
       <p class="exp-quote">
-        En O'Noso cocinamos como siempre se ha cocinado bien: con producto fresco, recetas de verdad y ganas de que cada mesa salga contenta.
+        Situado en la emblemática calle Galileu, en el barrio de Sants, O'Noso es un restaurante-bar pensado para disfrutar de la cocina española en un ambiente cálido, cercano y con personalidad.
+      </p>
+    </div>
+
+    <!-- Párrafos descriptivos -->
+    <div style="max-width:820px; margin:0 auto 4rem; text-align:center; position:relative; z-index:2;">
+      <p style="color:rgba(255,249,240,0.78); font-size:1.05rem; line-height:1.75; margin-bottom:1.25rem;">
+        Nuestra propuesta combina platos regionales, cocina de mercado, vinos seleccionados y un servicio atento para que cada visita sea una experiencia agradable, tanto si vienes a comer entre semana como si quieres celebrar una ocasión especial.
+      </p>
+      <p style="color:rgba(255,249,240,0.78); font-size:1.05rem; line-height:1.75;">
+        Con una decoración de estilo vintage moderno y detalles inspirados en la gastronomía española, O'Noso invita a recorrer los sabores de España desde la mesa: buena comida, buen vino y un ambiente pensado para compartir.
       </p>
     </div>
 
     <div class="exp-grid">
       <div class="exp-card fade-in">
         <span class="exp-num italic">— 01 —</span>
-        <span class="exp-icon">🏪</span>
-        <h3>Cocina de mercado</h3>
-        <p>Compramos cada día según lo mejor que ofrece el mercado. Producto de temporada, preparado con mimo y sin complicaciones innecesarias.</p>
+        <span class="exp-icon">🇪🇸</span>
+        <h3>Cocina española</h3>
+        <p>Platos regionales, recetas de siempre y sabores auténticos. Una propuesta que viaja por la gastronomía española con producto fresco y mimo en cada detalle.</p>
       </div>
       <div class="exp-card fade-in delay-1">
         <span class="exp-num italic">— 02 —</span>
-        <span class="exp-icon">🥩</span>
-        <h3>Carnes y brasa</h3>
-        <p>Entrecot, pollo a la brasa, carnes sabrosas al punto. Para los que saben que una buena carne es siempre una buena razón para venir.</p>
+        <span class="exp-icon">🍷</span>
+        <h3>Vinos seleccionados</h3>
+        <p>Carta de vinos cuidada y bien elegida para acompañar cada plato. Desde el vermut del aperitivo hasta la copa de sobremesa, siempre con criterio.</p>
       </div>
       <div class="exp-card fade-in delay-2">
         <span class="exp-num italic">— 03 —</span>
-        <span class="exp-icon">🍷</span>
-        <h3>Vinos y vermut</h3>
-        <p>Carta de vinos sencilla pero bien elegida. Vermut ecológico para el aperitivo. La barra siempre lista para una copa entre amigos.</p>
+        <span class="exp-icon">🏮</span>
+        <h3>Ambiente vintage moderno</h3>
+        <p>Una decoración cálida con detalles inspirados en la gastronomía española. Un espacio donde se está bien, se come bien y las horas pasan sin prisa.</p>
       </div>
       <div class="exp-card fade-in">
         <span class="exp-num italic">— 04 —</span>
-        <span class="exp-icon">☕</span>
-        <h3>Café y sobremesa</h3>
-        <p>Aquí no se tiene prisa en levantar la mesa. Café, postre casero y esa sobremesa que alarga el placer de haber comido bien.</p>
+        <span class="exp-icon">🤝</span>
+        <h3>Servicio personalizado</h3>
+        <p>Atención cercana y de confianza. En O'Noso cada mesa recibe el trato que merece, y cada evento se organiza con la misma dedicación que pondríamos en el nuestro.</p>
       </div>
       <div class="exp-card fade-in delay-1">
         <span class="exp-num italic">— 05 —</span>
-        <span class="exp-icon">🏘️</span>
-        <h3>Restaurante de barrio</h3>
-        <p>En Sants, con el trato cercano de siempre. Un lugar donde te conocen, donde siempre hay sitio y donde se come bien sin gastar de más.</p>
+        <span class="exp-icon">🥘</span>
+        <h3>Cocina de mercado y autor</h3>
+        <p>Compramos cada día lo que ofrece el mercado. Temporada, producto y técnica se combinan para que el menú tenga siempre sabor propio y razón de ser.</p>
       </div>
       <div class="exp-card fade-in delay-2">
         <span class="exp-num italic">— 06 —</span>
-        <span class="exp-icon">🎂</span>
+        <span class="exp-icon">🎉</span>
         <h3>Para cada ocasión</h3>
-        <p>Menú diario entre semana, comida especial el finde, vermut con los amigos o celebración familiar. O'Noso se adapta a ti.</p>
+        <p>Menú diario entre semana, comida especial el finde, vermut con amigos o celebración con tu grupo. O'Noso se adapta a ti con propuestas a medida.</p>
       </div>
     </div>
   </div>
@@ -1710,7 +1834,8 @@
       <p class="menu-nota">— El menú cambia cada día según el mercado y la temporada —</p>
 
       <div class="menu-ctas">
-        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20%C2%BFcu%C3%A1l%20es%20el%20men%C3%BA%20de%20hoy%3F" class="btn btn-whatsapp">Consultar menú de hoy</a>
+        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp -->
+        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20%C2%BFcu%C3%A1l%20es%20el%20men%C3%BA%20de%20hoy%3F" class="btn btn-whatsapp">💬 Consultar menú de hoy</a>
         <a href="#reservas" class="btn btn-rojo">Reservar mesa</a>
       </div>
     </div>
@@ -1728,35 +1853,35 @@
           <span class="ornament-icon">✦</span>
           <span class="ornament-line"></span>
         </div>
-        <h2>Carnes, vinos <em>y vermut en Sants</em></h2>
+        <h2>Cocina española, <em>carnes, pescado y vinos en Sants</em></h2>
         <p>
-          Una cocina sencilla, sabrosa y bien hecha, pensada para comer bien entre semana, compartir una mesa con amigos o disfrutar de una comida especial sin complicaciones.
+          Una cocina española sencilla, sabrosa y bien presentada, pensada para comer bien entre semana, compartir una mesa con amigos o disfrutar de una comida especial. Carnes, pescado, vinos y platos regionales preparados para que cada visita tenga sabor propio.
         </p>
         <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--dorado-claro);">
           "Producto de calidad, buen vino y el ambiente de siempre."
         </p>
         <div class="cocina-tags">
-          <span class="cocina-tag">Carnes al punto</span>
-          <span class="cocina-tag">Vinos de la casa</span>
-          <span class="cocina-tag">Vermut ecológico</span>
-          <span class="cocina-tag">Cocina de mercado</span>
-          <span class="cocina-tag">Tapeo y barra</span>
-          <span class="cocina-tag">Patatas con jamón</span>
+          <span class="cocina-tag">Cocina española</span>
+          <span class="cocina-tag">Carnes y platos sabrosos</span>
+          <span class="cocina-tag">Pescado fresco</span>
+          <span class="cocina-tag">Vinos seleccionados</span>
+          <span class="cocina-tag">Vermut y aperitivo</span>
+          <span class="cocina-tag">Platos regionales</span>
         </div>
         <a href="#reservas" class="btn btn-dorado">Reservar mesa</a>
       </div>
 
       <div class="cocina-visual fade-in delay-1">
         <div class="cocina-img">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Plato de cocina de mercado en restaurante O'Noso Sants" />
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Plato de cocina española en Restaurante O'Noso Sants Barcelona" loading="lazy" />
           <div class="cocina-img-label">Cocina de mercado</div>
         </div>
         <div class="cocina-img">
-          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85" alt="Vinos y vermut en restaurante de Barcelona" />
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85" alt="Vinos seleccionados en Restaurante O'Noso Sants Barcelona" loading="lazy" />
           <div class="cocina-img-label">Vinos & vermut</div>
         </div>
         <div class="cocina-img">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Ambiente de barra y sobremesa" />
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Ambiente acogedor en Restaurante O'Noso Carrer de Galileu Sants" loading="lazy" />
           <div class="cocina-img-label">Barra & sobremesa</div>
         </div>
       </div>
@@ -1777,9 +1902,10 @@
       </div>
       <h2>Comidas, cenas y eventos <em>a tu medida</em></h2>
       <p>
-        Organizamos comidas de grupo, cenas especiales, celebraciones familiares, encuentros de empresa,
-        cumpleaños y eventos con temática adaptada a tus preferencias. Cuéntanos qué necesitas y preparamos
-        <strong style="color:var(--dorado-claro);">dos propuestas</strong> para que elijas la que mejor te encaja.
+        Organizamos comidas, cenas y eventos con propuestas adaptadas a tus preferencias: comidas familiares,
+        cenas privadas, eventos de empresa, menús cerrados, celebraciones y tapeo de grupo. Cuéntanos qué
+        necesitas y te prepararemos <strong style="color:var(--dorado-claro);">dos opciones</strong> para que
+        elijas la que mejor encaje contigo y todo sea un éxito.
       </p>
     </div>
 
@@ -1833,42 +1959,120 @@
       </div>
       <div class="propuesta-ctas">
         <a href="#reservas" class="btn btn-dorado">Pedir presupuesto</a>
-        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20un%20evento" class="btn btn-whatsapp">WhatsApp directo</a>
+        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp del restaurante (formato: 34612345678) -->
+        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20un%20evento" class="btn btn-whatsapp">💬 Consultar disponibilidad</a>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- GALERÍA -->
+<!-- GALERÍA "ASÍ SE VIVE O'NOSO" -->
 <section id="galeria">
   <div class="container">
     <div class="galeria-header fade-in">
-      <span class="label">Lo que se cocina</span>
+      <span class="label">Lo que se vive aquí</span>
       <div class="ornament">
         <span class="ornament-line"></span>
         <span class="ornament-icon">✦</span>
         <span class="ornament-line"></span>
       </div>
-      <h2 style="color:var(--blanco);">Una imagen vale más</h2>
+      <h2>Así se vive O'Noso</h2>
+      <p>Ambiente, cocina y detalles que invitan a volver. Un espacio cálido y acogedor donde la luz, la mesa, los platos y el vino forman parte de la experiencia.</p>
     </div>
 
-    <div class="galeria-grid fade-in delay-1">
-      <div class="galeria-item">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=85" alt="Carne a la parrilla" />
+    <div class="galeria-onoso-grid fade-in delay-1">
+
+      <!-- FOTO 1: Fachada — TODO: sustituir por foto real de la fachada del restaurante -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85"
+          alt="Fachada del Restaurante O'Noso en Carrer de Galileu, Sants Barcelona"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Fachada · Carrer de Galileu, 173</div>
       </div>
-      <div class="galeria-item">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Ambiente del restaurante" />
+
+      <!-- FOTO 2: Interior — TODO: sustituir por foto real del interior con luces encendidas -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=85"
+          alt="Interior acogedor del Restaurante O'Noso en Carrer de Galileu Sants"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Interior · O'Noso</div>
       </div>
-      <div class="galeria-item">
-        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=85" alt="Tapas y aperitivos" />
+
+      <!-- FOTO 3: Barra — TODO: sustituir por foto real de la barra del restaurante -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=85"
+          alt="Barra del Restaurante O'Noso Sants Barcelona"
+          loading="lazy" />
+        <div class="galeria-onoso-label">La barra</div>
       </div>
-      <div class="galeria-item">
-        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85" alt="Copa de vino" />
+
+      <!-- FOTO 4: Mesa preparada — TODO: sustituir por foto real de mesa montada antes del servicio -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85"
+          alt="Mesa preparada antes del servicio en Restaurante O'Noso Barcelona"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Mesa preparada</div>
       </div>
-      <div class="galeria-item">
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85" alt="Plato gastronómico" />
+
+      <!-- FOTO 5: Mesa servida — TODO: sustituir por foto real de mesa con platos servidos -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=85"
+          alt="Mesa con platos servidos en Restaurante O'Noso Sants"
+          loading="lazy" />
+        <div class="galeria-onoso-label">La mesa servida</div>
       </div>
+
+      <!-- FOTO 6: Carne — TODO: sustituir por foto real de un plato de carne -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=85"
+          alt="Plato de carne en Restaurante O'Noso Sants Barcelona"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Carnes</div>
+      </div>
+
+      <!-- FOTO 7: Pescado — TODO: sustituir por foto real de un plato de pescado -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85"
+          alt="Pescado fresco en cocina española O'Noso Barcelona"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Pescado fresco</div>
+      </div>
+
+      <!-- FOTO 8: Vinos — TODO: sustituir por foto real de la carta de vinos o copas en mesa -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85"
+          alt="Vinos para acompañar la comida en Restaurante O'Noso"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Vinos seleccionados</div>
+      </div>
+
+      <!-- FOTO 9: Materia prima — TODO: sustituir por foto real de producto fresco o mercado -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=85"
+          alt="Materia prima fresca en Restaurante O'Noso cocina española"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Producto de mercado</div>
+      </div>
+
+      <!-- FOTO 10: Ambiente grupo — TODO: sustituir por foto real de grupo comiendo en el restaurante -->
+      <div class="galeria-onoso-item">
+        <img
+          src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=85"
+          alt="Ambiente de grupo en Restaurante O'Noso Sants Barcelona"
+          loading="lazy" />
+        <div class="galeria-onoso-label">Ambiente de grupo</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1887,24 +2091,31 @@
       <h2>De la mesa <em>al corazón</em></h2>
     </div>
 
+    <!-- TODO: Sustituir estos testimonios por reseñas reales de clientes.
+         Opciones: copiar reseñas de Google My Business, TripAdvisor o Facebook.
+         Incluir nombre real del cliente y plataforma (ej: "María G. — Google").
+         NO publicar reseñas inventadas. -->
     <div class="testimonios-grid">
+      <!-- TODO: Sustituir por reseña real (nombre + fuente: Google, TripAdvisor...) -->
       <div class="testimonio fade-in">
         <span class="testimonio-quote-mark italic">"</span>
         <p class="testimonio-texto">Trato cercano, comida casera y precios honestos. Repito siempre que puedo.</p>
         <div class="testimonio-stars">★ ★ ★ ★ ★</div>
-        <div class="testimonio-autor">Cliente habitual del barrio</div>
+        <div class="testimonio-autor">Cliente habitual · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em></div>
       </div>
+      <!-- TODO: Sustituir por reseña real (nombre + fuente: Google, TripAdvisor...) -->
       <div class="testimonio fade-in delay-1">
         <span class="testimonio-quote-mark italic">"</span>
         <p class="testimonio-texto">Hicimos una comida de empresa y todo salió perfecto. Atención excelente.</p>
         <div class="testimonio-stars">★ ★ ★ ★ ★</div>
-        <div class="testimonio-autor">Comida de empresa</div>
+        <div class="testimonio-autor">Comida de empresa · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em></div>
       </div>
+      <!-- TODO: Sustituir por reseña real (nombre + fuente: Google, TripAdvisor...) -->
       <div class="testimonio fade-in delay-2">
         <span class="testimonio-quote-mark italic">"</span>
         <p class="testimonio-texto">Celebramos el cumple de mi madre y nos prepararon dos opciones increíbles.</p>
         <div class="testimonio-stars">★ ★ ★ ★ ★</div>
-        <div class="testimonio-autor">Celebración familiar</div>
+        <div class="testimonio-autor">Celebración familiar · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em></div>
       </div>
     </div>
   </div>
@@ -1924,15 +2135,17 @@
         <h2>¿Nos vemos <em class="italic">pronto?</em></h2>
         <p>Rellena el formulario y te confirmamos la reserva. También puedes contactarnos directamente.</p>
 
+        <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
         <a href="tel:+34000000000" class="contacto-card">
           <span class="contacto-card-icon">📞</span>
           <div>
             <div class="contacto-card-label">Llamar</div>
-            <div class="contacto-card-value">+34 000 000 000</div>
+            <div class="contacto-card-value" style="color:var(--texto-gris); font-style:italic; font-size:0.9rem;">Número pendiente de confirmar</div>
           </div>
         </a>
 
-        <a href="https://wa.me/XXXXXXXXXX" class="contacto-card">
+        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp (formato: 34612345678) -->
+        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20una%20reserva" class="contacto-card">
           <span class="contacto-card-icon">💬</span>
           <div>
             <div class="contacto-card-label">WhatsApp</div>
@@ -1940,11 +2153,11 @@
           </div>
         </a>
 
-        <a href="#ubicacion" class="contacto-card">
+        <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="contacto-card">
           <span class="contacto-card-icon">📍</span>
           <div>
             <div class="contacto-card-label">Dirección</div>
-            <div class="contacto-card-value">Carrer de Galileu, 173 · 08028 Barcelona</div>
+            <div class="contacto-card-value">Carrer de Galileu, 173 · junto a calle Madrid · Sants</div>
           </div>
         </a>
       </div>
@@ -2016,8 +2229,10 @@
             <textarea id="notas" name="notas" placeholder="Cuéntanos lo que necesites: alergias, ocasión especial, peticiones..."></textarea>
           </div>
           <button type="submit" class="form-submit">Solicitar reserva</button>
+          <!-- Nota: este formulario NO envía datos automáticamente. Es una pre-reserva visual.
+               Para activar el envío real conectar a Formspree, Netlify Forms o similar. -->
           <div class="form-mensaje" id="form-mensaje">
-            ✦ Pre-reserva generada. Confírmala por WhatsApp o llama al restaurante. ✦
+            ✦ Solicitud recibida. Confírmala por WhatsApp o llama al restaurante para completar la reserva. ✦
           </div>
         </form>
       </div>
@@ -2037,13 +2252,13 @@
           <span class="ornament-line"></span>
         </div>
         <h2>Estamos en Sants, <em>Barcelona</em></h2>
-        <p>En el barrio de toda la vida. Fácil llegar, fácil aparcar, fácil quedar.</p>
+        <p>Estamos en el barrio de Sants, una de las zonas con más vida de Barcelona. Nuestra dirección exacta es Carrer de Galileu, 173, junto a calle Madrid: una referencia clara para llegar sin dar rodeos.</p>
 
         <div class="ubic-dato">
           <span class="ubic-dato-icon">📍</span>
           <div>
             <div class="ubic-dato-label">Dirección</div>
-            <div class="ubic-dato-value">Carrer de Galileu, 173 · 08028 Barcelona</div>
+            <div class="ubic-dato-value">Carrer de Galileu, 173 · junto a calle Madrid · 08028 Barcelona</div>
           </div>
         </div>
         <div class="ubic-dato">
@@ -2064,25 +2279,50 @@
           <span class="ubic-dato-icon">📞</span>
           <div>
             <div class="ubic-dato-label">Reservas</div>
-            <div class="ubic-dato-value">+34 000 000 000</div>
+            <!-- TODO: Sustituir por el teléfono real del restaurante -->
+            <div class="ubic-dato-value" style="font-style:italic; opacity:0.6; font-size:0.9rem;">Número pendiente de confirmar</div>
           </div>
         </div>
 
         <div style="margin-top:2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
-          <a href="https://maps.google.com/?q=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="btn btn-dorado">Cómo llegar</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="btn btn-dorado">📍 Cómo llegar</a>
+          <!-- TODO: Sustituir +34000000000 por el teléfono real -->
           <a href="tel:+34000000000" class="btn btn-outline">Llamar</a>
         </div>
       </div>
 
       <div class="ubic-map fade-in delay-1">
+        <!-- TODO: Si el mapa no muestra el pin correcto, generar un nuevo embed desde
+             https://www.google.com/maps → buscar "Carrer de Galileu 173 Barcelona" → Compartir → Insertar mapa -->
         <iframe
-          title="Mapa Restaurante O'Noso Sants Barcelona"
+          title="Mapa Restaurante O'Noso Sants Barcelona · Carrer de Galileu 173"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.8!2d2.1405!3d41.3760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498883b54f1c3%3A0x3eb66c2db9b3e4bb!2sCarrer%20de%20Galileu%2C%20173%2C%20Sants-Montju%C3%AFc%2C%2008028%20Barcelona!5e0!3m2!1ses!2ses!4v1"
           allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
     </div>
+
+    <!-- BLOQUE: CÓMO LLEGAR FÁCILMENTE -->
+    <div class="ubic-como-llegar fade-in">
+      <h3>Cómo llegar fácilmente</h3>
+      <p>
+        Sants es una zona amplia, por eso te damos una referencia clara: estamos en
+        <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173, junto a calle Madrid</strong>.
+        Así podrás encontrarnos fácilmente para venir a desayunar, comer, cenar o reunirte con tu grupo.
+        Metro Plaça de Sants (L1 y L5) a pocos minutos a pie.
+      </p>
+      <div class="ubic-como-llegar-btns">
+        <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona"
+           target="_blank" rel="noopener" class="btn btn-dorado">📍 Abrir en Google Maps</a>
+        <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
+        <a href="tel:+34000000000" class="btn btn-outline">📞 Llamar</a>
+        <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp (formato: 34612345678) -->
+        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20%C2%BFc%C3%B3mo%20llego%20al%20restaurante%3F"
+           class="btn btn-whatsapp">💬 WhatsApp</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2099,13 +2339,15 @@
           Restaurante de cocina de mercado en Sants, Barcelona. Menú diario, carnes, vinos, vermut y propuestas para grupos y eventos. Porque comer bien es siempre una buena razón para quedar.
         </p>
         <div class="footer-social">
-          <a href="#" aria-label="Instagram">
+          <!-- TODO: Sustituir href="#" por la URL real del perfil de Instagram de O'Noso -->
+          <a href="#" aria-label="Instagram de Restaurante O'Noso">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
           </a>
-          <a href="#" aria-label="Facebook">
+          <!-- TODO: Sustituir href="#" por la URL real de la página de Facebook de O'Noso -->
+          <a href="#" aria-label="Facebook de Restaurante O'Noso">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg>
           </a>
-          <a href="#" aria-label="Google Maps">
+          <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" aria-label="Ver Restaurante O'Noso en Google Maps">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </a>
         </div>
@@ -2140,8 +2382,9 @@
         <h4>Contacto</h4>
         <ul>
           <li>Carrer de Galileu, 173</li>
-          <li>08028 Barcelona</li>
-          <li><a href="tel:+34000000000">+34 000 000 000</a></li>
+          <li>Junto a calle Madrid · 08028 Barcelona</li>
+          <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
+          <li><a href="tel:+34000000000" style="opacity:0.5; font-style:italic; font-size:0.82rem;">Tlf. pendiente</a></li>
           <li><a href="#reservas">Reservar mesa</a></li>
           <li><a href="#eventos">Pedir presupuesto</a></li>
         </ul>
@@ -2149,7 +2392,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2024 Restaurante O'Noso · Sants, Barcelona</p>
+      <p>© 2025 Restaurante O'Noso · Carrer de Galileu, 173 · Sants, Barcelona</p>
       <p>— Hecho con cariño en Barcelona —</p>
     </div>
   </div>
@@ -2159,13 +2402,15 @@
 <!-- BARRA MÓVIL -->
 <div class="mobile-bar">
   <div class="mobile-bar-inner">
+    <!-- TODO: Sustituir +34000000000 por el teléfono real del restaurante -->
     <a href="tel:+34000000000" class="mobile-bar-btn mbb-llamar">
       <span>📞</span> Llamar
     </a>
-    <a href="https://wa.me/XXXXXXXXXX" class="mobile-bar-btn mbb-whatsapp">
+    <!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp (formato: 34612345678) -->
+    <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20O%27Noso" class="mobile-bar-btn mbb-whatsapp">
       <span>💬</span> WhatsApp
     </a>
-    <a href="https://maps.google.com/?q=Carrer+de+Galileu+173+Barcelona" target="_blank" class="mobile-bar-btn mbb-llegar">
+    <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="mobile-bar-btn mbb-llegar">
       <span>📍</span> Llegar
     </a>
   </div>
