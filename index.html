@@ -1112,6 +1112,11 @@
       .nav-links { display: none; }
       .nav-cta .btn { display: none; }
       .hamburger { display: flex; }
+      #hero .container { max-width: 100vw; overflow: hidden; }
+      .hero-content,
+      .hero-card { width: calc(100vw - 3rem); max-width: calc(100vw - 3rem); min-width: 0; }
+      .hero-sub,
+      .hero-desc { width: calc(100vw - 4.5rem); max-width: 100%; overflow-wrap: break-word; }
       .mobile-bar {
         display: block;
         left: 50%;
@@ -1180,9 +1185,13 @@
       .container { width: 100%; max-width: 100%; }
       .hero-grid { min-width: 0; }
       .hero-content,
+      .hero-grid > *,
       .hero-card { width: 100%; max-width: 100%; min-width: 0; }
       .hero-sub,
-      .hero-desc { max-width: 100%; overflow-wrap: anywhere; }
+      .hero-desc { width: min(100%, 280px); max-width: 100%; overflow-wrap: anywhere; }
+      #hero { padding-top: 7rem; padding-bottom: 4rem; }
+      .hero-sub { margin-bottom: 1.1rem; font-size: 1.08rem; }
+      .hero-desc { margin-bottom: 1.75rem; font-size: 0.98rem; }
       .hero-card-row { gap: 1rem; }
       .hero-card-row:not(:first-child) { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
       .hero-card-row .val { min-width: 0; text-align: left; overflow-wrap: anywhere; }
@@ -1630,7 +1639,7 @@
     <div class="nav-cta">
       <a href="#reservas" class="btn btn-dorado">Reservar</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menú">
+    <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -1680,11 +1689,10 @@
           <em>en Sants</em>
         </h1>
         <p class="hero-sub">
-          Cocina española, platos sabrosos y ambiente acogedor en Carrer de Galileu, junto a calle Madrid.
+          Cocina española, carnes a la parrilla y vinos seleccionados en Carrer de Galileu, junto a calle Madrid.
         </p>
         <p class="hero-desc">
-          Menú diario, vinos, vermut, carnes a la parrilla y propuestas para comidas,
-          cenas y grupos en un restaurante-bar con personalidad.
+          Un restaurante-bar con alma española donde disfrutar de menú diario, platos regionales, arroz caldoso los jueves, vermut, sobremesa y propuestas para comidas, cenas y grupos.
         </p>
         <div class="hero-btns">
           <a href="#reservas" class="btn btn-dorado">Reservar mesa</a>
@@ -1950,15 +1958,15 @@
 
       <div class="cocina-visual fade-in delay-1">
         <div class="cocina-img">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Plato de cocina española en Restaurante O'Noso Sants Barcelona" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Plato de cocina española en Restaurante O'Noso Sants Barcelona" loading="lazy" decoding="async" />
           <div class="cocina-img-label">Cocina de mercado</div>
         </div>
         <div class="cocina-img">
-          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85" alt="Vinos seleccionados en Restaurante O'Noso Sants Barcelona" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85" alt="Vinos seleccionados en Restaurante O'Noso Sants Barcelona" loading="lazy" decoding="async" />
           <div class="cocina-img-label">Vinos & vermut</div>
         </div>
         <div class="cocina-img">
-          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Ambiente acogedor en Restaurante O'Noso Carrer de Galileu Sants" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Ambiente acogedor en Restaurante O'Noso Carrer de Galileu Sants" loading="lazy" decoding="async" />
           <div class="cocina-img-label">Barra & sobremesa</div>
         </div>
       </div>
@@ -2064,7 +2072,7 @@
         <img
           src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85"
           alt="Fachada del Restaurante O'Noso en Carrer de Galileu, Sants Barcelona"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Fachada · Carrer de Galileu, 173</div>
       </div>
 
@@ -2073,7 +2081,7 @@
         <img
           src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=85"
           alt="Interior acogedor del Restaurante O'Noso en Carrer de Galileu Sants"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Interior · O'Noso</div>
       </div>
 
@@ -2082,7 +2090,7 @@
         <img
           src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=85"
           alt="Barra del Restaurante O'Noso Sants Barcelona"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">La barra</div>
       </div>
 
@@ -2091,7 +2099,7 @@
         <img
           src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85"
           alt="Mesa preparada antes del servicio en Restaurante O'Noso Barcelona"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Mesa preparada</div>
       </div>
 
@@ -2100,7 +2108,7 @@
         <img
           src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=85"
           alt="Mesa con platos servidos en Restaurante O'Noso Sants"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">La mesa servida</div>
       </div>
 
@@ -2109,7 +2117,7 @@
         <img
           src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=85"
           alt="Plato de carne en Restaurante O'Noso Sants Barcelona"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Carnes</div>
       </div>
 
@@ -2118,7 +2126,7 @@
         <img
           src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85"
           alt="Pescado fresco en cocina española O'Noso Barcelona"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Pescado fresco</div>
       </div>
 
@@ -2127,7 +2135,7 @@
         <img
           src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85"
           alt="Vinos para acompañar la comida en Restaurante O'Noso"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Vinos seleccionados</div>
       </div>
 
@@ -2136,7 +2144,7 @@
         <img
           src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=85"
           alt="Materia prima fresca en Restaurante O'Noso cocina española"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Producto de mercado</div>
       </div>
 
@@ -2145,7 +2153,7 @@
         <img
           src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=85"
           alt="Ambiente de grupo en Restaurante O'Noso Sants Barcelona"
-          loading="lazy" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Ambiente de grupo</div>
       </div>
 
@@ -2514,14 +2522,39 @@
   // ── Hamburger menú ─────────────────────────────────────────
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  const setMobileMenuOpen = (isOpen) => {
+    mobileMenu.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  };
+  hamburger.addEventListener('click', (event) => {
+    event.stopPropagation();
+    setMobileMenuOpen(!mobileMenu.classList.contains('open'));
+  });
   document.querySelectorAll('.mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    link.addEventListener('click', () => setMobileMenuOpen(false));
+  });
+  document.addEventListener('click', (event) => {
+    if (
+      mobileMenu.classList.contains('open') &&
+      !mobileMenu.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+      setMobileMenuOpen(false);
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMobileMenuOpen(false);
   });
 
   // ── Formulario de reservas ─────────────────────────────────
   const form = document.getElementById('reserva-form');
+  const fechaInput = document.getElementById('fecha');
   const msg  = document.getElementById('form-mensaje');
+  if (fechaInput) {
+    const today = new Date();
+    const offsetDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000);
+    fechaInput.min = offsetDate.toISOString().slice(0, 10);
+  }
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     msg.style.display = 'block';
