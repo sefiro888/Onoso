@@ -1065,29 +1065,21 @@
     ============================================================ */
     .mobile-bar {
       display: none;
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-      background: var(--negro);
-      border-top: 1px solid var(--dorado);
-      padding: 0.65rem 0.5rem;
-      box-shadow: 0 -10px 30px rgba(0,0,0,0.4);
+      position: fixed;
+      z-index: 200;
     }
     .mobile-bar-inner {
       display: grid; grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.4rem;
+      gap: 0.25rem;
     }
     .mobile-bar-btn {
       display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
-      padding: 0.6rem 0.5rem;
       text-decoration: none;
       font-family: 'Marcellus', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
+      letter-spacing: 0.08em; text-transform: uppercase;
       transition: all 0.2s;
     }
-    .mobile-bar-btn span { font-size: 1.3rem; }
-    .mbb-llamar  { background: var(--rojo); color: var(--blanco); }
-    .mbb-whatsapp { background: #25D366; color: #fff; }
-    .mbb-llegar  { background: var(--dorado); color: var(--negro); }
+    .mobile-bar-btn span { line-height: 1; }
 
     /* ============================================================
        RESPONSIVE
@@ -1120,8 +1112,52 @@
       .nav-links { display: none; }
       .nav-cta .btn { display: none; }
       .hamburger { display: flex; }
-      .mobile-bar { display: block; }
-      body { padding-bottom: 80px; }
+      .mobile-bar {
+        display: block;
+        left: 50%;
+        right: auto;
+        bottom: calc(10px + env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        width: calc(100% - 24px);
+        max-width: 360px;
+        background: rgba(20, 16, 11, 0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(201, 146, 42, 0.35);
+        border-radius: 999px;
+        padding: 0.35rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      }
+      .mobile-bar-inner {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.25rem;
+      }
+      .mobile-bar-btn {
+        min-height: 42px;
+        min-width: 0;
+        justify-content: center;
+        padding: 0.35rem 0.45rem;
+        border-radius: 999px;
+        font-size: 0.58rem;
+        line-height: 1;
+        gap: 0.15rem;
+      }
+      .mobile-bar-btn span { font-size: 1rem; }
+      .mbb-llamar {
+        background: transparent;
+        color: var(--blanco);
+      }
+      .mbb-whatsapp {
+        background: rgba(37, 211, 102, 0.16);
+        color: #fff;
+        border: 1px solid rgba(37, 211, 102, 0.4);
+      }
+      .mbb-llegar {
+        background: rgba(201, 146, 42, 0.16);
+        color: var(--dorado-claro);
+        border: 1px solid rgba(201, 146, 42, 0.35);
+      }
+      body { padding-bottom: 70px; }
 
       .form-row { grid-template-columns: 1fr; }
       .form-wrapper { padding: 2rem 1.5rem; }
@@ -1152,9 +1188,6 @@
       .hero-card-row .val { min-width: 0; text-align: left; overflow-wrap: anywhere; }
       .hero-btns { flex-direction: column; }
       .hero-btns .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
-      .mobile-bar { width: 100vw; overflow: hidden; }
-      .mobile-bar-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .mobile-bar-btn { min-width: 0; padding-inline: 0.25rem; }
       .menu-precio-sello .num { font-size: 2.8rem; }
     }
 
