@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante O'Noso en Sants Barcelona | Menú del día, carnes y eventos</title>
+  <meta name="description" content="Restaurante O'Noso en Sants, Barcelona. Menú del día, cocina de mercado, carnes, vinos, vermut y comidas o cenas para grupos. Reserva mesa o pide presupuesto." />
+  <meta name="keywords" content="restaurante en Sants, restaurante en Barcelona, menú del día en Sants, restaurante para grupos en Barcelona, comidas para grupos en Sants, cenas para grupos Barcelona, carnes y vinos Barcelona, vermut en Sants" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       VARIABLES — DATOS EDITABLES
+    ============================================================ */
+    :root {
+      --rojo:        #8B1A1A;
+      --rojo-vino:   #6B0F0F;
+      --rojo-oscuro: #4A0808;
+      --dorado:      #C9922A;
+      --dorado-claro:#E8B45A;
+      --dorado-suave:#F4D89A;
+      --negro:       #14100B;
+      --negro-suave: #1F1812;
+      --antracita:   #2A1E12;
+      --crema:       #F7F0E3;
+      --crema-oscura:#EDE0C8;
+      --crema-papel: #F9F2E1;
+      --blanco:      #FFF9F0;
+      --texto-oscuro:#2A1E12;
+      --texto-gris:  #6B5A3E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--negro);
+      color: var(--blanco);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       TIPOGRAFÍA
+    ============================================================ */
+    h1, h2, h3, .display { font-family: 'Cormorant Garamond', serif; line-height: 1.1; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 600; }
+    h2 { font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight: 600; }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.75rem); font-weight: 600; }
+    p  { line-height: 1.7; font-size: clamp(0.95rem, 2vw, 1.05rem); }
+
+    .gold       { color: var(--dorado-claro); }
+    .italic     { font-style: italic; }
+    .container  { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .label {
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      display: inline-block;
+    }
+
+    /* Separador ornamental */
+    .ornament {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; margin: 1.25rem auto 1.5rem; max-width: 280px;
+    }
+    .ornament-line { flex: 1; height: 1px; background: var(--dorado); opacity: 0.4; }
+    .ornament-icon {
+      color: var(--dorado);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-style: italic;
+    }
+
+    /* ============================================================
+       BOTONES
+    ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.95rem 1.9rem;
+      border-radius: 2px;
+      font-family: 'Marcellus', serif;
+      font-size: 0.85rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      position: relative;
+    }
+    .btn-dorado { background: var(--dorado); color: var(--negro); }
+    .btn-dorado:hover { background: var(--dorado-claro); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,146,42,0.45); }
+
+    .btn-outline {
+      background: transparent; color: var(--dorado-claro);
+      border: 1.5px solid var(--dorado-claro);
+    }
+    .btn-outline:hover { background: var(--dorado-claro); color: var(--negro); transform: translateY(-2px); }
+
+    .btn-rojo { background: var(--rojo-vino); color: var(--blanco); }
+    .btn-rojo:hover { background: var(--rojo); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,15,15,0.4); }
+
+    .btn-blanco { background: var(--blanco); color: var(--negro); }
+    .btn-blanco:hover { background: var(--crema); transform: translateY(-2px); }
+
+    .btn-whatsapp { background: #25D366; color: #fff; }
+    .btn-whatsapp:hover { background: #1fbb5a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    #header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(20, 16, 11, 0.85);
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 1.5rem;
+      max-width: 1240px; margin: 0 auto;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.85rem; font-weight: 700;
+      color: var(--dorado-claro); text-decoration: none;
+      letter-spacing: -0.01em;
+      display: flex; align-items: center; gap: 0.5rem;
+      line-height: 1;
+    }
+    .nav-logo .ornament-mini {
+      color: var(--rojo); font-style: italic; font-size: 1.4rem;
+    }
+    .nav-logo span { color: var(--blanco); }
+
+    .nav-links {
+      display: flex; gap: 2.2rem; list-style: none;
+    }
+    .nav-links a {
+      color: var(--crema); text-decoration: none;
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative; padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 1px; background: var(--dorado-claro);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--dorado-claro); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta { display: flex; gap: 0.75rem; align-items: center; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span { display: block; width: 26px; height: 1.5px; background: var(--dorado-claro); transition: all 0.3s; }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--antracita);
+      border-top: 1px solid rgba(201,146,42,0.2);
+      padding: 1rem 1.5rem 1.5rem;
+      gap: 0.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--crema); text-decoration: none;
+      font-family: 'Marcellus', serif;
+      font-size: 0.95rem; letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu a:hover { color: var(--dorado-claro); }
+
+    /* ============================================================
+       HERO — LAYOUT EDITORIAL SPLIT
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(to right,
+          rgba(10,5,2,0.90) 0%,
+          rgba(15,7,3,0.78) 40%,
+          rgba(10,5,2,0.40) 75%,
+          rgba(10,5,2,0.20) 100%),
+        url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1800&q=90') center/cover no-repeat;
+      display: flex; align-items: center;
+      padding: 8rem 0 5rem;
+      position: relative; overflow: hidden;
+    }
+    /* Detalle decorativo lateral */
+    #hero::before {
+      content: ''; position: absolute;
+      top: 50%; left: 1.5rem; transform: translateY(-50%);
+      width: 1px; height: 50%;
+      background: linear-gradient(to bottom, transparent, var(--dorado), transparent);
+      opacity: 0.4; z-index: 2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 4rem; align-items: center;
+      width: 100%; position: relative; z-index: 2;
+    }
+
+    .hero-content { max-width: 640px; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow .estrella {
+      color: var(--dorado); font-size: 0.9rem;
+    }
+    .hero-eyebrow .label { color: var(--dorado-claro); }
+
+    .hero-title {
+      color: var(--blanco);
+      margin-bottom: 1.25rem;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      font-weight: 600;
+    }
+    .hero-title em {
+      color: var(--dorado-claro);
+      font-style: italic; font-weight: 600;
+      display: block;
+    }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      color: var(--crema);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      line-height: 1.4;
+      max-width: 520px;
+    }
+    .hero-desc {
+      color: rgba(255,249,240,0.88);
+      margin-bottom: 2.5rem; max-width: 520px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      font-size: 1.02rem;
+    }
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+    }
+
+    /* Tarjeta lateral premium */
+    .hero-card {
+      background: rgba(20, 16, 11, 0.78);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(201,146,42,0.35);
+      padding: 2.5rem 2rem;
+      max-width: 320px; margin-left: auto;
+      position: relative;
+    }
+    .hero-card::before, .hero-card::after {
+      content: ''; position: absolute;
+      width: 14px; height: 14px;
+      border: 1px solid var(--dorado);
+    }
+    .hero-card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .hero-card::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+    .hero-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-style: italic; font-weight: 600;
+      color: var(--dorado-claro); margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .hero-card-divider {
+      width: 40px; height: 1px;
+      background: var(--dorado);
+      margin: 0.75rem auto 1.5rem;
+    }
+    .hero-card-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(201,146,42,0.15);
+      font-size: 0.85rem;
+    }
+    .hero-card-row:last-of-type { border-bottom: none; margin-bottom: 1rem; }
+    .hero-card-row .lbl {
+      color: rgba(255,249,240,0.6);
+      font-family: 'Marcellus', serif;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+    .hero-card-row .val {
+      color: var(--blanco); font-weight: 700;
+    }
+    .hero-card-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; color: var(--dorado-claro);
+      font-style: italic;
+    }
+    .hero-card .btn {
+      width: 100%; justify-content: center; padding: 0.85rem;
+    }
+
+    /* Franja decorativa inferior */
+    .hero-franja {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--rojo-vino), var(--dorado), var(--rojo-vino));
+      z-index: 3;
+    }
+
+    /* ============================================================
+       FRANJA DATOS RÁPIDOS
+    ============================================================ */
+    #datos {
+      background: var(--rojo-oscuro);
+      padding: 1.4rem 0;
+      border-top: 1px solid var(--dorado);
+      border-bottom: 1px solid var(--dorado);
+      position: relative;
+    }
+    #datos::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, var(--dorado), transparent);
+    }
+    .datos-grid {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; align-items: center;
+      gap: 0.5rem;
+    }
+    .dato-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.4rem 1.5rem;
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blanco);
+    }
+    .dato-icon { font-size: 1rem; color: var(--dorado-claro); }
+    .dato-sep {
+      color: var(--dorado); font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+    }
+
+    /* ============================================================
+       SECCIÓN — NUESTRA ESENCIA
+    ============================================================ */
+    #experiencia {
+      background: var(--negro);
+      padding: 7rem 0;
+      position: relative;
+    }
+    /* Patrón sutil de azulejo */
+    #experiencia::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(201,146,42,0.06) 1px, transparent 0);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    .exp-header {
+      text-align: center; margin-bottom: 4.5rem;
+      position: relative; z-index: 2;
+    }
+    .exp-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+      color: rgba(255,249,240,0.7);
+      max-width: 720px; margin: 1.5rem auto 0;
+      line-height: 1.4;
+    }
+    .exp-quote::before, .exp-quote::after {
+      content: '"'; color: var(--dorado);
+      font-size: 2rem; line-height: 0;
+      position: relative;
+    }
+    .exp-quote::before { margin-right: 0.3rem; top: 8px; }
+    .exp-quote::after  { margin-left: 0.3rem;  top: 8px; }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      position: relative; z-index: 2;
+    }
+    .exp-card {
+      background: rgba(42, 30, 18, 0.5);
+      border: 1px solid rgba(201,146,42,0.18);
+      padding: 2.5rem 2rem 2rem;
+      transition: all 0.4s ease;
+      position: relative; overflow: hidden;
+    }
+    .exp-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: var(--dorado);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .exp-card:hover {
+      border-color: rgba(201,146,42,0.5);
+      background: rgba(42, 30, 18, 0.8);
+      transform: translateY(-4px);
+    }
+    .exp-card:hover::before { transform: scaleX(1); }
+
+    .exp-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem; font-style: italic;
+      color: var(--dorado);
+      letter-spacing: 0.2em;
+      margin-bottom: 0.75rem;
+    }
+    .exp-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .exp-card h3 { color: var(--dorado-claro); margin-bottom: 0.75rem; }
+    .exp-card p  { color: rgba(255,249,240,0.72); font-size: 0.96rem; line-height: 1.65; }
+
+    /* ============================================================
+       MENÚ DEL DÍA — ESTILO CARTA
+    ============================================================ */
+    #menu {
+      background:
+        radial-gradient(ellipse at top, rgba(201,146,42,0.05) 0%, transparent 60%),
+        var(--crema-papel);
+      padding: 7rem 0;
+      color: var(--texto-oscuro);
+      position: relative;
+    }
+    .menu-frame {
+      max-width: 900px; margin: 0 auto;
+      background: var(--blanco);
+      border: 1px solid rgba(201,146,42,0.25);
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+      position: relative;
+      box-shadow:
+        0 30px 80px rgba(20,16,11,0.08),
+        inset 0 0 0 1px rgba(201,146,42,0.1);
+    }
+    .menu-frame::before, .menu-frame::after {
+      content: ''; position: absolute;
+      width: 30px; height: 30px;
+      border: 1.5px solid var(--dorado);
+    }
+    .menu-frame::before { top: 14px; left: 14px; border-right: none; border-bottom: none; }
+    .menu-frame::after  { bottom: 14px; right: 14px; border-left: none; border-top: none; }
+
+    .menu-header { text-align: center; margin-bottom: 2.5rem; }
+    .menu-header h2 { color: var(--rojo-vino); }
+    .menu-header .label { color: var(--rojo); }
+
+    .menu-precio-sello {
+      display: inline-flex; flex-direction: column; align-items: center;
+      margin: 1rem 0 0.5rem;
+      padding: 0.5rem 2rem;
+      border-top: 1px solid var(--dorado);
+      border-bottom: 1px solid var(--dorado);
+    }
+    .menu-precio-sello .desde {
+      font-family: 'Marcellus', serif;
+      font-size: 0.7rem; letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rojo-vino);
+    }
+    .menu-precio-sello .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 600;
+      color: var(--rojo-vino); line-height: 1;
+    }
+    .menu-precio-sello .por {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 0.9rem;
+      color: var(--texto-gris);
+    }
+
+    .menu-incluye {
+      text-align: center; margin: 1rem 0 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.15rem;
+      color: var(--texto-gris);
+    }
+    .menu-incluye span { color: var(--dorado); margin: 0 0.5rem; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .menu-columna h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--rojo-vino);
+      text-align: center;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .menu-columna h4::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 30px; height: 1px;
+      background: var(--dorado);
+    }
+    .menu-columna ul {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.65rem;
+    }
+    .menu-columna li {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: var(--texto-oscuro);
+      text-align: center;
+      font-style: italic;
+    }
+
+    .menu-nota {
+      text-align: center; font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.05rem;
+      color: var(--texto-gris);
+      margin: 2rem 0;
+    }
+    .menu-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    /* ============================================================
+       CARNES, VINOS Y VERMUT — EDITORIAL
+    ============================================================ */
+    #cocina {
+      background: var(--antracita);
+      padding: 7rem 0;
+      position: relative; overflow: hidden;
+    }
+    #cocina::before {
+      content: ''; position: absolute;
+      top: -150px; right: -200px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,26,26,0.18) 0%, transparent 70%);
+    }
+    .cocina-inner {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 5rem; align-items: center;
+      position: relative; z-index: 2;
+    }
+    .cocina-texto h2 { color: var(--blanco); margin-bottom: 1.25rem; }
+    .cocina-texto h2 em { color: var(--dorado-claro); font-style: italic; }
+    .cocina-texto p  {
+      color: rgba(255,249,240,0.78);
+      margin-bottom: 1.5rem; font-size: 1.05rem;
+    }
+
+    .cocina-tags {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin: 2rem 0;
+    }
+    .cocina-tag {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid rgba(201,146,42,0.5);
+      font-family: 'Marcellus', serif;
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dorado-claro);
+    }
+
+    .cocina-visual {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 200px 200px 200px;
+      gap: 1rem;
+    }
+    .cocina-img {
+      overflow: hidden; position: relative;
+      background: var(--negro);
+    }
+    .cocina-img:nth-child(1) { grid-column: 1 / 3; }
+    .cocina-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.9) saturate(1.1);
+      transition: transform 0.6s ease;
+    }
+    .cocina-img:hover img { transform: scale(1.05); }
+
+    .cocina-img-label {
+      position: absolute; bottom: 1rem; left: 1rem; right: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: var(--dorado-suave);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    /* ============================================================
+       GRUPOS Y EVENTOS — CINEMÁTICO
+    ============================================================ */
+    #eventos {
+      background: var(--negro);
+      padding: 7rem 0;
+      position: relative;
+    }
+    .eventos-header { text-align: center; margin-bottom: 1.5rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+    .eventos-header h2 { color: var(--blanco); }
+    .eventos-header h2 em { color: var(--dorado-claro); font-style: italic; }
+    .eventos-header > p {
+      color: rgba(255,249,240,0.7);
+      margin-top: 1.5rem; font-size: 1.05rem;
+    }
+
+    .eventos-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin: 4rem 0 3rem;
+    }
+    .evento-card {
+      position: relative; overflow: hidden;
+      background: var(--antracita);
+      min-height: 320px;
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+    .evento-card-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0.4;
+      transition: opacity 0.4s ease, transform 0.6s ease;
+    }
+    .evento-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(20,16,11,0.5) 0%, rgba(20,16,11,0.95) 100%);
+    }
+    .evento-card-content {
+      position: relative; z-index: 2;
+      padding: 2.5rem 2rem 2rem;
+      height: 100%;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      min-height: 320px;
+    }
+    .evento-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 0.95rem;
+      color: var(--dorado);
+      letter-spacing: 0.25em;
+      margin-bottom: 0.5rem;
+    }
+    .evento-card h3 { color: var(--blanco); margin-bottom: 0.75rem; }
+    .evento-card p  { color: rgba(255,249,240,0.78); font-size: 0.95rem; }
+
+    .evento-card:hover { transform: translateY(-4px); }
+    .evento-card:hover .evento-card-bg { opacity: 0.55; transform: scale(1.05); }
+
+    /* Bloque CTA propuesta */
+    .eventos-propuesta {
+      background:
+        linear-gradient(135deg, rgba(74,8,8,0.95), rgba(107,15,15,0.95)),
+        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80') center/cover;
+      border: 1px solid rgba(201,146,42,0.3);
+      padding: 3rem;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 2.5rem; align-items: center;
+      position: relative;
+    }
+    .eventos-propuesta::before {
+      content: ''; position: absolute;
+      top: 1rem; left: 1rem; right: 1rem; bottom: 1rem;
+      border: 1px solid rgba(201,146,42,0.25);
+      pointer-events: none;
+    }
+    .propuesta-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 0.95rem;
+      color: var(--dorado-claro);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .propuesta-texto h3 { color: var(--blanco); font-size: 2rem; margin-bottom: 0.85rem; }
+    .propuesta-texto p  { color: rgba(255,249,240,0.85); font-size: 1rem; max-width: 480px; }
+    .propuesta-ctas {
+      display: flex; flex-direction: column; gap: 0.75rem;
+      align-items: stretch; min-width: 220px;
+    }
+    .propuesta-ctas .btn { justify-content: center; }
+
+    /* ============================================================
+       GALERÍA VISUAL
+    ============================================================ */
+    #galeria {
+      background: var(--negro);
+      padding: 5rem 0;
+    }
+    .galeria-header { text-align: center; margin-bottom: 3rem; }
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 200px 200px;
+      gap: 0.75rem;
+    }
+    .galeria-item {
+      overflow: hidden; position: relative;
+    }
+    .galeria-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: brightness(0.85) saturate(1.05);
+    }
+    .galeria-item:hover img { transform: scale(1.08); filter: brightness(1) saturate(1.15); }
+
+    .galeria-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+    .galeria-item:nth-child(2) { grid-column: 3; grid-row: 1; }
+    .galeria-item:nth-child(3) { grid-column: 4; grid-row: 1; }
+    .galeria-item:nth-child(4) { grid-column: 3; grid-row: 2; }
+    .galeria-item:nth-child(5) { grid-column: 4; grid-row: 2; }
+
+    /* ============================================================
+       TESTIMONIOS
+    ============================================================ */
+    #testimonios {
+      background: var(--rojo-oscuro);
+      padding: 7rem 0;
+      position: relative;
+    }
+    #testimonios::before, #testimonios::after {
+      content: ''; position: absolute; left: 0; right: 0;
+      height: 1px; background: var(--dorado); opacity: 0.4;
+    }
+    #testimonios::before { top: 0; }
+    #testimonios::after  { bottom: 0; }
+
+    .testimonios-header { text-align: center; margin-bottom: 4rem; }
+    .testimonios-header h2 { color: var(--blanco); }
+    .testimonios-header h2 em { color: var(--dorado-claro); font-style: italic; }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .testimonio {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+    .testimonio-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem; font-style: italic;
+      color: var(--dorado);
+      line-height: 0.5; margin-bottom: 1.25rem;
+      display: block;
+    }
+    .testimonio-texto {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-style: italic;
+      color: var(--blanco);
+      line-height: 1.55; margin-bottom: 1.25rem;
+    }
+    .testimonio-stars { color: var(--dorado); letter-spacing: 0.15em; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .testimonio-autor {
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dorado-claro);
+    }
+
+    /* ============================================================
+       RESERVAS
+    ============================================================ */
+    #reservas {
+      background: var(--crema);
+      padding: 7rem 0;
+      color: var(--texto-oscuro);
+    }
+    .reservas-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem; align-items: start;
+    }
+    .reservas-info h2 { color: var(--rojo-vino); margin-bottom: 1.25rem; }
+    .reservas-info h2 em { color: var(--dorado); font-style: italic; }
+    .reservas-info > p  { color: var(--texto-gris); margin-bottom: 2rem; font-size: 1.05rem; }
+
+    .contacto-card {
+      background: var(--blanco);
+      border: 1px solid var(--crema-oscura);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 1rem;
+      text-decoration: none; color: var(--texto-oscuro);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .contacto-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--dorado);
+      transform: scaleY(0); transition: transform 0.3s ease;
+    }
+    .contacto-card:hover {
+      background: var(--blanco);
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(20,16,11,0.08);
+    }
+    .contacto-card:hover::before { transform: scaleY(1); }
+
+    .contacto-card-icon { font-size: 1.6rem; }
+    .contacto-card-label {
+      font-family: 'Marcellus', serif;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rojo-vino);
+      margin-bottom: 0.2rem;
+    }
+    .contacto-card-value {
+      font-size: 1rem; font-weight: 700; color: var(--texto-oscuro);
+    }
+
+    /* FORMULARIO */
+    .form-wrapper {
+      background: var(--blanco);
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(201,146,42,0.25);
+      box-shadow: 0 30px 80px rgba(20,16,11,0.1);
+      position: relative;
+    }
+    .form-wrapper::before, .form-wrapper::after {
+      content: ''; position: absolute;
+      width: 20px; height: 20px;
+      border: 1.5px solid var(--dorado);
+    }
+    .form-wrapper::before { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+    .form-wrapper::after  { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem; font-weight: 600;
+      color: var(--rojo-vino);
+      margin-bottom: 0.5rem; text-align: center;
+    }
+    .form-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; text-align: center;
+      color: var(--texto-gris); margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+    }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-family: 'Marcellus', serif;
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rojo-vino);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.85rem 1rem;
+      border: 1.5px solid var(--crema-oscura);
+      background: var(--blanco);
+      font-family: 'Lato', sans-serif; font-size: 0.95rem;
+      color: var(--texto-oscuro);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: var(--dorado);
+      box-shadow: 0 0 0 3px rgba(201,146,42,0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-submit {
+      width: 100%;
+      padding: 1.1rem;
+      background: var(--rojo-vino); color: var(--blanco);
+      border: none;
+      font-family: 'Marcellus', serif;
+      font-size: 0.85rem; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover {
+      background: var(--rojo);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(107,15,15,0.35);
+    }
+
+    .form-mensaje {
+      display: none;
+      background: #f0f8e8; border: 1px solid #4caf50;
+      padding: 1rem; margin-top: 1rem;
+      color: #2e7d32; font-weight: 700; font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* ============================================================
+       UBICACIÓN
+    ============================================================ */
+    #ubicacion {
+      background: var(--negro);
+      padding: 7rem 0;
+    }
+    .ubic-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem; align-items: center;
+    }
+    .ubic-info h2 { color: var(--blanco); margin-bottom: 1rem; }
+    .ubic-info h2 em { color: var(--dorado-claro); font-style: italic; }
+    .ubic-info > p {
+      color: rgba(255,249,240,0.7);
+      margin-bottom: 1.5rem; font-size: 1rem;
+    }
+
+    .ubic-dato {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding: 1.1rem 0; border-bottom: 1px solid rgba(201,146,42,0.15);
+    }
+    .ubic-dato:last-of-type { border-bottom: none; }
+    .ubic-dato-icon { font-size: 1.3rem; color: var(--dorado); margin-top: 0.15rem; flex-shrink: 0; }
+    .ubic-dato-label {
+      font-family: 'Marcellus', serif;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dorado-claro);
+      margin-bottom: 0.25rem;
+    }
+    .ubic-dato-value { color: var(--blanco); font-size: 1rem; line-height: 1.5; }
+
+    .ubic-map {
+      overflow: hidden;
+      border: 1px solid rgba(201,146,42,0.3);
+      min-height: 420px;
+      position: relative;
+    }
+    .ubic-map iframe {
+      width: 100%; height: 100%; min-height: 420px;
+      border: none; display: block; filter: grayscale(0.2) contrast(1.05);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    #footer {
+      background: var(--rojo-oscuro);
+      border-top: 1px solid var(--dorado);
+      padding: 4rem 0 1.5rem;
+      position: relative;
+    }
+    #footer::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(to right, var(--rojo-vino), var(--dorado), var(--rojo-vino));
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 700;
+      color: var(--dorado-claro); margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .footer-brand .ornament-mini { color: var(--blanco); font-style: italic; }
+    .footer-brand span { color: var(--blanco); }
+    .footer-desc {
+      color: rgba(255,249,240,0.7);
+      font-size: 0.95rem; line-height: 1.7;
+      max-width: 380px;
+    }
+    .footer-social {
+      display: flex; gap: 0.75rem; margin-top: 1.5rem;
+    }
+    .footer-social a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border: 1px solid rgba(201,146,42,0.4);
+      color: var(--dorado-claro);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-social a:hover {
+      background: var(--dorado); color: var(--negro);
+      border-color: var(--dorado);
+    }
+    .footer-social svg { width: 16px; height: 16px; }
+
+    .footer-col h4 {
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem; letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 1.25rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col li, .footer-col li a {
+      color: rgba(255,249,240,0.72); text-decoration: none;
+      font-size: 0.92rem; transition: color 0.2s;
+    }
+    .footer-col li a:hover { color: var(--dorado-claro); }
+    .footer-col .horario-item {
+      display: flex; justify-content: space-between;
+      padding: 0.3rem 0;
+      border-bottom: 1px dashed rgba(255,249,240,0.1);
+    }
+    .footer-col .horario-item .dia { color: rgba(255,249,240,0.6); font-size: 0.85rem; }
+    .footer-col .horario-item .hora { color: var(--dorado-claro); font-size: 0.85rem; font-weight: 700; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.75rem;
+    }
+    .footer-bottom p {
+      color: rgba(255,249,240,0.5); font-size: 0.8rem;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+    }
+
+    /* ============================================================
+       BARRA MÓVIL FIJA
+    ============================================================ */
+    .mobile-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: var(--negro);
+      border-top: 1px solid var(--dorado);
+      padding: 0.65rem 0.5rem;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.4);
+    }
+    .mobile-bar-inner {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.4rem;
+    }
+    .mobile-bar-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+      padding: 0.6rem 0.5rem;
+      text-decoration: none;
+      font-family: 'Marcellus', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .mobile-bar-btn span { font-size: 1.3rem; }
+    .mbb-llamar  { background: var(--rojo); color: var(--blanco); }
+    .mbb-whatsapp { background: #25D366; color: #fff; }
+    .mbb-llegar  { background: var(--dorado); color: var(--negro); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-card { margin-left: 0; max-width: 100%; }
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 200px 200px 200px;
+      }
+      .galeria-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+      .galeria-item:nth-child(2) { grid-column: 1; grid-row: 2; }
+      .galeria-item:nth-child(3) { grid-column: 2; grid-row: 2; }
+      .galeria-item:nth-child(4) { grid-column: 1; grid-row: 3; }
+      .galeria-item:nth-child(5) { grid-column: 2; grid-row: 3; }
+    }
+
+    @media (max-width: 900px) {
+      .cocina-inner   { grid-template-columns: 1fr; gap: 3rem; }
+      .reservas-inner { grid-template-columns: 1fr; }
+      .ubic-inner     { grid-template-columns: 1fr; }
+      .footer-inner   { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .eventos-propuesta { grid-template-columns: 1fr; }
+      .propuesta-ctas { flex-direction: row; flex-wrap: wrap; }
+      .cocina-visual { grid-template-rows: 200px 200px 180px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta .btn { display: none; }
+      .hamburger { display: flex; }
+      .mobile-bar { display: block; }
+      body { padding-bottom: 80px; }
+
+      .form-row { grid-template-columns: 1fr; }
+      .form-wrapper { padding: 2rem 1.5rem; }
+      .menu-frame { padding: 2.5rem 1.25rem; }
+      .datos-grid { flex-direction: column; gap: 0.5rem; }
+      .dato-item { padding: 0.4rem; }
+      .dato-sep { display: none; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .galeria-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 200px);
+      }
+      .galeria-item:nth-child(n) {
+        grid-column: 1; grid-row: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+      .menu-precio-sello .num { font-size: 2.8rem; }
+    }
+
+    /* ============================================================
+       ANIMACIONES
+    ============================================================ */
+    .fade-in {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .fade-in.delay-1 { transition-delay: 0.1s; }
+    .fade-in.delay-2 { transition-delay: 0.2s; }
+    .fade-in.delay-3 { transition-delay: 0.3s; }
+
+    /* ============================================================
+       PAGE LOADER CINEMATOGRÁFICO
+    ============================================================ */
+    #page-loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--negro);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #page-loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-content {
+      text-align: center;
+      animation: loaderPulse 1.6s ease-in-out infinite;
+    }
+    .loader-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: var(--dorado-claro);
+      font-weight: 600; letter-spacing: -0.02em;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.5rem; line-height: 1;
+    }
+    .loader-logo .ornament-mini { color: var(--rojo); font-style: italic; }
+    .loader-logo span { color: var(--blanco); }
+    .loader-tagline {
+      font-family: 'Marcellus', serif;
+      font-size: 0.7rem; letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-top: 1rem;
+    }
+    .loader-bar {
+      width: 80px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--dorado), transparent);
+      margin: 1.5rem auto 0;
+      animation: loaderBar 1.4s ease-in-out infinite;
+    }
+    @keyframes loaderPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    @keyframes loaderBar {
+      0%, 100% { transform: scaleX(0.3); }
+      50% { transform: scaleX(1); }
+    }
+
+    /* ============================================================
+       GRAIN TEXTURE GLOBAL
+    ============================================================ */
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      pointer-events: none; z-index: 50;
+      opacity: 0.05;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    /* ============================================================
+       HERO — MEJORAS CINEMATOGRÁFICAS
+    ============================================================ */
+    /* Watermark gigante O'NOSO */
+    .hero-watermark {
+      position: absolute;
+      bottom: -2vw; left: -1vw;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(7rem, 20vw, 22rem);
+      font-style: italic; font-weight: 600;
+      color: rgba(201,146,42,0.07);
+      line-height: 0.8; letter-spacing: -0.04em;
+      pointer-events: none; z-index: 1;
+      white-space: nowrap;
+      user-select: none;
+    }
+    /* Vignette en hero */
+    #hero::after {
+      content: ''; position: absolute; inset: 0;
+      pointer-events: none; z-index: 1;
+      background:
+        radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.55) 100%);
+    }
+
+    /* Sello rotativo decorativo */
+    .hero-sello {
+      position: absolute;
+      top: 7rem; right: 2rem;
+      width: 130px; height: 130px;
+      z-index: 4;
+      animation: rotateSello 25s linear infinite;
+    }
+    .hero-sello svg {
+      width: 100%; height: 100%;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+    .hero-sello-center {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--dorado);
+      font-size: 1.5rem;
+      animation: rotateSello 25s linear infinite reverse;
+    }
+    @keyframes rotateSello {
+      from { transform: rotate(0); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem;
+      z-index: 4;
+      color: var(--dorado-claro);
+      animation: floatDown 2.4s ease-in-out infinite;
+    }
+    .scroll-indicator .label {
+      font-size: 0.65rem; letter-spacing: 0.3em;
+      color: var(--dorado-claro);
+    }
+    .scroll-indicator-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--dorado-claro), transparent);
+    }
+    @keyframes floatDown {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+      50%      { transform: translateX(-50%) translateY(8px); opacity: 0.6; }
+    }
+
+    /* Animación de entrada secuencial */
+    .hero-content > * {
+      opacity: 0; transform: translateY(20px);
+      animation: heroReveal 0.9s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    .hero-content > *:nth-child(1) { animation-delay: 1.0s; }
+    .hero-content > *:nth-child(2) { animation-delay: 1.15s; }
+    .hero-content > *:nth-child(3) { animation-delay: 1.3s; }
+    .hero-content > *:nth-child(4) { animation-delay: 1.45s; }
+    .hero-content > *:nth-child(5) { animation-delay: 1.6s; }
+    .hero-card {
+      opacity: 0; transform: translateX(40px);
+      animation: heroCardReveal 1s cubic-bezier(0.4,0,0.2,1) 1.5s forwards;
+    }
+    @keyframes heroReveal {
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes heroCardReveal {
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ============================================================
+       MARQUEE / TICKER INFINITO
+    ============================================================ */
+    .marquee {
+      background: var(--negro);
+      border-top: 1px solid rgba(201,146,42,0.2);
+      border-bottom: 1px solid rgba(201,146,42,0.2);
+      padding: 1.4rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee::before, .marquee::after {
+      content: ''; position: absolute;
+      top: 0; bottom: 0; width: 80px;
+      z-index: 2; pointer-events: none;
+    }
+    .marquee::before { left: 0; background: linear-gradient(to right, var(--negro), transparent); }
+    .marquee::after  { right: 0; background: linear-gradient(to left, var(--negro), transparent); }
+    .marquee-track {
+      display: flex; gap: 3rem; align-items: center;
+      animation: marqueeScroll 35s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 500;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--dorado-claro);
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    .marquee-sep {
+      color: var(--rojo);
+      font-size: 1.6rem;
+      font-style: normal;
+    }
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       BOTÓN DORADO CON SHIMMER
+    ============================================================ */
+    .btn-dorado { overflow: hidden; }
+    .btn-dorado::before {
+      content: ''; position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-dorado:hover::before { left: 100%; }
+
+    /* ============================================================
+       DROP CAP EDITORIAL
+    ============================================================ */
+    .exp-quote::first-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5em;
+      font-weight: 700;
+      float: left; line-height: 0.85;
+      margin: 0.05em 0.12em 0 0;
+      color: var(--dorado);
+      font-style: normal;
+    }
+
+    /* ============================================================
+       GALERÍA — TILT Y BORDES DORADOS HOVER
+    ============================================================ */
+    .galeria-item {
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .galeria-item::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid transparent;
+      transition: border-color 0.4s ease, inset 0.4s ease;
+      pointer-events: none;
+    }
+    .galeria-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .galeria-item:hover::after {
+      border-color: rgba(201,146,42,0.5);
+      inset: 8px;
+    }
+
+    /* ============================================================
+       EVENTOS — BRILLO DORADO EN HOVER
+    ============================================================ */
+    .evento-card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .evento-card::after {
+      content: ''; position: absolute; inset: 0;
+      border: 1px solid transparent;
+      transition: border-color 0.4s ease;
+      pointer-events: none; z-index: 3;
+    }
+    .evento-card:hover {
+      box-shadow: 0 20px 50px rgba(201,146,42,0.15);
+    }
+    .evento-card:hover::after {
+      border-color: rgba(201,146,42,0.4);
+    }
+
+    /* ============================================================
+       TEXTURA DE PAPEL EN MENÚ
+    ============================================================ */
+    #menu::before {
+      content: ''; position: absolute; inset: 0;
+      pointer-events: none; opacity: 0.4;
+      background-image:
+        linear-gradient(rgba(201,146,42,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,146,42,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* ============================================================
+       OCULTAR SELLO EN MÓVIL
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-sello { display: none; }
+      .hero-watermark { font-size: clamp(5rem, 18vw, 12rem); }
+    }
+    @media (max-width: 768px) {
+      .scroll-indicator { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-content">
+    <div class="loader-logo">
+      <span class="ornament-mini">✦</span>
+      O'<span>Noso</span>
+    </div>
+    <div class="loader-tagline">Sants · Barcelona</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+
+<!-- HEADER -->
+<header id="header">
+  <nav class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="ornament-mini">✦</span>
+      O'<span>Noso</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#experiencia">Nosotros</a></li>
+      <li><a href="#menu">Carta</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#reservas">Reservas</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#reservas" class="btn btn-dorado">Reservar</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="#experiencia">Nosotros</a>
+    <a href="#menu">Carta</a>
+    <a href="#eventos">Grupos & Eventos</a>
+    <a href="#galeria">Galería</a>
+    <a href="#reservas">Reservas</a>
+    <a href="#ubicacion">Cómo llegar</a>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Watermark editorial gigante -->
+  <div class="hero-watermark">O'Noso</div>
+
+  <!-- Sello rotativo decorativo -->
+  <div class="hero-sello">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="circle-path" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+      </defs>
+      <circle cx="100" cy="100" r="78" fill="none" stroke="rgba(201,146,42,0.5)" stroke-width="1"/>
+      <circle cx="100" cy="100" r="62" fill="none" stroke="rgba(201,146,42,0.3)" stroke-width="1"/>
+      <text fill="#E8B45A" font-family="Marcellus, serif" font-size="11" letter-spacing="3.5">
+        <textPath href="#circle-path" startOffset="0">
+          ✦ COCINA DE MERCADO ✦ CARNES Y VINOS ✦ SANTS BARCELONA ✦
+        </textPath>
+      </text>
+    </svg>
+    <div class="hero-sello-center">✦</div>
+  </div>
+
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="estrella">✦</span>
+          <span class="label">Sants · Barcelona</span>
+          <span class="estrella">✦</span>
+        </div>
+        <h1 class="hero-title">
+          Restaurante O'Noso
+          <em>en el corazón de Sants</em>
+        </h1>
+        <p class="hero-sub">
+          Carnes, vinos y cocina de mercado para disfrutar en buena compañía.
+        </p>
+        <p class="hero-desc">
+          Menú diario, vermut, platos sabrosos y propuestas personalizadas
+          para grupos, comidas, cenas y celebraciones en Barcelona.
+        </p>
+        <div class="hero-btns">
+          <a href="#reservas" class="btn btn-dorado">Reservar mesa</a>
+          <a href="#eventos" class="btn btn-outline">Grupos y eventos</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-title italic">Bienvenido</div>
+        <div class="hero-card-divider"></div>
+        <div class="hero-card-row" style="flex-direction:column; align-items:center; padding-bottom:1.25rem;">
+          <span class="lbl">Menú del día</span>
+          <span class="hero-card-price italic">13 €</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="lbl">Horario</span>
+          <span class="val">Lun–Sáb · 8–17h</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="lbl">Cocina</span>
+          <span class="val">De mercado</span>
+        </div>
+        <div class="hero-card-row">
+          <span class="lbl">Grupos</span>
+          <span class="val">A medida</span>
+        </div>
+        <a href="#ubicacion" class="btn btn-outline" style="margin-top:0.5rem;">Cómo llegar</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-franja"></div>
+
+  <!-- Scroll indicator -->
+  <a href="#datos" class="scroll-indicator">
+    <span class="label">Descubre</span>
+    <div class="scroll-indicator-line"></div>
+  </a>
+</section>
+
+
+<!-- DATOS -->
+<section id="datos">
+  <div class="container">
+    <div class="datos-grid">
+      <div class="dato-item"><span class="dato-icon">🍽️</span> Menú 13 €</div>
+      <span class="dato-sep">✦</span>
+      <div class="dato-item"><span class="dato-icon">🥩</span> Carnes y brasa</div>
+      <span class="dato-sep">✦</span>
+      <div class="dato-item"><span class="dato-icon">🍷</span> Vinos y vermut</div>
+      <span class="dato-sep">✦</span>
+      <div class="dato-item"><span class="dato-icon">👥</span> Grupos y eventos</div>
+      <span class="dato-sep">✦</span>
+      <div class="dato-item"><span class="dato-icon">📍</span> Sants, Barcelona</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MARQUEE INFINITO -->
+<section class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Cocina de mercado</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item italic">Carnes & Brasa</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item">Vinos y vermut</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item italic">Grupos & Eventos</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item">Menú del día — 13€</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item italic">Restaurante en Sants</span>
+    <span class="marquee-sep">✦</span>
+    <!-- Duplicado para loop infinito -->
+    <span class="marquee-item">Cocina de mercado</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item italic">Carnes & Brasa</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item">Vinos y vermut</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item italic">Grupos & Eventos</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item">Menú del día — 13€</span>
+    <span class="marquee-sep">✦</span>
+    <span class="marquee-item italic">Restaurante en Sants</span>
+    <span class="marquee-sep">✦</span>
+  </div>
+</section>
+
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="container">
+    <div class="exp-header fade-in">
+      <span class="label">Nuestra esencia</span>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-icon">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2>Cocina honesta, <em class="gold italic">hecha con cariño</em></h2>
+      <p class="exp-quote">
+        En O'Noso cocinamos como siempre se ha cocinado bien: con producto fresco, recetas de verdad y ganas de que cada mesa salga contenta.
+      </p>
+    </div>
+
+    <div class="exp-grid">
+      <div class="exp-card fade-in">
+        <span class="exp-num italic">— 01 —</span>
+        <span class="exp-icon">🏪</span>
+        <h3>Cocina de mercado</h3>
+        <p>Compramos cada día según lo mejor que ofrece el mercado. Producto de temporada, preparado con mimo y sin complicaciones innecesarias.</p>
+      </div>
+      <div class="exp-card fade-in delay-1">
+        <span class="exp-num italic">— 02 —</span>
+        <span class="exp-icon">🥩</span>
+        <h3>Carnes y brasa</h3>
+        <p>Entrecot, pollo a la brasa, carnes sabrosas al punto. Para los que saben que una buena carne es siempre una buena razón para venir.</p>
+      </div>
+      <div class="exp-card fade-in delay-2">
+        <span class="exp-num italic">— 03 —</span>
+        <span class="exp-icon">🍷</span>
+        <h3>Vinos y vermut</h3>
+        <p>Carta de vinos sencilla pero bien elegida. Vermut ecológico para el aperitivo. La barra siempre lista para una copa entre amigos.</p>
+      </div>
+      <div class="exp-card fade-in">
+        <span class="exp-num italic">— 04 —</span>
+        <span class="exp-icon">☕</span>
+        <h3>Café y sobremesa</h3>
+        <p>Aquí no se tiene prisa en levantar la mesa. Café, postre casero y esa sobremesa que alarga el placer de haber comido bien.</p>
+      </div>
+      <div class="exp-card fade-in delay-1">
+        <span class="exp-num italic">— 05 —</span>
+        <span class="exp-icon">🏘️</span>
+        <h3>Restaurante de barrio</h3>
+        <p>En Sants, con el trato cercano de siempre. Un lugar donde te conocen, donde siempre hay sitio y donde se come bien sin gastar de más.</p>
+      </div>
+      <div class="exp-card fade-in delay-2">
+        <span class="exp-num italic">— 06 —</span>
+        <span class="exp-icon">🎂</span>
+        <h3>Para cada ocasión</h3>
+        <p>Menú diario entre semana, comida especial el finde, vermut con los amigos o celebración familiar. O'Noso se adapta a ti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MENÚ DEL DÍA -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-frame fade-in">
+      <div class="menu-header">
+        <span class="label">De lunes a sábado</span>
+        <div class="ornament" style="max-width:200px;">
+          <span class="ornament-line" style="background:var(--rojo);"></span>
+          <span class="ornament-icon" style="color:var(--rojo);">✦</span>
+          <span class="ornament-line" style="background:var(--rojo);"></span>
+        </div>
+        <h2>La carta del día</h2>
+
+        <div class="menu-precio-sello">
+          <span class="desde">Solo</span>
+          <span class="num italic">13€</span>
+          <span class="por italic">por persona</span>
+        </div>
+
+        <p class="menu-incluye">
+          Primero <span>·</span> Segundo <span>·</span> Postre <span>·</span> Bebida <span>·</span> Café
+        </p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-columna">
+          <h4>Primeros</h4>
+          <ul>
+            <li>Ensalada de tres quesos</li>
+            <li>Verduras de temporada</li>
+            <li>Arroz caldoso de marisco</li>
+            <li>Canelones gratinados</li>
+          </ul>
+        </div>
+        <div class="menu-columna">
+          <h4>Segundos</h4>
+          <ul>
+            <li>Entrecot de ternera</li>
+            <li>Pollo a la brasa</li>
+            <li>Bacalao a la llauna</li>
+            <li>Merluza a la romana</li>
+          </ul>
+        </div>
+        <div class="menu-columna">
+          <h4>Para terminar</h4>
+          <ul>
+            <li>Postre casero del día</li>
+            <li>Café solo o con leche</li>
+            <li>Copa de vino de la casa</li>
+            <li>Agua, refresco o cerveza</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="menu-nota">— El menú cambia cada día según el mercado y la temporada —</p>
+
+      <div class="menu-ctas">
+        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20%C2%BFcu%C3%A1l%20es%20el%20men%C3%BA%20de%20hoy%3F" class="btn btn-whatsapp">Consultar menú de hoy</a>
+        <a href="#reservas" class="btn btn-rojo">Reservar mesa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- COCINA -->
+<section id="cocina">
+  <div class="container">
+    <div class="cocina-inner">
+      <div class="cocina-texto fade-in">
+        <span class="label">Para comer bien</span>
+        <div class="ornament" style="margin-left:0; margin-right:auto; max-width:140px;">
+          <span class="ornament-icon">✦</span>
+          <span class="ornament-line"></span>
+        </div>
+        <h2>Carnes, vinos <em>y vermut en Sants</em></h2>
+        <p>
+          Una cocina sencilla, sabrosa y bien hecha, pensada para comer bien entre semana, compartir una mesa con amigos o disfrutar de una comida especial sin complicaciones.
+        </p>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--dorado-claro);">
+          "Producto de calidad, buen vino y el ambiente de siempre."
+        </p>
+        <div class="cocina-tags">
+          <span class="cocina-tag">Carnes al punto</span>
+          <span class="cocina-tag">Vinos de la casa</span>
+          <span class="cocina-tag">Vermut ecológico</span>
+          <span class="cocina-tag">Cocina de mercado</span>
+          <span class="cocina-tag">Tapeo y barra</span>
+          <span class="cocina-tag">Patatas con jamón</span>
+        </div>
+        <a href="#reservas" class="btn btn-dorado">Reservar mesa</a>
+      </div>
+
+      <div class="cocina-visual fade-in delay-1">
+        <div class="cocina-img">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=85" alt="Plato de cocina de mercado en restaurante O'Noso Sants" />
+          <div class="cocina-img-label">Cocina de mercado</div>
+        </div>
+        <div class="cocina-img">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85" alt="Vinos y vermut en restaurante de Barcelona" />
+          <div class="cocina-img-label">Vinos & vermut</div>
+        </div>
+        <div class="cocina-img">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Ambiente de barra y sobremesa" />
+          <div class="cocina-img-label">Barra & sobremesa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EVENTOS -->
+<section id="eventos">
+  <div class="container">
+    <div class="eventos-header fade-in">
+      <span class="label">Para ti y los tuyos</span>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-icon">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2>Comidas, cenas y eventos <em>a tu medida</em></h2>
+      <p>
+        Organizamos comidas de grupo, cenas especiales, celebraciones familiares, encuentros de empresa,
+        cumpleaños y eventos con temática adaptada a tus preferencias. Cuéntanos qué necesitas y preparamos
+        <strong style="color:var(--dorado-claro);">dos propuestas</strong> para que elijas la que mejor te encaja.
+      </p>
+    </div>
+
+    <div class="eventos-cards">
+      <div class="evento-card fade-in">
+        <div class="evento-card-bg" style="background-image:url('https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80');"></div>
+        <div class="evento-card-overlay"></div>
+        <div class="evento-card-content">
+          <div class="evento-num italic">— 01 —</div>
+          <h3>Comidas familiares</h3>
+          <p>Cumpleaños, aniversarios, reuniones y mesas largas con menú cerrado adaptado a todos los gustos.</p>
+        </div>
+      </div>
+
+      <div class="evento-card fade-in delay-1">
+        <div class="evento-card-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80');"></div>
+        <div class="evento-card-overlay"></div>
+        <div class="evento-card-content">
+          <div class="evento-num italic">— 02 —</div>
+          <h3>Cenas de grupo</h3>
+          <p>Una propuesta cálida para disfrutar de buena comida, vino y sobremesa con amigos o familia.</p>
+        </div>
+      </div>
+
+      <div class="evento-card fade-in delay-2">
+        <div class="evento-card-bg" style="background-image:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80');"></div>
+        <div class="evento-card-overlay"></div>
+        <div class="evento-card-content">
+          <div class="evento-num italic">— 03 —</div>
+          <h3>Eventos de empresa</h3>
+          <p>Comidas de equipo, encuentros informales, despedidas y reuniones con menú cerrado adaptado.</p>
+        </div>
+      </div>
+
+      <div class="evento-card fade-in delay-3">
+        <div class="evento-card-bg" style="background-image:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80');"></div>
+        <div class="evento-card-overlay"></div>
+        <div class="evento-card-content">
+          <div class="evento-num italic">— 04 —</div>
+          <h3>Propuestas temáticas</h3>
+          <p>Adaptamos el formato a tus preferencias: tapeo, menú cerrado, vinos, vermut o propuesta especial.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="eventos-propuesta fade-in">
+      <div class="propuesta-texto">
+        <p class="propuesta-quote">— Sin compromiso, con toda nuestra atención —</p>
+        <h3 class="display">¿Tienes un evento en mente?</h3>
+        <p>Cuéntanos qué necesitas y te preparamos <strong>dos opciones de propuesta</strong> para que todo sea un éxito. Atendemos cada celebración como si fuera la nuestra.</p>
+      </div>
+      <div class="propuesta-ctas">
+        <a href="#reservas" class="btn btn-dorado">Pedir presupuesto</a>
+        <a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20quiero%20consultar%20disponibilidad%20para%20un%20evento" class="btn btn-whatsapp">WhatsApp directo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="galeria-header fade-in">
+      <span class="label">Lo que se cocina</span>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-icon">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2 style="color:var(--blanco);">Una imagen vale más</h2>
+    </div>
+
+    <div class="galeria-grid fade-in delay-1">
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=85" alt="Carne a la parrilla" />
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Ambiente del restaurante" />
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=85" alt="Tapas y aperitivos" />
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85" alt="Copa de vino" />
+      </div>
+      <div class="galeria-item">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=85" alt="Plato gastronómico" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="container">
+    <div class="testimonios-header fade-in">
+      <span class="label" style="color:var(--dorado-claro);">Lo que dicen</span>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-icon">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2>De la mesa <em>al corazón</em></h2>
+    </div>
+
+    <div class="testimonios-grid">
+      <div class="testimonio fade-in">
+        <span class="testimonio-quote-mark italic">"</span>
+        <p class="testimonio-texto">Trato cercano, comida casera y precios honestos. Repito siempre que puedo.</p>
+        <div class="testimonio-stars">★ ★ ★ ★ ★</div>
+        <div class="testimonio-autor">Cliente habitual del barrio</div>
+      </div>
+      <div class="testimonio fade-in delay-1">
+        <span class="testimonio-quote-mark italic">"</span>
+        <p class="testimonio-texto">Hicimos una comida de empresa y todo salió perfecto. Atención excelente.</p>
+        <div class="testimonio-stars">★ ★ ★ ★ ★</div>
+        <div class="testimonio-autor">Comida de empresa</div>
+      </div>
+      <div class="testimonio fade-in delay-2">
+        <span class="testimonio-quote-mark italic">"</span>
+        <p class="testimonio-texto">Celebramos el cumple de mi madre y nos prepararon dos opciones increíbles.</p>
+        <div class="testimonio-stars">★ ★ ★ ★ ★</div>
+        <div class="testimonio-autor">Celebración familiar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- RESERVAS -->
+<section id="reservas">
+  <div class="container">
+    <div class="reservas-inner">
+      <div class="reservas-info fade-in">
+        <span class="label" style="color:var(--rojo);">Reserva fácil</span>
+        <div class="ornament" style="margin-left:0; margin-right:auto; max-width:140px;">
+          <span class="ornament-icon" style="color:var(--rojo);">✦</span>
+          <span class="ornament-line" style="background:var(--rojo);"></span>
+        </div>
+        <h2>¿Nos vemos <em class="italic">pronto?</em></h2>
+        <p>Rellena el formulario y te confirmamos la reserva. También puedes contactarnos directamente.</p>
+
+        <a href="tel:+34000000000" class="contacto-card">
+          <span class="contacto-card-icon">📞</span>
+          <div>
+            <div class="contacto-card-label">Llamar</div>
+            <div class="contacto-card-value">+34 000 000 000</div>
+          </div>
+        </a>
+
+        <a href="https://wa.me/XXXXXXXXXX" class="contacto-card">
+          <span class="contacto-card-icon">💬</span>
+          <div>
+            <div class="contacto-card-label">WhatsApp</div>
+            <div class="contacto-card-value">Escríbenos directamente</div>
+          </div>
+        </a>
+
+        <a href="#ubicacion" class="contacto-card">
+          <span class="contacto-card-icon">📍</span>
+          <div>
+            <div class="contacto-card-label">Dirección</div>
+            <div class="contacto-card-value">Carrer de Galileu, 173 · 08028 Barcelona</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="form-wrapper fade-in delay-1">
+        <div class="form-title">Solicitar reserva</div>
+        <p class="form-subtitle">— Mesa, presupuesto o evento privado —</p>
+
+        <form id="reserva-form">
+          <div class="form-group">
+            <label for="tipo">Tipo de solicitud</label>
+            <select id="tipo" name="tipo" required>
+              <option value="">— Selecciona —</option>
+              <option>Mesa para comer</option>
+              <option>Evento privado</option>
+              <option>Cumpleaños</option>
+              <option>Comida de empresa</option>
+              <option>Cena de grupo</option>
+              <option>Vermut de grupo</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha">Fecha</label>
+              <input type="date" id="fecha" name="fecha" required />
+            </div>
+            <div class="form-group">
+              <label for="hora">Hora</label>
+              <input type="time" id="hora" name="hora" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="personas">Nº de personas</label>
+              <input type="number" id="personas" name="personas" min="1" max="200" placeholder="Ej: 8" required />
+            </div>
+            <div class="form-group">
+              <label for="formato">Formato</label>
+              <select id="formato" name="formato">
+                <option value="">— Selecciona —</option>
+                <option>Menú del día</option>
+                <option>Menú cerrado para grupo</option>
+                <option>Tapeo y vermut</option>
+                <option>Propuesta a medida</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="presupuesto">Presupuesto por persona</label>
+            <select id="presupuesto" name="presupuesto">
+              <option value="">— Por definir —</option>
+              <option>13–20 € por persona</option>
+              <option>20–30 € por persona</option>
+              <option>+30 € por persona</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notas">Notas, alergias o preferencias</label>
+            <textarea id="notas" name="notas" placeholder="Cuéntanos lo que necesites: alergias, ocasión especial, peticiones..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Solicitar reserva</button>
+          <div class="form-mensaje" id="form-mensaje">
+            ✦ Pre-reserva generada. Confírmala por WhatsApp o llama al restaurante. ✦
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- UBICACIÓN -->
+<section id="ubicacion">
+  <div class="container">
+    <div class="ubic-inner">
+      <div class="ubic-info fade-in">
+        <span class="label">Encuéntranos</span>
+        <div class="ornament" style="margin-left:0; margin-right:auto; max-width:140px;">
+          <span class="ornament-icon">✦</span>
+          <span class="ornament-line"></span>
+        </div>
+        <h2>Estamos en Sants, <em>Barcelona</em></h2>
+        <p>En el barrio de toda la vida. Fácil llegar, fácil aparcar, fácil quedar.</p>
+
+        <div class="ubic-dato">
+          <span class="ubic-dato-icon">📍</span>
+          <div>
+            <div class="ubic-dato-label">Dirección</div>
+            <div class="ubic-dato-value">Carrer de Galileu, 173 · 08028 Barcelona</div>
+          </div>
+        </div>
+        <div class="ubic-dato">
+          <span class="ubic-dato-icon">🕗</span>
+          <div>
+            <div class="ubic-dato-label">Horario</div>
+            <div class="ubic-dato-value">Lunes a sábado · 08:00 – 17:00</div>
+          </div>
+        </div>
+        <div class="ubic-dato">
+          <span class="ubic-dato-icon">🚇</span>
+          <div>
+            <div class="ubic-dato-label">Transporte</div>
+            <div class="ubic-dato-value">Metro Plaça de Sants (L1, L5)</div>
+          </div>
+        </div>
+        <div class="ubic-dato">
+          <span class="ubic-dato-icon">📞</span>
+          <div>
+            <div class="ubic-dato-label">Reservas</div>
+            <div class="ubic-dato-value">+34 000 000 000</div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a href="https://maps.google.com/?q=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="btn btn-dorado">Cómo llegar</a>
+          <a href="tel:+34000000000" class="btn btn-outline">Llamar</a>
+        </div>
+      </div>
+
+      <div class="ubic-map fade-in delay-1">
+        <iframe
+          title="Mapa Restaurante O'Noso Sants Barcelona"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.8!2d2.1405!3d41.3760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498883b54f1c3%3A0x3eb66c2db9b3e4bb!2sCarrer%20de%20Galileu%2C%20173%2C%20Sants-Montju%C3%AFc%2C%2008028%20Barcelona!5e0!3m2!1ses!2ses!4v1"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <span class="ornament-mini italic">✦</span> O'<span>Noso</span>
+        </div>
+        <p class="footer-desc">
+          Restaurante de cocina de mercado en Sants, Barcelona. Menú diario, carnes, vinos, vermut y propuestas para grupos y eventos. Porque comer bien es siempre una buena razón para quedar.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"/></svg>
+          </a>
+          <a href="#" aria-label="Google Maps">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>El restaurante</h4>
+        <ul>
+          <li><a href="#experiencia">Nuestra cocina</a></li>
+          <li><a href="#menu">Menú del día</a></li>
+          <li><a href="#cocina">Carnes y vinos</a></li>
+          <li><a href="#eventos">Grupos y eventos</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#reservas">Reservas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horario</h4>
+        <ul>
+          <li class="horario-item"><span class="dia">Lunes</span><span class="hora">8 — 17h</span></li>
+          <li class="horario-item"><span class="dia">Martes</span><span class="hora">8 — 17h</span></li>
+          <li class="horario-item"><span class="dia">Miércoles</span><span class="hora">8 — 17h</span></li>
+          <li class="horario-item"><span class="dia">Jueves</span><span class="hora">8 — 17h</span></li>
+          <li class="horario-item"><span class="dia">Viernes</span><span class="hora">8 — 17h</span></li>
+          <li class="horario-item"><span class="dia">Sábado</span><span class="hora">8 — 17h</span></li>
+          <li class="horario-item"><span class="dia">Domingo</span><span class="hora">Cerrado</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>Carrer de Galileu, 173</li>
+          <li>08028 Barcelona</li>
+          <li><a href="tel:+34000000000">+34 000 000 000</a></li>
+          <li><a href="#reservas">Reservar mesa</a></li>
+          <li><a href="#eventos">Pedir presupuesto</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Restaurante O'Noso · Sants, Barcelona</p>
+      <p>— Hecho con cariño en Barcelona —</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- BARRA MÓVIL -->
+<div class="mobile-bar">
+  <div class="mobile-bar-inner">
+    <a href="tel:+34000000000" class="mobile-bar-btn mbb-llamar">
+      <span>📞</span> Llamar
+    </a>
+    <a href="https://wa.me/XXXXXXXXXX" class="mobile-bar-btn mbb-whatsapp">
+      <span>💬</span> WhatsApp
+    </a>
+    <a href="https://maps.google.com/?q=Carrer+de+Galileu+173+Barcelona" target="_blank" class="mobile-bar-btn mbb-llegar">
+      <span>📍</span> Llegar
+    </a>
+  </div>
+</div>
+
+
+<script>
+  // ── Page Loader ────────────────────────────────────────────
+  const loader = document.getElementById('page-loader');
+  window.addEventListener('load', () => {
+    setTimeout(() => loader.classList.add('hidden'), 600);
+  });
+  // Failsafe: ocultar tras 2.5s aunque no termine de cargar todo
+  setTimeout(() => loader.classList.add('hidden'), 2500);
+
+  // ── Parallax sutil del hero ────────────────────────────────
+  const hero = document.getElementById('hero');
+  const watermark = document.querySelector('.hero-watermark');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (hero && y < window.innerHeight) {
+          hero.style.backgroundPosition = `center ${50 + y * 0.05}%`;
+          if (watermark) watermark.style.transform = `translateX(${y * -0.15}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // ── Hamburger menú ─────────────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ── Formulario de reservas ─────────────────────────────────
+  const form = document.getElementById('reserva-form');
+  const msg  = document.getElementById('form-mensaje');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    msg.style.display = 'block';
+    form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+    form.querySelector('.form-submit').textContent = '✦ Solicitud enviada ✦';
+    form.querySelector('.form-submit').style.background = '#4caf50';
+    msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // ── Fade-in al hacer scroll ────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Header sombra al scroll ────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    header.style.boxShadow = window.scrollY > 60 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none';
+  });
+</script>
+
+</body>
+</html>
