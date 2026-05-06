@@ -1224,12 +1224,46 @@
     ============================================================ */
     #page-loader {
       position: fixed; inset: 0; z-index: 9999;
-      background: var(--negro);
+      background:
+        radial-gradient(circle at 50% 72%, rgba(139,26,26,0.22), transparent 28%),
+        radial-gradient(circle at 50% 35%, rgba(201,146,42,0.08), transparent 34%),
+        var(--negro);
       display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
       transition: opacity 0.8s ease, visibility 0.8s ease;
     }
     #page-loader.hidden { opacity: 0; visibility: hidden; }
+    #page-loader::before,
+    #page-loader::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 16%;
+      width: 58vmin;
+      height: 58vmin;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(30px);
+      opacity: 0.24;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(circle at 34% 62%, rgba(255,255,255,0.42), transparent 9%),
+        radial-gradient(circle at 55% 48%, rgba(255,255,255,0.28), transparent 13%),
+        radial-gradient(circle at 68% 68%, rgba(232,180,90,0.18), transparent 12%),
+        radial-gradient(circle at 46% 82%, rgba(255,255,255,0.2), transparent 16%);
+      animation: loaderSmoke 3.2s ease-in-out infinite;
+    }
+    #page-loader::after {
+      width: 74vmin;
+      height: 74vmin;
+      bottom: 10%;
+      opacity: 0.16;
+      filter: blur(44px);
+      animation: loaderSmokeWide 4.2s ease-in-out infinite;
+    }
     .loader-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
       animation: loaderPulse 1.6s ease-in-out infinite;
     }
@@ -1250,6 +1284,14 @@
       color: var(--dorado);
       margin-top: 1rem;
     }
+    .loader-status {
+      margin-top: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      font-style: italic;
+      color: rgba(255,249,240,0.9);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
     .loader-bar {
       width: 80px; height: 1px;
       background: linear-gradient(to right, transparent, var(--dorado), transparent);
@@ -1263,6 +1305,31 @@
     @keyframes loaderBar {
       0%, 100% { transform: scaleX(0.3); }
       50% { transform: scaleX(1); }
+    }
+    @keyframes loaderSmoke {
+      0% { transform: translate(-52%, 18px) scale(0.84) rotate(-5deg); opacity: 0.08; }
+      45% { opacity: 0.26; }
+      100% { transform: translate(-48%, -58px) scale(1.24) rotate(8deg); opacity: 0; }
+    }
+    @keyframes loaderSmokeWide {
+      0% { transform: translate(-48%, 28px) scale(0.78) rotate(6deg); opacity: 0.06; }
+      50% { opacity: 0.18; }
+      100% { transform: translate(-54%, -74px) scale(1.32) rotate(-7deg); opacity: 0; }
+    }
+
+    @media (max-width: 480px) {
+      #page-loader::before { width: 86vmin; height: 86vmin; bottom: 18%; filter: blur(24px); }
+      #page-loader::after { width: 100vmin; height: 100vmin; bottom: 12%; filter: blur(36px); }
+      .loader-status { font-size: 1.08rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #page-loader::before,
+      #page-loader::after,
+      .loader-content,
+      .loader-bar { animation: none; }
+      #page-loader::before { opacity: 0.16; }
+      #page-loader::after { opacity: 0.08; }
     }
 
     /* ============================================================
@@ -1624,6 +1691,7 @@
       O'<span>Noso</span>
     </div>
     <div class="loader-tagline">Sants · Barcelona</div>
+    <div class="loader-status">Encendiendo la parrilla…</div>
     <div class="loader-bar"></div>
   </div>
 </div>
@@ -2505,10 +2573,10 @@
   // ── Page Loader ────────────────────────────────────────────
   const loader = document.getElementById('page-loader');
   window.addEventListener('load', () => {
-    setTimeout(() => loader.classList.add('hidden'), 600);
+    setTimeout(() => loader.classList.add('hidden'), 1500);
   });
   // Failsafe: ocultar tras 2.5s aunque no termine de cargar todo
-  setTimeout(() => loader.classList.add('hidden'), 2500);
+  setTimeout(() => loader.classList.add('hidden'), 3500);
 
   // ── Parallax sutil del hero ────────────────────────────────
   const hero = document.getElementById('hero');
