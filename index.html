@@ -245,16 +245,40 @@
     ============================================================ */
     #hero {
       min-height: 100vh;
-      background:
-        linear-gradient(to right,
-          rgba(10,5,2,0.90) 0%,
-          rgba(15,7,3,0.76) 45%,
-          rgba(10,5,2,0.38) 100%),
-        url('assets/images/foto-paraheader.png') center center / contain no-repeat,
-        url('assets/images/foto-paraheader.png') center center / cover no-repeat;
+      background: var(--negro);
       display: flex; align-items: center;
       padding: 8rem 0 5rem;
       position: relative; overflow: hidden;
+    }
+    .hero-bg-photo {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+      background: var(--negro);
+    }
+    .hero-bg-photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-position: center center;
+    }
+    .hero-bg-blur {
+      object-fit: cover;
+      filter: blur(18px) brightness(0.52) saturate(0.92);
+      transform: scale(1.08);
+    }
+    .hero-bg-main {
+      object-fit: contain;
+      filter: brightness(0.78) saturate(1.02);
+    }
+    .hero-bg-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right,
+          rgba(10,5,2,0.92) 0%,
+          rgba(15,7,3,0.76) 45%,
+          rgba(10,5,2,0.40) 100%),
+        radial-gradient(ellipse at center, transparent 48%, rgba(0,0,0,0.48) 100%);
     }
     /* Detalle decorativo lateral */
     #hero::before {
@@ -1176,13 +1200,14 @@
       .nav-cta .lang-switcher { display: none; }
       .hamburger { display: flex; }
       .mobile-lang-switcher { display: flex; }
-      #hero {
+      .hero-bg-blur { filter: blur(16px) brightness(0.44) saturate(0.9); transform: scale(1.12); }
+      .hero-bg-main { object-fit: contain; object-position: center top; filter: brightness(0.68) saturate(1); }
+      .hero-bg-overlay {
         background:
           linear-gradient(to bottom,
             rgba(10,5,2,0.88) 0%,
-            rgba(10,5,2,0.76) 45%,
-            rgba(10,5,2,0.94) 100%),
-          url('assets/images/foto-paraheader.png') center center / cover no-repeat;
+            rgba(10,5,2,0.74) 45%,
+            rgba(10,5,2,0.94) 100%);
       }
       #hero .container { max-width: 100vw; overflow: hidden; }
       .hero-content,
@@ -1857,6 +1882,8 @@
         <button type="button" class="lang-btn" data-lang="en"><span class="flag flag-gb" aria-hidden="true"></span> EN</button>
         <button type="button" class="lang-btn" data-lang="fr"><span class="flag flag-fr" aria-hidden="true"></span> FR</button>
         <button type="button" class="lang-btn" data-lang="ca"><span class="flag flag-cat" aria-hidden="true"></span> CAT</button>
+        <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Ver web en chino">🇨🇳 <span>中文</span></button>
+        <button type="button" class="lang-btn" data-lang="pt" aria-label="Ver web en portugués">🇵🇹 <span>PT</span></button>
       </div>
       <a href="#reservas" class="btn btn-dorado">Reservar</a>
     </div>
@@ -1876,6 +1903,8 @@
       <button type="button" class="lang-btn" data-lang="en"><span class="flag flag-gb" aria-hidden="true"></span> EN</button>
       <button type="button" class="lang-btn" data-lang="fr"><span class="flag flag-fr" aria-hidden="true"></span> FR</button>
       <button type="button" class="lang-btn" data-lang="ca"><span class="flag flag-cat" aria-hidden="true"></span> CAT</button>
+      <button type="button" class="lang-btn" data-lang="zh-CN" aria-label="Ver web en chino">🇨🇳 <span>中文</span></button>
+      <button type="button" class="lang-btn" data-lang="pt" aria-label="Ver web en portugués">🇵🇹 <span>PT</span></button>
     </div>
   </nav>
 </header>
@@ -1883,6 +1912,11 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-bg-photo" aria-hidden="true">
+    <img class="hero-bg-blur" src="assets/images/foto-paraheader.png" alt="">
+    <img class="hero-bg-main" src="assets/images/foto-paraheader.png" alt="">
+    <div class="hero-bg-overlay"></div>
+  </div>
   <!-- Watermark editorial gigante -->
   <div class="hero-watermark">O'Noso</div>
 
@@ -2922,6 +2956,47 @@
     formTitle:'Sol·licitar reserva', formSubtitle:'— Taula, pressupost o esdeveniment privat —', formType:'Tipus de sol·licitud', select:'— Selecciona —', lunchTable:'Taula per dinar', privateEvent:'Esdeveniment privat', birthday:'Aniversari', companyMeal:'Dinar d’empresa', groupDinner:'Sopar de grup', groupVermut:'Vermut de grup', name:'Nom', phone:'Telèfon', date:'Data', time:'Hora', people:'Nre. de persones', format:'Format', closedMenu:'Menú tancat per a grup', tapas:'Tapes i vermut', customProposal:'Proposta a mida', budget:'Pressupost per persona', undefined:'— Per definir —', notes:'Notes, al·lèrgies o preferències', notesPh:'Explica’ns què necessites: al·lèrgies, ocasió especial, peticions...', formSubmit:'Sol·licitar reserva', formSent:'✦ Sol·licitud enviada ✦', formMsg:'✦ Sol·licitud rebuda. Confirma-la per WhatsApp o truca al restaurant per completar la reserva. ✦',
     findLabel:'Troba’ns', findTitle:'Som a Sants, <em>Barcelona</em>', findText:'Som al barri de Sants, una de les zones amb més vida de Barcelona. L’adreça exacta és Carrer de Galileu, 173, al costat de calle Madrid.', schedule:'Horari', transport:'Transport', bookings:'Reserves', openMaps:'📍 Obrir a Google Maps', howTitle:'Com arribar fàcilment', howText:'Sants és una zona àmplia, per això et donem una referència clara: som a <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173, al costat de calle Madrid</strong>. Metro Plaça de Sants (L1 i L5) a pocs minuts a peu.',
     footerDesc:"Restaurant de cuina de mercat a Sants, Barcelona. Menú diari, carns a la graella, arròs caldós els dijous, vins, vermut i propostes per a grups i esdeveniments.", footerRestaurant:'El restaurant', ourKitchen:'La nostra cuina', footerHours:'Horari', monday:'Dilluns', tuesday:'Dimarts', wednesday:'Dimecres', thursday:'Dijous', friday:'Divendres', saturday:'Dissabte', sunday:'Diumenge', closed:'Tancat', eventHours:'Esdeveniments i grups', eventHoursValue:'Fins a les 23:00 amb reserva prèvia', contact:'Contacte', streetRef:'Al costat de calle Madrid · 08028 Barcelona', made:'— Fet amb estima a Barcelona —', mobileArrive:'Arribar'
+  };
+  i18n.pt = { ...i18n.en,
+    navAbout:'Sobre nós', navMenu:'Carta', navEvents:'Eventos', navGallery:'Galeria', navBookings:'Reservas', navGroupsEvents:'Grupos e eventos', navDirections:'Como chegar', navBook:'Reservar',
+    loaderStatus:'A acender a grelha…', heroTitle:"Restaurante O'Noso <em>em Sants</em>", heroSub:'Cozinha espanhola, carnes grelhadas e vinhos selecionados no Carrer de Galileu, junto à calle Madrid.', heroDesc:'Um restaurante-bar com alma espanhola para desfrutar de menu diário, pratos regionais, arroz caldoso às quintas-feiras, vermute, convívio à mesa e propostas para almoços, jantares e grupos.',
+    heroBook:'Reservar mesa', heroDirections:'📍 Como chegar', heroBudget:'Pedir orçamento', heroWelcome:'Bem-vindo', heroDailyMenu:'Menu do dia', heroSchedule:'Horário', heroKitchen:'Cozinha', heroKitchenValue:'Grelha e mercado', heroGroups:'Grupos', heroGroupsValue:'À medida', discover:'Descobrir',
+    dataDaily:'Menu diário', dataGrill:'Carnes grelhadas', dataRice:'Arroz caldoso às quintas', dataWine:'Vinhos e vermute', dataGroups:'Grupos e eventos', dataLocation:'Galileu 173 junto à calle Madrid',
+    marketKitchen:'Cozinha de mercado', winesVermut:'Vinhos e vermute', menuDayPrice:'Menu do dia — 13€', spanishKitchenSants:'Cozinha espanhola · Sants',
+    aboutLabel:'Sobre nós', aboutTitle:'Um restaurante-bar com <em class="gold italic">alma espanhola em Sants</em>', aboutQuote:"Situado no emblemático Carrer de Galileu, no bairro de Sants, O'Noso é um restaurante-bar pensado para desfrutar da cozinha espanhola num ambiente acolhedor e próximo.",
+    aboutP1:'A nossa proposta combina pratos regionais, cozinha de mercado, vinhos selecionados e um serviço atento para que cada visita seja agradável.', aboutP2:"Com decoração vintage moderna e detalhes inspirados na gastronomia espanhola, O'Noso convida a partilhar boa comida, bom vinho e bons momentos.",
+    exp1Title:'Cozinha espanhola', exp1Text:'Pratos regionais, receitas de sempre e sabores autênticos com produto fresco.', exp2Title:'Vinhos selecionados', exp2Text:'Uma carta de vinhos cuidada para acompanhar cada prato, do vermute ao copo de sobremesa.', exp3Title:'Ambiente vintage moderno', exp3Text:'Uma decoração acolhedora com detalhes inspirados na gastronomia espanhola.', exp4Title:'Serviço personalizado', exp4Text:"Atendimento próximo e de confiança. No O'Noso, cada mesa e cada evento recebem toda a dedicação.", exp5Title:'Cozinha de mercado e autor', exp5Text:'Compramos todos os dias o que o mercado oferece. Temporada, produto e técnica dão carácter ao menu.', exp6Title:'Para cada ocasião', exp6Text:"Menu diário, refeição de fim de semana, vermute com amigos ou celebração em grupo. O'Noso adapta-se a si.",
+    menuLabel:'De segunda a sábado', menuTitle:'A carta do dia', menuOnly:'Só', menuPer:'por pessoa', menuIncludes:'Primeiro <span>·</span> Segundo <span>·</span> Sobremesa <span>·</span> Bebida <span>·</span> Café',
+    menuFirst:'Primeiros', dish1:'Salada de três queijos', dish2:'Legumes da época', dish3:'Arroz caldoso de marisco', dish4:'Canelones gratinados', menuSecond:'Segundos', dish5:'Entrecôte de vitela', dish6:'Frango grelhado', dish7:'Bacalhau à llauna', dish8:'Pescada à romana', menuEnd:'Para terminar', dish9:'Sobremesa caseira do dia', dish10:'Café simples ou com leite', dish11:'Copo de vinho da casa', dish12:'Água, refrigerante ou cerveja',
+    thursdayTitle:'Especialidade das quintas-feiras', thursdayText:"Às quintas, arroz caldoso: uma das especialidades do O'Noso para quem procura um prato saboroso, de colher e com sabor a cozinha de verdade.", menuNote:'— O menu muda todos os dias segundo o mercado e a época —', consultMenu:'💬 Consultar o menu de hoje',
+    kitchenLabel:'Para comer bem', kitchenTitle:'Carnes grelhadas, <em>vinhos e arroz caldoso às quintas</em>', kitchenP1:'Uma cozinha espanhola simples, saborosa e bem apresentada, com carnes grelhadas, vinhos selecionados, vermute e pratos de temporada.', kitchenP2:'Trabalhamos carnes grelhadas e pratos saborosos preparados com produto de qualidade, pensados para desfrutar com vinho, vermute ou uma boa conversa à mesa.', kitchenQuote:'"Produto de qualidade, bom vinho e o ambiente de sempre."', freshFish:'Peixe fresco', appetizer:'Vermute e aperitivo', regionalDishes:'Pratos regionais', kitchenMarketLabel:'Cozinha de mercado', barAfter:'Barra e convívio',
+    eventsLabel:'Para si e os seus', eventsTitle:'Almoços, jantares e eventos <em>à sua medida</em>', eventsText:'Organizamos almoços, jantares e eventos com propostas adaptadas: refeições familiares, jantares privados, eventos de empresa, menus fechados, celebrações e petiscos de grupo. Conte-nos o que precisa e prepararemos <strong style="color:var(--dorado-claro);">duas opções</strong>.', event1Title:'Refeições familiares', event1Text:'Aniversários, reuniões e mesas longas com menu fechado adaptado a todos os gostos.', event2Title:'Jantares de grupo', event2Text:'Uma proposta acolhedora para desfrutar de boa comida, vinho e convívio com amigos ou família.', event3Title:'Eventos de empresa', event3Text:'Almoços de equipa, encontros informais e reuniões com menu fechado adaptado.', event4Title:'Propostas temáticas', event4Text:'Adaptamos o formato: petiscos, menu fechado, vinhos, vermute ou proposta especial.', proposalQuote:'— Sem compromisso, com toda a nossa atenção —', proposalTitle:'Tem um evento em mente?', proposalText:'Conte-nos o que precisa e preparamos <strong>duas opções de proposta</strong> para que tudo seja um sucesso.', proposalNote:'Horário alargado para eventos: das 08:00 às 23:00 sujeito a disponibilidade e reserva prévia.', consultAvailability:'💬 Consultar disponibilidade',
+    galleryLabel:'O que se vive aqui', galleryTitle:"Assim se vive O'Noso", galleryText:'Ambiente, cozinha e detalhes que convidam a voltar. Um espaço acolhedor onde a luz, a mesa, os pratos e o vinho fazem parte da experiência.', galleryFacade:'Fachada · Carrer de Galileu, 173', galleryBar:'O bar', galleryTable:'Mesa preparada', galleryServed:'A mesa servida', galleryMeat:'Carnes', galleryProduct:'Produto de mercado', galleryGroup:'Ambiente de grupo',
+    testimonialsLabel:'O que dizem', testimonialsTitle:'Da mesa <em>ao coração</em>', t1:'Atendimento próximo, comida caseira e preços honestos. Volto sempre que posso.', t1a:'Cliente habitual · <em style="font-size:0.7rem; opacity:0.6;">pendente de confirmação</em>', t2:'Fizemos um almoço de empresa e correu tudo perfeitamente.', t2a:'Almoço de empresa · <em style="font-size:0.7rem; opacity:0.6;">pendente de confirmação</em>', t3:'Celebrámos o aniversário da minha mãe e prepararam duas opções incríveis.', t3a:'Celebração familiar · <em style="font-size:0.7rem; opacity:0.6;">pendente de confirmação</em>',
+    bookingLabel:'Reserva fácil', bookingTitle:'Vemo-nos <em class="italic">em breve?</em>', bookingText:'Preencha o formulário e confirmaremos a reserva. Também pode contactar-nos diretamente.', call:'Ligar', writeDirect:'Escreva-nos diretamente', address:'Morada',
+    formTitle:'Solicitar reserva', formSubtitle:'— Mesa, orçamento ou evento privado —', formType:'Tipo de pedido', select:'— Selecionar —', lunchTable:'Mesa para almoçar', privateEvent:'Evento privado', birthday:'Aniversário', companyMeal:'Almoço de empresa', groupDinner:'Jantar de grupo', groupVermut:'Vermute de grupo', name:'Nome', phone:'Telefone', date:'Data', time:'Hora', people:'N.º de pessoas', format:'Formato', closedMenu:'Menu fechado para grupo', tapas:'Petiscos e vermute', customProposal:'Proposta à medida', budget:'Orçamento por pessoa', undefined:'— A definir —', notes:'Notas, alergias ou preferências', notesPh:'Conte-nos o que precisa: alergias, ocasião especial, pedidos...', formSubmit:'Solicitar reserva', formSent:'✦ Pedido enviado ✦', formMsg:'✦ Pedido recebido. Confirme por WhatsApp ou ligue ao restaurante para completar a reserva. ✦',
+    findLabel:'Encontre-nos', findTitle:'Estamos em Sants, <em>Barcelona</em>', findText:'Estamos no bairro de Sants, uma das zonas mais vivas de Barcelona. A morada exata é Carrer de Galileu, 173, junto à calle Madrid.', schedule:'Horário', transport:'Transporte', bookings:'Reservas', openMaps:'📍 Abrir no Google Maps', howTitle:'Como chegar facilmente', howText:'Sants é uma zona ampla; por isso damos uma referência clara: estamos em <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173, junto à calle Madrid</strong>. Metro Plaça de Sants (L1 e L5) a poucos minutos a pé.',
+    footerDesc:"Restaurante de cozinha de mercado em Sants, Barcelona. Menu diário, carnes grelhadas, arroz caldoso às quintas, vinhos, vermute e propostas para grupos e eventos.", footerRestaurant:'O restaurante', ourKitchen:'A nossa cozinha', footerHours:'Horário', monday:'Segunda', tuesday:'Terça', wednesday:'Quarta', thursday:'Quinta', friday:'Sexta', saturday:'Sábado', sunday:'Domingo', closed:'Fechado', eventHours:'Eventos e grupos', eventHoursValue:'Até às 23:00 com reserva prévia', contact:'Contacto', streetRef:'Junto à calle Madrid · 08028 Barcelona', made:'— Feito com carinho em Barcelona —', mobileArrive:'Chegar'
+  };
+  i18n['zh-CN'] = { ...i18n.en,
+    navAbout:'关于我们', navMenu:'菜单', navEvents:'活动', navGallery:'图库', navBookings:'预订', navGroupsEvents:'团体与活动', navDirections:'如何到达', navBook:'预订',
+    loaderStatus:'正在点燃烤炉…', heroTitle:"Restaurante O'Noso <em>在 Sants</em>", heroSub:'位于 Carrer de Galileu、靠近 calle Madrid 的西班牙料理、炭烤肉类与精选葡萄酒。', heroDesc:'一家充满西班牙灵魂的餐吧，可享用每日菜单、地区菜、周四汤汁米饭、苦艾酒、餐后闲谈，以及午餐、晚餐和团体方案。',
+    heroBook:'预订餐桌', heroDirections:'📍 如何到达', heroBudget:'索取方案', heroWelcome:'欢迎', heroDailyMenu:'每日菜单', heroSchedule:'营业时间', heroKitchen:'料理', heroKitchenValue:'烤炉与市场', heroGroups:'团体', heroGroupsValue:'定制', discover:'探索',
+    dataDaily:'每日菜单', dataGrill:'炭烤肉类', dataRice:'周四汤汁米饭', dataWine:'葡萄酒与苦艾酒', dataGroups:'团体与活动', dataLocation:'Galileu 173，靠近 calle Madrid',
+    marketKitchen:'市场料理', winesVermut:'葡萄酒与苦艾酒', menuDayPrice:'每日菜单 — 13€', spanishKitchenSants:'西班牙料理 · Sants',
+    aboutLabel:'关于我们', aboutTitle:'一家在 Sants 拥有<em class="gold italic">西班牙灵魂</em>的餐吧', aboutQuote:"O'Noso 位于 Sants 区标志性的 Carrer de Galileu，是一家适合在温暖亲切氛围中享受西班牙料理的餐吧。", aboutP1:'我们的菜品结合地区风味、市场料理、精选葡萄酒和细致服务，让每次到访都舒适愉快。', aboutP2:"现代复古装饰与西班牙美食细节，让 O'Noso 成为分享美食、美酒和好时光的地方。",
+    exp1Title:'西班牙料理', exp1Text:'地区菜、经典食谱和真实风味，注重新鲜食材与细节。', exp2Title:'精选葡萄酒', exp2Text:'精心挑选的酒单，从开胃苦艾酒到餐后杯酒都能搭配菜品。', exp3Title:'现代复古氛围', exp3Text:'温暖的装饰融合西班牙美食灵感，是一个可以慢慢享用美食的空间。', exp4Title:'个性化服务', exp4Text:"亲切可靠的服务。O'Noso 用心对待每一桌和每一场活动。", exp5Title:'市场与创意料理', exp5Text:'我们每天选购市场食材，以季节、产品和技巧塑造菜单风味。', exp6Title:'适合各种场合', exp6Text:"每日菜单、周末聚餐、朋友苦艾酒或团体庆祝，O'Noso 都可定制方案。",
+    menuLabel:'周一至周六', menuTitle:'每日菜单', menuOnly:'仅', menuPer:'每人', menuIncludes:'前菜 <span>·</span> 主菜 <span>·</span> 甜点 <span>·</span> 饮品 <span>·</span> 咖啡',
+    menuFirst:'前菜', dish1:'三种奶酪沙拉', dish2:'时令蔬菜', dish3:'海鲜汤汁米饭', dish4:'焗烤意式卷', menuSecond:'主菜', dish5:'牛排', dish6:'炭烤鸡', dish7:'Bacalao a la llauna', dish8:'罗马式鳕鱼', menuEnd:'收尾', dish9:'每日自制甜点', dish10:'黑咖啡或牛奶咖啡', dish11:'店酒一杯', dish12:'水、软饮或啤酒',
+    thursdayTitle:'周四特色', thursdayText:"周四供应汤汁米饭：O'Noso 的特色之一，适合想品尝浓郁、热乎、真正家常风味的人。", menuNote:'— 菜单会根据市场和季节每日调整 —', consultMenu:'💬 咨询今日菜单',
+    kitchenLabel:'好好用餐', kitchenTitle:'炭烤肉类、<em>葡萄酒和周四汤汁米饭</em>', kitchenP1:'简单、美味且精致的西班牙料理，有炭烤肉类、精选葡萄酒、苦艾酒和时令菜。周四汤汁米饭是本店特色。', kitchenP2:'我们用优质食材制作炭烤肉类和美味菜肴，适合搭配葡萄酒、苦艾酒或悠闲餐后时光。', kitchenQuote:'"优质食材、好酒和一如既往的氛围。"', freshFish:'新鲜鱼类', appetizer:'苦艾酒与开胃小食', regionalDishes:'地区菜', kitchenMarketLabel:'市场料理', barAfter:'吧台与餐后时光',
+    eventsLabel:'为你和亲友', eventsTitle:'午餐、晚餐和活动<em>为你定制</em>', eventsText:'我们可举办家庭聚餐、私人晚餐、企业活动、固定菜单、庆祝和团体小吃。告诉我们需求，我们会准备 <strong style="color:var(--dorado-claro);">两个方案</strong> 供你选择。', event1Title:'家庭聚餐', event1Text:'生日、纪念日、聚会和长桌菜单，可适应不同口味。', event2Title:'团体晚餐', event2Text:'与朋友或家人享用美食、葡萄酒和餐后时光的温暖方案。', event3Title:'企业活动', event3Text:'团队午餐、非正式聚会、告别会和会议，可定制固定菜单。', event4Title:'主题方案', event4Text:'可调整为小吃、固定菜单、葡萄酒、苦艾酒或特别方案。', proposalQuote:'— 无需承诺，我们会认真准备 —', proposalTitle:'你有活动想法吗？', proposalText:'告诉我们需求，我们会准备 <strong>两个方案</strong>，让活动顺利成功。', proposalNote:'活动延长时间：08:00 至 23:00，视可用情况并需提前预订。', consultAvailability:'💬 咨询可用时间',
+    galleryLabel:'这里的体验', galleryTitle:"O'Noso 的氛围", galleryText:'氛围、料理与细节让人想再次到访。灯光、餐桌、菜品和葡萄酒共同构成体验。', galleryFacade:'门面 · Carrer de Galileu, 173', galleryBar:'吧台', galleryTable:'摆好的餐桌', galleryServed:'上菜的餐桌', galleryMeat:'肉类', galleryProduct:'市场食材', galleryGroup:'团体氛围',
+    testimonialsLabel:'顾客评价', testimonialsTitle:'从餐桌<em>到心里</em>', t1:'服务亲切，家常菜好吃，价格实在。我会常来。', t1a:'常客 · <em style="font-size:0.7rem; opacity:0.6;">待确认</em>', t2:'我们举办了公司午餐，一切都很顺利。服务很棒。', t2a:'公司午餐 · <em style="font-size:0.7rem; opacity:0.6;">待确认</em>', t3:'我们庆祝了妈妈的生日，他们准备了两个很棒的方案。', t3a:'家庭庆祝 · <em style="font-size:0.7rem; opacity:0.6;">待确认</em>',
+    bookingLabel:'轻松预订', bookingTitle:'很快见面<em class="italic">好吗？</em>', bookingText:'填写表单，我们会确认预订。你也可以直接联系我们。', call:'致电', writeDirect:'直接给我们留言', address:'地址',
+    formTitle:'申请预订', formSubtitle:'— 餐桌、方案或私人活动 —', formType:'申请类型', select:'— 请选择 —', lunchTable:'午餐餐桌', privateEvent:'私人活动', birthday:'生日', companyMeal:'公司午餐', groupDinner:'团体晚餐', groupVermut:'团体苦艾酒', name:'姓名', phone:'电话', date:'日期', time:'时间', people:'人数', format:'形式', closedMenu:'团体固定菜单', tapas:'小吃与苦艾酒', customProposal:'定制方案', budget:'每人预算', undefined:'— 待定 —', notes:'备注、过敏或偏好', notesPh:'告诉我们你的需求：过敏、特殊场合、请求...', formSubmit:'申请预订', formSent:'✦ 申请已发送 ✦', formMsg:'✦ 已收到申请。请通过 WhatsApp 或电话确认预订。 ✦',
+    findLabel:'找到我们', findTitle:'我们在 Sants, <em>Barcelona</em>', findText:'我们位于 Barcelona 充满活力的 Sants 区。具体地址是 Carrer de Galileu, 173，靠近 calle Madrid。', schedule:'营业时间', transport:'交通', bookings:'预订', openMaps:'📍 在 Google Maps 打开', howTitle:'如何轻松到达', howText:'Sants 区域较大，清晰地说：我们在 <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173，靠近 calle Madrid</strong>。Plaça de Sants 地铁站（L1 和 L5）步行几分钟即可到达。',
+    footerDesc:"位于 Sants, Barcelona 的市场料理餐厅。每日菜单、炭烤肉类、周四汤汁米饭、葡萄酒、苦艾酒，以及团体和活动方案。", footerRestaurant:'餐厅', ourKitchen:'我们的料理', footerHours:'营业时间', monday:'周一', tuesday:'周二', wednesday:'周三', thursday:'周四', friday:'周五', saturday:'周六', sunday:'周日', closed:'休息', eventHours:'活动与团体', eventHoursValue:'提前预订可至 23:00', contact:'联系', streetRef:'靠近 calle Madrid · 08028 Barcelona', made:'— 用心制作于 Barcelona —', mobileArrive:'到达'
   };
 
   const i18nBindings = [
