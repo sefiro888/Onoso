@@ -248,10 +248,10 @@
       background:
         linear-gradient(to right,
           rgba(10,5,2,0.90) 0%,
-          rgba(15,7,3,0.78) 40%,
-          rgba(10,5,2,0.40) 75%,
-          rgba(10,5,2,0.20) 100%),
-        url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1800&q=90') center/cover no-repeat;
+          rgba(15,7,3,0.76) 45%,
+          rgba(10,5,2,0.38) 100%),
+        url('assets/images/foto-paraheader.png') center center / contain no-repeat,
+        url('assets/images/foto-paraheader.png') center center / cover no-repeat;
       display: flex; align-items: center;
       padding: 8rem 0 5rem;
       position: relative; overflow: hidden;
@@ -1759,6 +1759,29 @@
       .galeria-onoso-item:nth-child(1),
       .galeria-onoso-item:nth-child(10) { grid-column: 1; }
     }
+    .galeria-fachada-real {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+    .galeria-fachada-real img {
+      object-fit: cover;
+      object-position: center;
+    }
+    @media (max-width: 900px) {
+      .galeria-fachada-real {
+        grid-column: 1;
+        grid-row: 1 / 3;
+      }
+    }
+    @media (max-width: 480px) {
+      .galeria-onoso-grid {
+        grid-template-rows: 420px repeat(9, 200px);
+      }
+      .galeria-fachada-real {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
 
     /* ============================================================
        UBICACIÓN — BLOQUE "CÓMO LLEGAR FÁCILMENTE"
@@ -2265,12 +2288,11 @@
     <div class="galeria-onoso-grid fade-in delay-1">
 
       <!-- FOTO 1: Fachada — TODO: sustituir por foto real de la fachada del restaurante -->
-      <div class="galeria-onoso-item">
+      <div class="galeria-onoso-item galeria-fachada-real">
         <img
           src="assets/images/fachada-onoso.png"
           alt="Fachada del Restaurante O'Noso en Carrer de Galileu, 173, Sants Barcelona"
-          loading="lazy" decoding="async"
-          style="object-fit: contain; object-position: center; background: var(--negro);" />
+          loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Fachada · Carrer de Galileu, 173</div>
       </div>
 
