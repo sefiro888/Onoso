@@ -159,6 +159,55 @@
     .nav-links a:hover::after { transform: scaleX(1); }
 
     .nav-cta { display: flex; gap: 0.75rem; align-items: center; }
+    .lang-switcher {
+      display: flex; align-items: center; gap: 0.25rem;
+    }
+    .lang-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem;
+      min-width: 2.65rem; height: 2rem; padding: 0 0.45rem;
+      border: 1px solid rgba(201,146,42,0.25);
+      border-radius: 999px;
+      background: rgba(255,249,240,0.04);
+      color: var(--crema);
+      font-family: 'Marcellus', serif;
+      font-size: 0.68rem; letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      border-color: rgba(232,180,90,0.8);
+      background: rgba(201,146,42,0.16);
+      color: var(--dorado-claro);
+    }
+    .flag {
+      width: 1rem; height: 0.68rem; display: inline-block;
+      border-radius: 1px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.25) inset;
+      flex: 0 0 auto;
+    }
+    .flag-es {
+      background: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%);
+    }
+    .flag-fr {
+      background: linear-gradient(to right, #002395 0 33.33%, #fff 33.33% 66.66%, #ed2939 66.66% 100%);
+    }
+    .flag-gb {
+      background:
+        linear-gradient(27deg, transparent 44%, #fff 44% 50%, #c8102e 50% 55%, #fff 55% 61%, transparent 61%),
+        linear-gradient(153deg, transparent 44%, #fff 44% 50%, #c8102e 50% 55%, #fff 55% 61%, transparent 61%),
+        linear-gradient(to right, transparent 42%, #fff 42% 58%, transparent 58%),
+        linear-gradient(to bottom, transparent 36%, #fff 36% 64%, transparent 64%),
+        linear-gradient(to right, transparent 46%, #c8102e 46% 54%, transparent 54%),
+        linear-gradient(to bottom, transparent 42%, #c8102e 42% 58%, transparent 58%),
+        #012169;
+    }
+    .flag-cat {
+      background: repeating-linear-gradient(
+        to bottom,
+        #f4d238 0 14.28%,
+        #b91f1f 14.28% 28.56%
+      );
+    }
 
     .hamburger {
       display: none; flex-direction: column; gap: 5px;
@@ -184,6 +233,12 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .mobile-menu a:hover { color: var(--dorado-claro); }
+    .mobile-lang-switcher {
+      display: none;
+      padding-top: 0.85rem;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
 
     /* ============================================================
        HERO — LAYOUT EDITORIAL SPLIT
@@ -1118,7 +1173,9 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-cta .btn { display: none; }
+      .nav-cta .lang-switcher { display: none; }
       .hamburger { display: flex; }
+      .mobile-lang-switcher { display: flex; }
       #hero .container { max-width: 100vw; overflow: hidden; }
       .hero-content,
       .hero-card { width: calc(100vw - 3rem); max-width: calc(100vw - 3rem); min-width: 0; }
@@ -1764,6 +1821,12 @@
       <li><a href="#reservas">Reservas</a></li>
     </ul>
     <div class="nav-cta">
+      <div class="lang-switcher" aria-label="Selector de idioma">
+        <button type="button" class="lang-btn" data-lang="es"><span class="flag flag-es" aria-hidden="true"></span> ES</button>
+        <button type="button" class="lang-btn" data-lang="en"><span class="flag flag-gb" aria-hidden="true"></span> EN</button>
+        <button type="button" class="lang-btn" data-lang="fr"><span class="flag flag-fr" aria-hidden="true"></span> FR</button>
+        <button type="button" class="lang-btn" data-lang="ca"><span class="flag flag-cat" aria-hidden="true"></span> CAT</button>
+      </div>
       <a href="#reservas" class="btn btn-dorado">Reservar</a>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu">
@@ -1777,6 +1840,12 @@
     <a href="#galeria">Galería</a>
     <a href="#reservas">Reservas</a>
     <a href="#ubicacion">Cómo llegar</a>
+    <div class="mobile-lang-switcher lang-switcher" aria-label="Selector de idioma móvil">
+      <button type="button" class="lang-btn" data-lang="es"><span class="flag flag-es" aria-hidden="true"></span> ES</button>
+      <button type="button" class="lang-btn" data-lang="en"><span class="flag flag-gb" aria-hidden="true"></span> EN</button>
+      <button type="button" class="lang-btn" data-lang="fr"><span class="flag flag-fr" aria-hidden="true"></span> FR</button>
+      <button type="button" class="lang-btn" data-lang="ca"><span class="flag flag-cat" aria-hidden="true"></span> CAT</button>
+    </div>
   </nav>
 </header>
 
@@ -2198,9 +2267,10 @@
       <!-- FOTO 1: Fachada — TODO: sustituir por foto real de la fachada del restaurante -->
       <div class="galeria-onoso-item">
         <img
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=85"
-          alt="Fachada del Restaurante O'Noso en Carrer de Galileu, Sants Barcelona"
-          loading="lazy" decoding="async" />
+          src="assets/images/fachada-onoso.png"
+          alt="Fachada del Restaurante O'Noso en Carrer de Galileu, 173, Sants Barcelona"
+          loading="lazy" decoding="async"
+          style="object-fit: contain; object-position: center; background: var(--negro);" />
         <div class="galeria-onoso-label">Fachada · Carrer de Galileu, 173</div>
       </div>
 
@@ -2622,6 +2692,264 @@
 
 
 <script>
+  // ── Idiomas ────────────────────────────────────────────────
+  const i18n = {
+    es: {
+      navAbout: 'Nosotros', navMenu: 'Carta', navEvents: 'Eventos', navGallery: 'Galería', navBookings: 'Reservas',
+      navGroupsEvents: 'Grupos & Eventos', navDirections: 'Cómo llegar', navBook: 'Reservar',
+      loaderStatus: 'Encendiendo la parrilla…',
+      heroTitle: "Restaurante O'Noso <em>en Sants</em>",
+      heroSub: 'Cocina española, carnes a la parrilla y vinos seleccionados en Carrer de Galileu, junto a calle Madrid.',
+      heroDesc: 'Un restaurante-bar con alma española donde disfrutar de menú diario, platos regionales, arroz caldoso los jueves, vermut, sobremesa y propuestas para comidas, cenas y grupos.',
+      heroBook: 'Reservar mesa', heroDirections: '📍 Cómo llegar', heroBudget: 'Pedir presupuesto',
+      heroWelcome: 'Bienvenido', heroDailyMenu: 'Menú del día', heroSchedule: 'Horario', heroKitchen: 'Cocina',
+      heroKitchenValue: 'Parrilla y mercado', heroGroups: 'Grupos', heroGroupsValue: 'A medida', discover: 'Descubre',
+      dataDaily: 'Menú diario', dataGrill: 'Carnes a la parrilla', dataRice: 'Arroz caldoso los jueves',
+      dataWine: 'Vinos y vermut', dataGroups: 'Grupos y eventos', dataLocation: 'Galileu 173 junto a calle Madrid',
+      marketKitchen: 'Cocina de mercado', winesVermut: 'Vinos y vermut', menuDayPrice: 'Menú del día — 13€',
+      spanishKitchenSants: 'Cocina española · Sants',
+      aboutLabel: 'Sobre nosotros',
+      aboutTitle: 'Un restaurante-bar con <em class="gold italic">alma española en Sants</em>',
+      aboutQuote: "Situado en la emblemática calle Galileu, en el barrio de Sants, O'Noso es un restaurante-bar pensado para disfrutar de la cocina española en un ambiente cálido, cercano y con personalidad.",
+      aboutP1: 'Nuestra propuesta combina platos regionales, cocina de mercado, vinos seleccionados y un servicio atento para que cada visita sea una experiencia agradable, tanto si vienes a comer entre semana como si quieres celebrar una ocasión especial.',
+      aboutP2: "Con una decoración de estilo vintage moderno y detalles inspirados en la gastronomía española, O'Noso invita a recorrer los sabores de España desde la mesa: buena comida, buen vino y un ambiente pensado para compartir.",
+      exp1Title: 'Cocina española', exp1Text: 'Platos regionales, recetas de siempre y sabores auténticos. Una propuesta que viaja por la gastronomía española con producto fresco y mimo en cada detalle.',
+      exp2Title: 'Vinos seleccionados', exp2Text: 'Carta de vinos cuidada y bien elegida para acompañar cada plato. Desde el vermut del aperitivo hasta la copa de sobremesa, siempre con criterio.',
+      exp3Title: 'Ambiente vintage moderno', exp3Text: 'Una decoración cálida con detalles inspirados en la gastronomía española. Un espacio donde se está bien, se come bien y las horas pasan sin prisa.',
+      exp4Title: 'Servicio personalizado', exp4Text: "Atención cercana y de confianza. En O'Noso cada mesa recibe el trato que merece, y cada evento se organiza con la misma dedicación que pondríamos en el nuestro.",
+      exp5Title: 'Cocina de mercado y autor', exp5Text: 'Compramos cada día lo que ofrece el mercado. Temporada, producto y técnica se combinan para que el menú tenga siempre sabor propio y razón de ser.',
+      exp6Title: 'Para cada ocasión', exp6Text: "Menú diario entre semana, comida especial el finde, vermut con amigos o celebración con tu grupo. O'Noso se adapta a ti con propuestas a medida.",
+      menuLabel: 'De lunes a sábado', menuTitle: 'La carta del día', menuOnly: 'Solo', menuPer: 'por persona',
+      menuIncludes: 'Primero <span>·</span> Segundo <span>·</span> Postre <span>·</span> Bebida <span>·</span> Café',
+      menuFirst: 'Primeros', dish1: 'Ensalada de tres quesos', dish2: 'Verduras de temporada', dish3: 'Arroz caldoso de marisco', dish4: 'Canelones gratinados',
+      menuSecond: 'Segundos', dish5: 'Entrecot de ternera', dish6: 'Pollo a la brasa', dish7: 'Bacalao a la llauna', dish8: 'Merluza a la romana',
+      menuEnd: 'Para terminar', dish9: 'Postre casero del día', dish10: 'Café solo o con leche', dish11: 'Copa de vino de la casa', dish12: 'Agua, refresco o cerveza',
+      thursdayTitle: 'Especialidad de los jueves',
+      thursdayText: "Los jueves, arroz caldoso: una de las especialidades de O'Noso para quienes buscan un plato sabroso, de cuchara y con sabor a cocina de verdad.",
+      menuNote: '— El menú cambia cada día según el mercado y la temporada —', consultMenu: '💬 Consultar menú de hoy',
+      kitchenLabel: 'Para comer bien',
+      kitchenTitle: 'Carnes a la parrilla, <em>vinos y arroz caldoso los jueves</em>',
+      kitchenP1: 'Una cocina española sencilla, sabrosa y bien presentada, con carnes a la parrilla, vinos seleccionados, vermut y platos de temporada. Los jueves, el arroz caldoso se convierte en una de las especialidades de la casa.',
+      kitchenP2: 'Trabajamos carnes a la parrilla y platos sabrosos preparados con producto de calidad, pensados para disfrutar con vino, vermut o una buena sobremesa.',
+      kitchenQuote: '"Producto de calidad, buen vino y el ambiente de siempre."',
+      freshFish: 'Pescado fresco', appetizer: 'Vermut y aperitivo', regionalDishes: 'Platos regionales',
+      kitchenMarketLabel: 'Cocina de mercado', barAfter: 'Barra & sobremesa',
+      eventsLabel: 'Para ti y los tuyos',
+      eventsTitle: 'Comidas, cenas y eventos <em>a tu medida</em>',
+      eventsText: 'Organizamos comidas, cenas y eventos con propuestas adaptadas a tus preferencias: comidas familiares, cenas privadas, eventos de empresa, menús cerrados, celebraciones y tapeo de grupo. Cuéntanos qué necesitas y te prepararemos <strong style="color:var(--dorado-claro);">dos opciones</strong> para que elijas la que mejor encaje contigo y todo sea un éxito.',
+      event1Title: 'Comidas familiares', event1Text: 'Cumpleaños, aniversarios, reuniones y mesas largas con menú cerrado adaptado a todos los gustos.',
+      event2Title: 'Cenas de grupo', event2Text: 'Una propuesta cálida para disfrutar de buena comida, vino y sobremesa con amigos o familia.',
+      event3Title: 'Eventos de empresa', event3Text: 'Comidas de equipo, encuentros informales, despedidas y reuniones con menú cerrado adaptado.',
+      event4Title: 'Propuestas temáticas', event4Text: 'Adaptamos el formato a tus preferencias: tapeo, menú cerrado, vinos, vermut o propuesta especial.',
+      proposalQuote: '— Sin compromiso, con toda nuestra atención —', proposalTitle: '¿Tienes un evento en mente?',
+      proposalText: 'Cuéntanos qué necesitas y te preparamos <strong>dos opciones de propuesta</strong> para que todo sea un éxito. Atendemos cada celebración como si fuera la nuestra.',
+      proposalNote: 'Horario ampliado para eventos: de 08:00 a 23:00 bajo disponibilidad y reserva previa.',
+      consultAvailability: '💬 Consultar disponibilidad',
+      galleryLabel: 'Lo que se vive aquí', galleryTitle: "Así se vive O'Noso",
+      galleryText: 'Ambiente, cocina y detalles que invitan a volver. Un espacio cálido y acogedor donde la luz, la mesa, los platos y el vino forman parte de la experiencia.',
+      galleryFacade: 'Fachada · Carrer de Galileu, 173', galleryBar: 'La barra', galleryTable: 'Mesa preparada', galleryServed: 'La mesa servida', galleryMeat: 'Carnes', galleryProduct: 'Producto de mercado', galleryGroup: 'Ambiente de grupo',
+      testimonialsLabel: 'Lo que dicen', testimonialsTitle: 'De la mesa <em>al corazón</em>',
+      t1: 'Trato cercano, comida casera y precios honestos. Repito siempre que puedo.', t1a: 'Cliente habitual · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em>',
+      t2: 'Hicimos una comida de empresa y todo salió perfecto. Atención excelente.', t2a: 'Comida de empresa · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em>',
+      t3: 'Celebramos el cumple de mi madre y nos prepararon dos opciones increíbles.', t3a: 'Celebración familiar · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em>',
+      bookingLabel: 'Reserva fácil', bookingTitle: '¿Nos vemos <em class="italic">pronto?</em>',
+      bookingText: 'Rellena el formulario y te confirmamos la reserva. También puedes contactarnos directamente.',
+      call: 'Llamar', writeDirect: 'Escríbenos directamente', address: 'Dirección',
+      formTitle: 'Solicitar reserva', formSubtitle: '— Mesa, presupuesto o evento privado —',
+      formType: 'Tipo de solicitud', select: '— Selecciona —', lunchTable: 'Mesa para comer', privateEvent: 'Evento privado', birthday: 'Cumpleaños', companyMeal: 'Comida de empresa', groupDinner: 'Cena de grupo', groupVermut: 'Vermut de grupo',
+      name: 'Nombre', phone: 'Teléfono', date: 'Fecha', time: 'Hora', people: 'Nº de personas', format: 'Formato',
+      closedMenu: 'Menú cerrado para grupo', tapas: 'Tapeo y vermut', customProposal: 'Propuesta a medida',
+      budget: 'Presupuesto por persona', undefined: '— Por definir —', notes: 'Notas, alergias o preferencias',
+      notesPh: 'Cuéntanos lo que necesites: alergias, ocasión especial, peticiones...', formSubmit: 'Solicitar reserva', formSent: '✦ Solicitud enviada ✦',
+      formMsg: '✦ Solicitud recibida. Confírmala por WhatsApp o llama al restaurante para completar la reserva. ✦',
+      findLabel: 'Encuéntranos', findTitle: 'Estamos en Sants, <em>Barcelona</em>',
+      findText: 'Estamos en el barrio de Sants, una de las zonas con más vida de Barcelona. Nuestra dirección exacta es Carrer de Galileu, 173, junto a calle Madrid: una referencia clara para llegar sin dar rodeos.',
+      schedule: 'Horario', transport: 'Transporte', bookings: 'Reservas', openMaps: '📍 Abrir en Google Maps',
+      howTitle: 'Cómo llegar fácilmente',
+      howText: 'Sants es una zona amplia, por eso te damos una referencia clara: estamos en <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173, junto a calle Madrid</strong>. Así podrás encontrarnos fácilmente para venir a desayunar, comer, cenar o reunirte con tu grupo. Metro Plaça de Sants (L1 y L5) a pocos minutos a pie.',
+      footerDesc: "Restaurante de cocina de mercado en Sants, Barcelona. Menú diario, carnes a la parrilla, arroz caldoso los jueves, vinos, vermut y propuestas para grupos y eventos. Porque comer bien es siempre una buena razón para quedar.",
+      footerRestaurant: 'El restaurante', ourKitchen: 'Nuestra cocina', footerHours: 'Horario', monday: 'Lunes', tuesday: 'Martes', wednesday: 'Miércoles', thursday: 'Jueves', friday: 'Viernes', saturday: 'Sábado', sunday: 'Domingo', closed: 'Cerrado', eventHours: 'Eventos y grupos', eventHoursValue: 'Hasta las 23:00 bajo reserva previa',
+      contact: 'Contacto', streetRef: 'Junto a calle Madrid · 08028 Barcelona', made: '— Hecho con cariño en Barcelona —',
+      mobileArrive: 'Llegar'
+    },
+    en: {
+      navAbout: 'About', navMenu: 'Menu', navEvents: 'Events', navGallery: 'Gallery', navBookings: 'Bookings',
+      navGroupsEvents: 'Groups & Events', navDirections: 'How to get here', navBook: 'Book',
+      loaderStatus: 'Lighting the grill…',
+      heroTitle: "Restaurante O'Noso <em>in Sants</em>",
+      heroSub: 'Spanish cuisine, grilled meats and selected wines on Carrer de Galileu, next to calle Madrid.',
+      heroDesc: 'A Spanish-style restaurant-bar for daily menus, regional dishes, rice stew on Thursdays, vermouth, relaxed after-meals and proposals for lunches, dinners and groups.',
+      heroBook: 'Book a table', heroDirections: '📍 How to get here', heroBudget: 'Request a proposal',
+      heroWelcome: 'Welcome', heroDailyMenu: 'Daily menu', heroSchedule: 'Hours', heroKitchen: 'Cuisine',
+      heroKitchenValue: 'Grill and market', heroGroups: 'Groups', heroGroupsValue: 'Tailored', discover: 'Discover',
+      dataDaily: 'Daily menu', dataGrill: 'Grilled meats', dataRice: 'Rice stew on Thursdays',
+      dataWine: 'Wines and vermouth', dataGroups: 'Groups and events', dataLocation: 'Galileu 173 next to calle Madrid',
+      marketKitchen: 'Market cuisine', winesVermut: 'Wines and vermouth', menuDayPrice: 'Daily menu — 13€',
+      spanishKitchenSants: 'Spanish cuisine · Sants',
+      aboutLabel: 'About us',
+      aboutTitle: 'A restaurant-bar with <em class="gold italic">Spanish soul in Sants</em>',
+      aboutQuote: "Located on emblematic Carrer de Galileu, in Sants, O'Noso is a restaurant-bar made for enjoying Spanish cuisine in a warm, personal atmosphere.",
+      aboutP1: 'Our proposal combines regional dishes, market cuisine, selected wines and attentive service so every visit feels easy and enjoyable, whether you come for a weekday lunch or a special occasion.',
+      aboutP2: "With modern vintage decor and details inspired by Spanish gastronomy, O'Noso invites you to enjoy Spain at the table: good food, good wine and a setting made for sharing.",
+      exp1Title: 'Spanish cuisine', exp1Text: 'Regional dishes, timeless recipes and authentic flavours with fresh produce and care in every detail.',
+      exp2Title: 'Selected wines', exp2Text: 'A carefully chosen wine list to accompany every dish, from vermouth to the after-meal glass.',
+      exp3Title: 'Modern vintage atmosphere', exp3Text: 'Warm decor with details inspired by Spanish gastronomy. A place to eat well and stay without rushing.',
+      exp4Title: 'Personal service', exp4Text: "Close, reliable service. At O'Noso every table is treated with care, and every event is prepared with dedication.",
+      exp5Title: 'Market and signature cuisine', exp5Text: 'We buy what the market offers each day. Season, product and technique give the menu its own flavour.',
+      exp6Title: 'For every occasion', exp6Text: "Daily lunch, weekend meals, vermouth with friends or a celebration with your group. O'Noso adapts with tailored proposals.",
+      menuLabel: 'Monday to Saturday', menuTitle: 'Daily menu', menuOnly: 'Only', menuPer: 'per person',
+      menuIncludes: 'Starter <span>·</span> Main <span>·</span> Dessert <span>·</span> Drink <span>·</span> Coffee',
+      menuFirst: 'Starters', dish1: 'Three-cheese salad', dish2: 'Seasonal vegetables', dish3: 'Seafood rice stew', dish4: 'Gratin cannelloni',
+      menuSecond: 'Mains', dish5: 'Beef entrecote', dish6: 'Grilled chicken', dish7: 'Bacalao a la llauna', dish8: 'Roman-style hake',
+      menuEnd: 'To finish', dish9: 'Homemade dessert of the day', dish10: 'Espresso or coffee with milk', dish11: 'House wine glass', dish12: 'Water, soft drink or beer',
+      thursdayTitle: 'Thursday speciality',
+      thursdayText: "On Thursdays, rice stew: one of O'Noso's specialities for anyone looking for a hearty spoon dish with real kitchen flavour.",
+      menuNote: '— The menu changes daily depending on the market and season —', consultMenu: "💬 Ask for today's menu",
+      kitchenLabel: 'Eat well',
+      kitchenTitle: 'Grilled meats, <em>wines and rice stew on Thursdays</em>',
+      kitchenP1: 'Simple, tasty and well-presented Spanish cuisine with grilled meats, selected wines, vermouth and seasonal dishes. On Thursdays, rice stew becomes one of the house specialities.',
+      kitchenP2: 'We work with grilled meats and flavourful dishes made with quality produce, designed to enjoy with wine, vermouth or a long after-meal chat.',
+      kitchenQuote: '"Quality produce, good wine and the usual warm atmosphere."',
+      freshFish: 'Fresh fish', appetizer: 'Vermouth and aperitif', regionalDishes: 'Regional dishes',
+      kitchenMarketLabel: 'Market cuisine', barAfter: 'Bar & after-meal',
+      eventsLabel: 'For you and yours',
+      eventsTitle: 'Lunches, dinners and events <em>tailored to you</em>',
+      eventsText: 'We organise lunches, dinners and events with proposals adapted to your preferences: family meals, private dinners, company events, set menus, celebrations and group tapas. Tell us what you need and we will prepare <strong style="color:var(--dorado-claro);">two options</strong> so you can choose what fits best.',
+      event1Title: 'Family meals', event1Text: 'Birthdays, anniversaries, gatherings and long tables with set menus adapted to every taste.',
+      event2Title: 'Group dinners', event2Text: 'A warm proposal to enjoy good food, wine and after-meal time with friends or family.',
+      event3Title: 'Company events', event3Text: 'Team lunches, informal meetings, farewells and gatherings with adapted set menus.',
+      event4Title: 'Themed proposals', event4Text: 'We adapt the format to your preferences: tapas, set menu, wines, vermouth or a special proposal.',
+      proposalQuote: '— No obligation, with our full attention —', proposalTitle: 'Have an event in mind?',
+      proposalText: 'Tell us what you need and we will prepare <strong>two proposal options</strong> so everything goes smoothly. We care for each celebration as if it were ours.',
+      proposalNote: 'Extended event hours: from 08:00 to 23:00 subject to availability and prior booking.',
+      consultAvailability: '💬 Check availability',
+      galleryLabel: 'What happens here', galleryTitle: "This is O'Noso",
+      galleryText: 'Atmosphere, cuisine and details that invite you back. A warm space where light, table, dishes and wine are part of the experience.',
+      galleryFacade: 'Facade · Carrer de Galileu, 173', galleryBar: 'The bar', galleryTable: 'Set table', galleryServed: 'Served table', galleryMeat: 'Meats', galleryProduct: 'Market produce', galleryGroup: 'Group atmosphere',
+      testimonialsLabel: 'What they say', testimonialsTitle: 'From the table <em>to the heart</em>',
+      t1: 'Friendly service, homemade food and honest prices. I come back whenever I can.', t1a: 'Regular guest · <em style="font-size:0.7rem; opacity:0.6;">pending confirmation</em>',
+      t2: 'We had a company lunch and everything went perfectly. Excellent service.', t2a: 'Company lunch · <em style="font-size:0.7rem; opacity:0.6;">pending confirmation</em>',
+      t3: "We celebrated my mother's birthday and they prepared two wonderful options.", t3a: 'Family celebration · <em style="font-size:0.7rem; opacity:0.6;">pending confirmation</em>',
+      bookingLabel: 'Easy booking', bookingTitle: 'See you <em class="italic">soon?</em>',
+      bookingText: 'Fill in the form and we will confirm your booking. You can also contact us directly.',
+      call: 'Call', writeDirect: 'Write to us directly', address: 'Address',
+      formTitle: 'Request a booking', formSubtitle: '— Table, proposal or private event —',
+      formType: 'Request type', select: '— Select —', lunchTable: 'Table for lunch', privateEvent: 'Private event', birthday: 'Birthday', companyMeal: 'Company lunch', groupDinner: 'Group dinner', groupVermut: 'Group vermouth',
+      name: 'Name', phone: 'Phone', date: 'Date', time: 'Time', people: 'No. of people', format: 'Format',
+      closedMenu: 'Set group menu', tapas: 'Tapas and vermouth', customProposal: 'Tailored proposal',
+      budget: 'Budget per person', undefined: '— To define —', notes: 'Notes, allergies or preferences',
+      notesPh: 'Tell us what you need: allergies, special occasion, requests...', formSubmit: 'Request booking', formSent: '✦ Request sent ✦',
+      formMsg: '✦ Request received. Confirm it by WhatsApp or call the restaurant to complete the booking. ✦',
+      findLabel: 'Find us', findTitle: 'We are in Sants, <em>Barcelona</em>',
+      findText: 'We are in Sants, one of Barcelona’s liveliest areas. Our exact address is Carrer de Galileu, 173, next to calle Madrid: a clear reference to find us easily.',
+      schedule: 'Hours', transport: 'Transport', bookings: 'Bookings', openMaps: '📍 Open in Google Maps',
+      howTitle: 'How to get here easily',
+      howText: 'Sants is a large area, so here is a clear reference: we are at <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173, next to calle Madrid</strong>. You will find us easily for breakfast, lunch, dinner or a group meeting. Metro Plaça de Sants (L1 and L5) is a short walk away.',
+      footerDesc: "Market cuisine restaurant in Sants, Barcelona. Daily menu, grilled meats, rice stew on Thursdays, wines, vermouth and proposals for groups and events. Eating well is always a good reason to meet.",
+      footerRestaurant: 'The restaurant', ourKitchen: 'Our cuisine', footerHours: 'Hours', monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday', thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday', closed: 'Closed', eventHours: 'Events and groups', eventHoursValue: 'Until 23:00 with prior booking',
+      contact: 'Contact', streetRef: 'Next to calle Madrid · 08028 Barcelona', made: '— Made with care in Barcelona —',
+      mobileArrive: 'Arrive'
+    }
+  };
+  i18n.fr = { ...i18n.en,
+    navAbout:'À propos', navMenu:'Carte', navEvents:'Événements', navGallery:'Galerie', navBookings:'Réservations', navGroupsEvents:'Groupes & événements', navDirections:'Comment venir', navBook:'Réserver',
+    loaderStatus:'On allume le gril…', heroTitle:"Restaurante O'Noso <em>à Sants</em>", heroSub:'Cuisine espagnole, viandes grillées et vins sélectionnés sur Carrer de Galileu, près de calle Madrid.', heroDesc:'Un restaurant-bar à l’âme espagnole pour profiter du menu du jour, de plats régionaux, du riz caldoso le jeudi, du vermouth, de la sobremesa et de propositions pour repas, dîners et groupes.',
+    heroBook:'Réserver une table', heroDirections:'📍 Comment venir', heroBudget:'Demander un devis', heroWelcome:'Bienvenue', heroDailyMenu:'Menu du jour', heroSchedule:'Horaires', heroKitchen:'Cuisine', heroKitchenValue:'Gril et marché', heroGroups:'Groupes', heroGroupsValue:'Sur mesure', discover:'Découvrir',
+    dataDaily:'Menu du jour', dataGrill:'Viandes grillées', dataRice:'Riz caldoso le jeudi', dataWine:'Vins et vermouth', dataGroups:'Groupes et événements', dataLocation:'Galileu 173 près de calle Madrid',
+    marketKitchen:'Cuisine de marché', winesVermut:'Vins et vermouth', menuDayPrice:'Menu du jour — 13€', spanishKitchenSants:'Cuisine espagnole · Sants',
+    aboutLabel:'À propos', aboutTitle:'Un restaurant-bar avec <em class="gold italic">une âme espagnole à Sants</em>', aboutQuote:"Situé sur l’emblématique Carrer de Galileu, dans le quartier de Sants, O'Noso est un restaurant-bar pour profiter de la cuisine espagnole dans une ambiance chaleureuse et proche.",
+    aboutP1:'Notre proposition associe plats régionaux, cuisine de marché, vins sélectionnés et service attentif pour que chaque visite soit agréable, en semaine comme pour une occasion spéciale.', aboutP2:"Avec une décoration vintage moderne et des détails inspirés de la gastronomie espagnole, O'Noso invite à partager de bons plats, du bon vin et un moment convivial.",
+    exp1Title:'Cuisine espagnole', exp1Text:'Plats régionaux, recettes traditionnelles et saveurs authentiques avec des produits frais.', exp2Title:'Vins sélectionnés', exp2Text:'Une carte des vins soignée pour accompagner chaque plat, du vermouth à la coupe de fin de repas.', exp3Title:'Ambiance vintage moderne', exp3Text:'Un décor chaleureux inspiré de la gastronomie espagnole. Un lieu où l’on mange bien et où l’on reste sans se presser.', exp4Title:'Service personnalisé', exp4Text:"Un service proche et fiable. Chez O'Noso, chaque table et chaque événement reçoivent toute notre attention.", exp5Title:'Cuisine de marché et d’auteur', exp5Text:'Nous achetons chaque jour ce que le marché offre. Saison, produit et technique donnent au menu son caractère.', exp6Title:'Pour chaque occasion', exp6Text:"Menu du jour, repas du week-end, vermouth entre amis ou fête de groupe. O'Noso s’adapte avec des propositions sur mesure.",
+    menuLabel:'Du lundi au samedi', menuTitle:'Le menu du jour', menuOnly:'Seulement', menuPer:'par personne', menuIncludes:'Entrée <span>·</span> Plat <span>·</span> Dessert <span>·</span> Boisson <span>·</span> Café',
+    menuFirst:'Entrées', dish1:'Salade aux trois fromages', dish2:'Légumes de saison', dish3:'Riz caldoso aux fruits de mer', dish4:'Cannelloni gratinés', menuSecond:'Plats', dish5:'Entrecôte de bœuf', dish6:'Poulet grillé', dish7:'Bacalao a la llauna', dish8:'Merlu à la romaine', menuEnd:'Pour finir', dish9:'Dessert maison du jour', dish10:'Café seul ou au lait', dish11:'Verre de vin de la maison', dish12:'Eau, soda ou bière',
+    thursdayTitle:'Spécialité du jeudi', thursdayText:"Le jeudi, riz caldoso : l’une des spécialités d’O'Noso pour ceux qui cherchent un plat savoureux, à la cuillère, avec un vrai goût de cuisine.", menuNote:'— Le menu change chaque jour selon le marché et la saison —', consultMenu:'💬 Consulter le menu du jour',
+    kitchenLabel:'Bien manger', kitchenTitle:'Viandes grillées, <em>vins et riz caldoso le jeudi</em>', kitchenP1:'Une cuisine espagnole simple, savoureuse et bien présentée, avec viandes grillées, vins sélectionnés, vermouth et plats de saison. Le jeudi, le riz caldoso devient l’une des spécialités de la maison.', kitchenP2:'Nous travaillons des viandes grillées et des plats savoureux avec des produits de qualité, pensés pour être dégustés avec du vin, du vermouth ou une bonne sobremesa.', kitchenQuote:'"Produit de qualité, bon vin et l’ambiance de toujours."', freshFish:'Poisson frais', appetizer:'Vermouth et apéritif', regionalDishes:'Plats régionaux', kitchenMarketLabel:'Cuisine de marché', barAfter:'Bar & sobremesa',
+    eventsLabel:'Pour vous et les vôtres', eventsTitle:'Repas, dîners et événements <em>sur mesure</em>', eventsText:'Nous organisons repas, dîners et événements avec des propositions adaptées : repas familiaux, dîners privés, événements d’entreprise, menus fermés, célébrations et tapas de groupe. Dites-nous ce dont vous avez besoin et nous préparerons <strong style="color:var(--dorado-claro);">deux options</strong>.', event1Title:'Repas familiaux', event1Text:'Anniversaires, réunions et grandes tablées avec menu fermé adapté à tous les goûts.', event2Title:'Dîners de groupe', event2Text:'Une proposition chaleureuse pour profiter de bons plats, de vin et d’une sobremesa entre amis ou en famille.', event3Title:'Événements d’entreprise', event3Text:'Repas d’équipe, rencontres informelles, départs et réunions avec menu fermé adapté.', event4Title:'Propositions thématiques', event4Text:'Nous adaptons le format : tapas, menu fermé, vins, vermouth ou proposition spéciale.', proposalQuote:'— Sans engagement, avec toute notre attention —', proposalTitle:'Vous avez un événement en tête ?', proposalText:'Dites-nous ce dont vous avez besoin et nous préparerons <strong>deux propositions</strong> pour que tout soit réussi.', proposalNote:'Horaire élargi pour événements : de 08:00 à 23:00 selon disponibilité et réservation préalable.', consultAvailability:'💬 Consulter la disponibilité',
+    galleryLabel:'Ce qui se vit ici', galleryTitle:"Voici O'Noso", galleryText:'Ambiance, cuisine et détails qui donnent envie de revenir. Un espace chaleureux où la lumière, la table, les plats et le vin font partie de l’expérience.', galleryFacade:'Façade · Carrer de Galileu, 173', galleryBar:'Le bar', galleryTable:'Table dressée', galleryServed:'Table servie', galleryMeat:'Viandes', galleryProduct:'Produit du marché', galleryGroup:'Ambiance de groupe',
+    testimonialsLabel:'Ce qu’ils disent', testimonialsTitle:'De la table <em>au cœur</em>', t1:'Service chaleureux, cuisine maison et prix honnêtes. Je reviens dès que je peux.', t1a:'Client habituel · <em style="font-size:0.7rem; opacity:0.6;">à confirmer</em>', t2:'Nous avons organisé un repas d’entreprise et tout s’est parfaitement passé.', t2a:'Repas d’entreprise · <em style="font-size:0.7rem; opacity:0.6;">à confirmer</em>', t3:'Nous avons fêté l’anniversaire de ma mère et ils ont préparé deux options formidables.', t3a:'Fête familiale · <em style="font-size:0.7rem; opacity:0.6;">à confirmer</em>',
+    bookingLabel:'Réservation facile', bookingTitle:'On se voit <em class="italic">bientôt ?</em>', bookingText:'Remplissez le formulaire et nous confirmerons votre réservation. Vous pouvez aussi nous contacter directement.', call:'Appeler', writeDirect:'Écrivez-nous directement', address:'Adresse',
+    formTitle:'Demander une réservation', formSubtitle:'— Table, devis ou événement privé —', formType:'Type de demande', select:'— Sélectionner —', lunchTable:'Table pour déjeuner', privateEvent:'Événement privé', birthday:'Anniversaire', companyMeal:'Repas d’entreprise', groupDinner:'Dîner de groupe', groupVermut:'Vermouth de groupe', name:'Nom', phone:'Téléphone', date:'Date', time:'Heure', people:'Nb de personnes', format:'Format', closedMenu:'Menu fermé pour groupe', tapas:'Tapas et vermouth', customProposal:'Proposition sur mesure', budget:'Budget par personne', undefined:'— À définir —', notes:'Notes, allergies ou préférences', notesPh:'Dites-nous ce dont vous avez besoin : allergies, occasion spéciale, demandes...', formSubmit:'Demander une réservation', formSent:'✦ Demande envoyée ✦', formMsg:'✦ Demande reçue. Confirmez-la par WhatsApp ou appelez le restaurant pour finaliser la réservation. ✦',
+    findLabel:'Nous trouver', findTitle:'Nous sommes à Sants, <em>Barcelona</em>', findText:'Nous sommes dans le quartier de Sants, l’une des zones les plus vivantes de Barcelona. Notre adresse exacte est Carrer de Galileu, 173, près de calle Madrid.', schedule:'Horaires', transport:'Transport', bookings:'Réservations', openMaps:'📍 Ouvrir dans Google Maps', howTitle:'Comment arriver facilement', howText:'Sants est une grande zone ; voici un repère clair : nous sommes au <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173, près de calle Madrid</strong>. Métro Plaça de Sants (L1 et L5) à quelques minutes à pied.',
+    footerDesc:"Restaurant de cuisine de marché à Sants, Barcelona. Menu du jour, viandes grillées, riz caldoso le jeudi, vins, vermouth et propositions pour groupes et événements.", footerRestaurant:'Le restaurant', ourKitchen:'Notre cuisine', footerHours:'Horaires', monday:'Lundi', tuesday:'Mardi', wednesday:'Mercredi', thursday:'Jeudi', friday:'Vendredi', saturday:'Samedi', sunday:'Dimanche', closed:'Fermé', eventHours:'Événements et groupes', eventHoursValue:'Jusqu’à 23:00 sur réservation préalable', contact:'Contact', streetRef:'Près de calle Madrid · 08028 Barcelona', made:'— Fait avec soin à Barcelona —', mobileArrive:'Y aller'
+  };
+  i18n.ca = { ...i18n.es,
+    navAbout:'Nosaltres', navMenu:'Carta', navEvents:'Esdeveniments', navGallery:'Galeria', navBookings:'Reserves', navGroupsEvents:'Grups i esdeveniments', navDirections:'Com arribar', navBook:'Reservar',
+    loaderStatus:'Encenent la graella…', heroTitle:"Restaurante O'Noso <em>a Sants</em>", heroSub:'Cuina espanyola, carns a la graella i vins seleccionats al Carrer de Galileu, al costat de calle Madrid.', heroDesc:'Un restaurant-bar amb ànima espanyola on gaudir de menú diari, plats regionals, arròs caldós els dijous, vermut, sobretaula i propostes per a dinars, sopars i grups.',
+    heroBook:'Reservar taula', heroDirections:'📍 Com arribar', heroBudget:'Demanar pressupost', heroWelcome:'Benvingut', heroDailyMenu:'Menú del dia', heroSchedule:'Horari', heroKitchen:'Cuina', heroKitchenValue:'Graella i mercat', heroGroups:'Grups', heroGroupsValue:'A mida', discover:'Descobreix',
+    dataDaily:'Menú diari', dataGrill:'Carns a la graella', dataRice:'Arròs caldós els dijous', dataWine:'Vins i vermut', dataGroups:'Grups i esdeveniments', dataLocation:'Galileu 173 al costat de calle Madrid',
+    marketKitchen:'Cuina de mercat', winesVermut:'Vins i vermut', menuDayPrice:'Menú del dia — 13€', spanishKitchenSants:'Cuina espanyola · Sants',
+    aboutLabel:'Sobre nosaltres', aboutTitle:'Un restaurant-bar amb <em class="gold italic">ànima espanyola a Sants</em>', aboutQuote:"Situat a l’emblemàtic Carrer de Galileu, al barri de Sants, O'Noso és un restaurant-bar pensat per gaudir de la cuina espanyola en un ambient càlid i proper.",
+    aboutP1:'La nostra proposta combina plats regionals, cuina de mercat, vins seleccionats i un servei atent perquè cada visita sigui agradable.', aboutP2:"Amb una decoració vintage moderna i detalls inspirats en la gastronomia espanyola, O'Noso convida a compartir bon menjar, bon vi i un ambient acollidor.",
+    exp1Title:'Cuina espanyola', exp1Text:'Plats regionals, receptes de sempre i sabors autèntics amb producte fresc.', exp2Title:'Vins seleccionats', exp2Text:'Carta de vins cuidada per acompanyar cada plat, del vermut a la copa de sobretaula.', exp3Title:'Ambient vintage modern', exp3Text:'Decoració càlida amb detalls inspirats en la gastronomia espanyola.', exp4Title:'Servei personalitzat', exp4Text:"Atenció propera i de confiança. A O'Noso cada taula i cada esdeveniment reben tota la dedicació.", exp5Title:'Cuina de mercat i autor', exp5Text:'Comprem cada dia el que ofereix el mercat. Temporada, producte i tècnica donen caràcter al menú.', exp6Title:'Per a cada ocasió', exp6Text:"Menú diari, menjar de cap de setmana, vermut amb amics o celebració amb el teu grup. O'Noso s’adapta a tu.",
+    menuLabel:'De dilluns a dissabte', menuTitle:'La carta del dia', menuOnly:'Només', menuPer:'per persona', menuIncludes:'Primer <span>·</span> Segon <span>·</span> Postres <span>·</span> Beguda <span>·</span> Cafè',
+    menuFirst:'Primers', dish1:'Amanida de tres formatges', dish2:'Verdures de temporada', dish3:'Arròs caldós de marisc', dish4:'Canelons gratinats', menuSecond:'Segons', dish5:'Entrecot de vedella', dish6:'Pollastre a la brasa', dish7:'Bacallà a la llauna', dish8:'Lluç a la romana', menuEnd:'Per acabar', dish9:'Postres casolanes del dia', dish10:'Cafè sol o amb llet', dish11:'Copa de vi de la casa', dish12:'Aigua, refresc o cervesa',
+    thursdayTitle:'Especialitat dels dijous', thursdayText:"Els dijous, arròs caldós: una de les especialitats d’O'Noso per a qui busca un plat saborós, de cullera i amb gust de cuina de veritat.", menuNote:'— El menú canvia cada dia segons el mercat i la temporada —', consultMenu:'💬 Consultar el menú d’avui',
+    kitchenLabel:'Per menjar bé', kitchenTitle:'Carns a la graella, <em>vins i arròs caldós els dijous</em>', kitchenP1:'Una cuina espanyola senzilla, saborosa i ben presentada, amb carns a la graella, vins seleccionats, vermut i plats de temporada.', kitchenP2:'Treballem carns a la graella i plats saborosos amb producte de qualitat, pensats per gaudir amb vi, vermut o una bona sobretaula.', kitchenQuote:'"Producte de qualitat, bon vi i l’ambient de sempre."', freshFish:'Peix fresc', appetizer:'Vermut i aperitiu', regionalDishes:'Plats regionals', kitchenMarketLabel:'Cuina de mercat', barAfter:'Barra i sobretaula',
+    eventsLabel:'Per a tu i els teus', eventsTitle:'Dinars, sopars i esdeveniments <em>a mida</em>', eventsText:'Organitzem dinars, sopars i esdeveniments amb propostes adaptades: àpats familiars, sopars privats, esdeveniments d’empresa, menús tancats, celebracions i tapes de grup. Explica’ns què necessites i prepararem <strong style="color:var(--dorado-claro);">dues opcions</strong>.', event1Title:'Dinars familiars', event1Text:'Aniversaris, reunions i taules llargues amb menú tancat adaptat a tots els gustos.', event2Title:'Sopars de grup', event2Text:'Una proposta càlida per gaudir de bon menjar, vi i sobretaula amb amics o família.', event3Title:'Esdeveniments d’empresa', event3Text:'Dinars d’equip, trobades informals i reunions amb menú tancat adaptat.', event4Title:'Propostes temàtiques', event4Text:'Adaptem el format: tapes, menú tancat, vins, vermut o proposta especial.', proposalQuote:'— Sense compromís, amb tota la nostra atenció —', proposalTitle:'Tens un esdeveniment al cap?', proposalText:'Explica’ns què necessites i et preparem <strong>dues opcions de proposta</strong> perquè tot sigui un èxit.', proposalNote:'Horari ampliat per a esdeveniments: de 08:00 a 23:00 sota disponibilitat i reserva prèvia.', consultAvailability:'💬 Consultar disponibilitat',
+    galleryLabel:'El que es viu aquí', galleryTitle:"Així es viu O'Noso", galleryText:'Ambient, cuina i detalls que conviden a tornar. Un espai càlid on la llum, la taula, els plats i el vi formen part de l’experiència.', galleryFacade:'Façana · Carrer de Galileu, 173', galleryBar:'La barra', galleryTable:'Taula preparada', galleryServed:'La taula servida', galleryMeat:'Carns', galleryProduct:'Producte de mercat', galleryGroup:'Ambient de grup',
+    testimonialsLabel:'El que diuen', testimonialsTitle:'De la taula <em>al cor</em>', t1:'Tracte proper, menjar casolà i preus honestos. Repeteixo sempre que puc.', t1a:'Client habitual · <em style="font-size:0.7rem; opacity:0.6;">pendent de confirmar</em>', t2:'Vam fer un dinar d’empresa i tot va sortir perfecte. Atenció excel·lent.', t2a:'Dinar d’empresa · <em style="font-size:0.7rem; opacity:0.6;">pendent de confirmar</em>', t3:'Vam celebrar l’aniversari de la meva mare i ens van preparar dues opcions increïbles.', t3a:'Celebració familiar · <em style="font-size:0.7rem; opacity:0.6;">pendent de confirmar</em>',
+    bookingLabel:'Reserva fàcil', bookingTitle:'Ens veiem <em class="italic">aviat?</em>', bookingText:'Omple el formulari i et confirmem la reserva. També pots contactar-nos directament.', call:'Trucar', writeDirect:'Escriu-nos directament', address:'Adreça',
+    formTitle:'Sol·licitar reserva', formSubtitle:'— Taula, pressupost o esdeveniment privat —', formType:'Tipus de sol·licitud', select:'— Selecciona —', lunchTable:'Taula per dinar', privateEvent:'Esdeveniment privat', birthday:'Aniversari', companyMeal:'Dinar d’empresa', groupDinner:'Sopar de grup', groupVermut:'Vermut de grup', name:'Nom', phone:'Telèfon', date:'Data', time:'Hora', people:'Nre. de persones', format:'Format', closedMenu:'Menú tancat per a grup', tapas:'Tapes i vermut', customProposal:'Proposta a mida', budget:'Pressupost per persona', undefined:'— Per definir —', notes:'Notes, al·lèrgies o preferències', notesPh:'Explica’ns què necessites: al·lèrgies, ocasió especial, peticions...', formSubmit:'Sol·licitar reserva', formSent:'✦ Sol·licitud enviada ✦', formMsg:'✦ Sol·licitud rebuda. Confirma-la per WhatsApp o truca al restaurant per completar la reserva. ✦',
+    findLabel:'Troba’ns', findTitle:'Som a Sants, <em>Barcelona</em>', findText:'Som al barri de Sants, una de les zones amb més vida de Barcelona. L’adreça exacta és Carrer de Galileu, 173, al costat de calle Madrid.', schedule:'Horari', transport:'Transport', bookings:'Reserves', openMaps:'📍 Obrir a Google Maps', howTitle:'Com arribar fàcilment', howText:'Sants és una zona àmplia, per això et donem una referència clara: som a <strong style="color:var(--dorado-claro);">Carrer de Galileu, 173, al costat de calle Madrid</strong>. Metro Plaça de Sants (L1 i L5) a pocs minuts a peu.',
+    footerDesc:"Restaurant de cuina de mercat a Sants, Barcelona. Menú diari, carns a la graella, arròs caldós els dijous, vins, vermut i propostes per a grups i esdeveniments.", footerRestaurant:'El restaurant', ourKitchen:'La nostra cuina', footerHours:'Horari', monday:'Dilluns', tuesday:'Dimarts', wednesday:'Dimecres', thursday:'Dijous', friday:'Divendres', saturday:'Dissabte', sunday:'Diumenge', closed:'Tancat', eventHours:'Esdeveniments i grups', eventHoursValue:'Fins a les 23:00 amb reserva prèvia', contact:'Contacte', streetRef:'Al costat de calle Madrid · 08028 Barcelona', made:'— Fet amb estima a Barcelona —', mobileArrive:'Arribar'
+  };
+
+  const i18nBindings = [
+    ['.loader-status','loaderStatus'], ['.nav-links a[href="#experiencia"]','navAbout'], ['.nav-links a[href="#menu"]','navMenu'], ['.nav-links a[href="#eventos"]','navEvents'], ['.nav-links a[href="#galeria"]','navGallery'], ['.nav-links a[href="#reservas"]','navBookings'],
+    ['.mobile-menu > a[href="#experiencia"]','navAbout'], ['.mobile-menu > a[href="#menu"]','navMenu'], ['.mobile-menu > a[href="#eventos"]','navGroupsEvents'], ['.mobile-menu > a[href="#galeria"]','navGallery'], ['.mobile-menu > a[href="#reservas"]','navBookings'], ['.mobile-menu > a[href="#ubicacion"]','navDirections'], ['.nav-cta .btn','navBook'],
+    ['.hero-title','heroTitle'], ['.hero-sub','heroSub'], ['.hero-desc','heroDesc'], ['.hero-btns .btn:nth-child(1)','heroBook'], ['.hero-btns .btn:nth-child(2)','heroDirections'], ['.hero-btns .btn:nth-child(3)','heroBudget'], ['.hero-card-title','heroWelcome'], ['.hero-card .hero-card-row:nth-of-type(3) .lbl','heroDailyMenu'], ['.hero-card .hero-card-row:nth-of-type(4) .lbl','heroSchedule'], ['.hero-card .hero-card-row:nth-of-type(5) .lbl','heroKitchen'], ['.hero-card .hero-card-row:nth-of-type(5) .val','heroKitchenValue'], ['.hero-card .hero-card-row:nth-of-type(6) .lbl','heroGroups'], ['.hero-card .hero-card-row:nth-of-type(6) .val','heroGroupsValue'], ['.hero-card .btn','navDirections'], ['.scroll-indicator .label','discover'],
+    ['#datos .dato-item:nth-of-type(1)','dataDaily'], ['#datos .dato-item:nth-of-type(2)','dataGrill'], ['#datos .dato-item:nth-of-type(3)','dataRice'], ['#datos .dato-item:nth-of-type(4)','dataWine'], ['#datos .dato-item:nth-of-type(5)','dataGroups'], ['#datos .dato-item:nth-of-type(6)','dataLocation'],
+    ['.marquee-item:nth-child(1)','marketKitchen'], ['.marquee-item:nth-child(3)','dataGrill'], ['.marquee-item:nth-child(5)','winesVermut'], ['.marquee-item:nth-child(7)','navGroupsEvents'], ['.marquee-item:nth-child(9)','menuDayPrice'], ['.marquee-item:nth-child(11)','spanishKitchenSants'], ['.marquee-item:nth-child(13)','marketKitchen'], ['.marquee-item:nth-child(15)','dataGrill'], ['.marquee-item:nth-child(17)','winesVermut'], ['.marquee-item:nth-child(19)','navGroupsEvents'], ['.marquee-item:nth-child(21)','menuDayPrice'], ['.marquee-item:nth-child(23)','spanishKitchenSants'],
+    ['#experiencia .exp-header .label','aboutLabel'], ['#experiencia h2','aboutTitle'], ['.exp-quote','aboutQuote'], ['#experiencia .container > div[style] p:nth-child(1)','aboutP1'], ['#experiencia .container > div[style] p:nth-child(2)','aboutP2'],
+    ['.exp-card:nth-child(1) h3','exp1Title'], ['.exp-card:nth-child(1) p','exp1Text'], ['.exp-card:nth-child(2) h3','exp2Title'], ['.exp-card:nth-child(2) p','exp2Text'], ['.exp-card:nth-child(3) h3','exp3Title'], ['.exp-card:nth-child(3) p','exp3Text'], ['.exp-card:nth-child(4) h3','exp4Title'], ['.exp-card:nth-child(4) p','exp4Text'], ['.exp-card:nth-child(5) h3','exp5Title'], ['.exp-card:nth-child(5) p','exp5Text'], ['.exp-card:nth-child(6) h3','exp6Title'], ['.exp-card:nth-child(6) p','exp6Text'],
+    ['#menu .label','menuLabel'], ['#menu h2','menuTitle'], ['.menu-precio-sello .desde','menuOnly'], ['.menu-precio-sello .por','menuPer'], ['.menu-incluye','menuIncludes'], ['.menu-columna:nth-child(1) h4','menuFirst'], ['.menu-columna:nth-child(1) li:nth-child(1)','dish1'], ['.menu-columna:nth-child(1) li:nth-child(2)','dish2'], ['.menu-columna:nth-child(1) li:nth-child(3)','dish3'], ['.menu-columna:nth-child(1) li:nth-child(4)','dish4'], ['.menu-columna:nth-child(2) h4','menuSecond'], ['.menu-columna:nth-child(2) li:nth-child(1)','dish5'], ['.menu-columna:nth-child(2) li:nth-child(2)','dish6'], ['.menu-columna:nth-child(2) li:nth-child(3)','dish7'], ['.menu-columna:nth-child(2) li:nth-child(4)','dish8'], ['.menu-columna:nth-child(3) h4','menuEnd'], ['.menu-columna:nth-child(3) li:nth-child(1)','dish9'], ['.menu-columna:nth-child(3) li:nth-child(2)','dish10'], ['.menu-columna:nth-child(3) li:nth-child(3)','dish11'], ['.menu-columna:nth-child(3) li:nth-child(4)','dish12'], ['.menu-especial h4','thursdayTitle'], ['.menu-especial p','thursdayText'], ['.menu-nota','menuNote'], ['.menu-ctas .btn:nth-child(1)','consultMenu'], ['.menu-ctas .btn:nth-child(2)','heroBook'],
+    ['#cocina .label','kitchenLabel'], ['#cocina h2','kitchenTitle'], ['#cocina .cocina-texto > p:nth-of-type(1)','kitchenP1'], ['#cocina .cocina-texto > p:nth-of-type(2)','kitchenP2'], ['#cocina .cocina-texto > p:nth-of-type(3)','kitchenQuote'], ['.cocina-tag:nth-child(1)','exp1Title'], ['.cocina-tag:nth-child(2)','dataGrill'], ['.cocina-tag:nth-child(3)','freshFish'], ['.cocina-tag:nth-child(4)','exp2Title'], ['.cocina-tag:nth-child(5)','appetizer'], ['.cocina-tag:nth-child(6)','dataRice'], ['.cocina-tag:nth-child(7)','regionalDishes'], ['#cocina .btn','heroBook'], ['.cocina-img:nth-child(1) .cocina-img-label','kitchenMarketLabel'], ['.cocina-img:nth-child(2) .cocina-img-label','winesVermut'], ['.cocina-img:nth-child(3) .cocina-img-label','barAfter'],
+    ['#eventos .eventos-header .label','eventsLabel'], ['#eventos .eventos-header h2','eventsTitle'], ['#eventos .eventos-header p','eventsText'], ['.evento-card:nth-child(1) h3','event1Title'], ['.evento-card:nth-child(1) p','event1Text'], ['.evento-card:nth-child(2) h3','event2Title'], ['.evento-card:nth-child(2) p','event2Text'], ['.evento-card:nth-child(3) h3','event3Title'], ['.evento-card:nth-child(3) p','event3Text'], ['.evento-card:nth-child(4) h3','event4Title'], ['.evento-card:nth-child(4) p','event4Text'], ['.propuesta-quote','proposalQuote'], ['.propuesta-texto h3','proposalTitle'], ['.propuesta-texto > p:nth-of-type(2)','proposalText'], ['.propuesta-nota','proposalNote'], ['.propuesta-ctas .btn:nth-child(1)','heroBudget'], ['.propuesta-ctas .btn:nth-child(2)','consultAvailability'],
+    ['#galeria .label','galleryLabel'], ['#galeria h2','galleryTitle'], ['#galeria .galeria-header p','galleryText'], ['.galeria-onoso-item:nth-child(1) .galeria-onoso-label','galleryFacade'], ['.galeria-onoso-item:nth-child(3) .galeria-onoso-label','galleryBar'], ['.galeria-onoso-item:nth-child(4) .galeria-onoso-label','galleryTable'], ['.galeria-onoso-item:nth-child(5) .galeria-onoso-label','galleryServed'], ['.galeria-onoso-item:nth-child(6) .galeria-onoso-label','galleryMeat'], ['.galeria-onoso-item:nth-child(7) .galeria-onoso-label','freshFish'], ['.galeria-onoso-item:nth-child(8) .galeria-onoso-label','exp2Title'], ['.galeria-onoso-item:nth-child(9) .galeria-onoso-label','galleryProduct'], ['.galeria-onoso-item:nth-child(10) .galeria-onoso-label','galleryGroup'],
+    ['#testimonios .label','testimonialsLabel'], ['#testimonios h2','testimonialsTitle'], ['.testimonio:nth-child(1) .testimonio-texto','t1'], ['.testimonio:nth-child(1) .testimonio-autor','t1a'], ['.testimonio:nth-child(2) .testimonio-texto','t2'], ['.testimonio:nth-child(2) .testimonio-autor','t2a'], ['.testimonio:nth-child(3) .testimonio-texto','t3'], ['.testimonio:nth-child(3) .testimonio-autor','t3a'],
+    ['#reservas .label','bookingLabel'], ['#reservas h2','bookingTitle'], ['#reservas .reservas-info > p','bookingText'], ['.contacto-card:nth-of-type(1) .contacto-card-label','call'], ['.contacto-card:nth-of-type(2) .contacto-card-value','writeDirect'], ['.contacto-card:nth-of-type(3) .contacto-card-label','address'], ['.form-title','formTitle'], ['.form-subtitle','formSubtitle'], ['label[for="tipo"]','formType'], ['#tipo option:nth-child(1)','select'], ['#tipo option:nth-child(2)','lunchTable'], ['#tipo option:nth-child(3)','privateEvent'], ['#tipo option:nth-child(4)','birthday'], ['#tipo option:nth-child(5)','companyMeal'], ['#tipo option:nth-child(6)','groupDinner'], ['#tipo option:nth-child(7)','groupVermut'], ['label[for="nombre"]','name'], ['label[for="telefono"]','phone'], ['label[for="fecha"]','date'], ['label[for="hora"]','time'], ['label[for="personas"]','people'], ['label[for="formato"]','format'], ['#formato option:nth-child(1)','select'], ['#formato option:nth-child(2)','heroDailyMenu'], ['#formato option:nth-child(3)','closedMenu'], ['#formato option:nth-child(4)','tapas'], ['#formato option:nth-child(5)','customProposal'], ['label[for="presupuesto"]','budget'], ['#presupuesto option:nth-child(1)','undefined'], ['label[for="notas"]','notes'], ['.form-submit','formSubmit'], ['.form-mensaje','formMsg'],
+    ['#ubicacion .label','findLabel'], ['#ubicacion .ubic-info h2','findTitle'], ['#ubicacion .ubic-info > p','findText'], ['.ubic-dato:nth-of-type(1) .ubic-dato-label','address'], ['.ubic-dato:nth-of-type(2) .ubic-dato-label','schedule'], ['.ubic-dato:nth-of-type(3) .ubic-dato-label','transport'], ['.ubic-dato:nth-of-type(4) .ubic-dato-label','bookings'], ['.ubic-info .btn-outline','call'], ['.ubic-info .btn-dorado','heroDirections'], ['.ubic-como-llegar h3','howTitle'], ['.ubic-como-llegar p','howText'], ['.ubic-como-llegar-btns .btn:nth-child(1)','openMaps'], ['.ubic-como-llegar-btns .btn:nth-child(2)','call'],
+    ['.footer-desc','footerDesc'], ['.footer-inner > .footer-col:nth-of-type(2) h4','footerRestaurant'], ['.footer-inner > .footer-col:nth-of-type(2) li:nth-child(1) a','ourKitchen'], ['.footer-inner > .footer-col:nth-of-type(2) li:nth-child(2) a','heroDailyMenu'], ['.footer-inner > .footer-col:nth-of-type(2) li:nth-child(3) a','dataGrill'], ['.footer-inner > .footer-col:nth-of-type(2) li:nth-child(4) a','dataGroups'], ['.footer-inner > .footer-col:nth-of-type(2) li:nth-child(5) a','navGallery'], ['.footer-inner > .footer-col:nth-of-type(2) li:nth-child(6) a','navBookings'], ['.footer-inner > .footer-col:nth-of-type(3) h4','footerHours'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(1) .dia','monday'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(2) .dia','tuesday'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(3) .dia','wednesday'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(4) .dia','thursday'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(5) .dia','friday'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(6) .dia','saturday'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(7) .dia','sunday'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(7) .hora','closed'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(8) .dia','eventHours'], ['.footer-inner > .footer-col:nth-of-type(3) li:nth-child(8) .hora','eventHoursValue'], ['.footer-inner > .footer-col:nth-of-type(4) h4','contact'], ['.footer-inner > .footer-col:nth-of-type(4) li:nth-child(2)','streetRef'], ['.footer-inner > .footer-col:nth-of-type(4) li:nth-child(4) a','heroBook'], ['.footer-inner > .footer-col:nth-of-type(4) li:nth-child(5) a','heroBudget'], ['.footer-bottom p:nth-child(2)','made'],
+    ['.mbb-llamar','call'], ['.mbb-llegar','mobileArrive']
+  ];
+
+  const i18nAttrs = [
+    ['#notas','placeholder','notesPh']
+  ];
+
+  function applyLanguage(lang) {
+    const selected = i18n[lang] ? lang : 'es';
+    const dict = i18n[selected];
+    document.documentElement.lang = selected;
+    i18nBindings.forEach(([selector, key]) => {
+      document.querySelectorAll(selector).forEach((el) => {
+        el.dataset.i18n = key;
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+    });
+    i18nAttrs.forEach(([selector, attr, key]) => {
+      document.querySelectorAll(selector).forEach((el) => {
+        el.dataset.i18nAttr = `${attr}:${key}`;
+        if (dict[key]) el.setAttribute(attr, dict[key]);
+      });
+    });
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      const active = btn.dataset.lang === selected;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    localStorage.setItem('onosoLang', selected);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyLanguage(btn.dataset.lang);
+      if (mobileMenu) setMobileMenuOpen(false);
+    });
+  });
+
+  applyLanguage(localStorage.getItem('onosoLang') || 'es');
+
   // ── Page Loader ────────────────────────────────────────────
   const loader = document.getElementById('page-loader');
   window.addEventListener('load', () => {
@@ -2688,7 +3016,7 @@
     e.preventDefault();
     msg.style.display = 'block';
     form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
-    form.querySelector('.form-submit').textContent = '✦ Solicitud enviada ✦';
+    form.querySelector('.form-submit').textContent = i18n[document.documentElement.lang]?.formSent || i18n.es.formSent;
     form.querySelector('.form-submit').style.background = '#4caf50';
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
