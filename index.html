@@ -6,6 +6,74 @@
   <title>Restaurante O'Noso en Sants Barcelona | Cocina española, menú y eventos</title>
   <meta name="description" content="Restaurante O'Noso en Sants, Barcelona, situado en Carrer de Galileu 173 junto a calle Madrid. Cocina española, carnes a la parrilla, arroz caldoso los jueves, vinos, menú diario y comidas o cenas para grupos." />
   <meta name="keywords" content="restaurante O'Noso Sants, restaurante en Sants, restaurante calle Galileu Barcelona, restaurante cerca de calle Madrid Sants, cocina española en Sants, menú del día Sants, restaurante para grupos Barcelona, comidas para grupos Sants, cenas para grupos Barcelona, vinos y cocina española Barcelona, carnes a la parrilla Sants, restaurante con parrilla Barcelona, arroz caldoso jueves Barcelona, arroz caldoso Sants, restaurante O'Noso Galileu, restaurante calle Galileu Barcelona" />
+  <!-- ============================================================
+       SEO PRO · Open Graph · Twitter · Schema.org · Favicon
+  ============================================================ -->
+  <link rel="canonical" href="https://onoso.es/" />
+  <meta name="theme-color" content="#8B1A1A" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Restaurante O'Noso" />
+  <meta name="geo.region" content="ES-CT" />
+  <meta name="geo.placename" content="Barcelona" />
+  <meta name="geo.position" content="41.376;2.140" />
+  <meta name="ICBM" content="41.376, 2.140" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Restaurante O'Noso" />
+  <meta property="og:title" content="Restaurante O'Noso en Sants Barcelona | Cocina española, menú y eventos" />
+  <meta property="og:description" content="Cocina española en Carrer de Galileu 173, junto a calle Madrid. Menú diario, carnes, pescado, vinos, vermut y eventos." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=85" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Restaurante O'Noso · Sants Barcelona" />
+  <meta name="twitter:description" content="Cocina española en Sants, Carrer de Galileu, 173. Menú diario, carnes, pescado, vinos y eventos." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=85" />
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%238B1A1A'/><text x='50' y='72' font-family='Georgia,serif' font-size='66' font-style='italic' font-weight='700' text-anchor='middle' fill='%23E8B45A'>O</text></svg>" />
+
+  <!-- Preload imagen hero (above the fold) -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1544025162-d76694265947?w=1800&q=90" fetchpriority="high" />
+
+  <!-- Schema.org JSON-LD · Restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Restaurante O'Noso",
+    "description": "Restaurante de cocina española en Sants, Barcelona. Carnes, pescado, vinos, vermut, menú diario y eventos de grupo en Carrer de Galileu 173, junto a calle Madrid.",
+    "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=1200&q=85",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer de Galileu, 173",
+      "addressLocality": "Barcelona",
+      "addressRegion": "Catalunya",
+      "postalCode": "08028",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.3760,
+      "longitude": 2.1405
+    },
+    "servesCuisine": ["Spanish", "Mediterranean", "Catalan"],
+    "priceRange": "€€",
+    "acceptsReservations": "True",
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }],
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -1833,6 +1901,751 @@
       .ubic-como-llegar-btns { flex-direction: column; }
       .ubic-como-llegar-btns .btn { width: 100%; justify-content: center; }
     }
+
+    /* ============================================================
+       HERO — FLOATING BADGE
+    ============================================================ */
+    /* Floating "live" badge */
+    .hero-badge {
+      position: absolute;
+      top: 5.5rem; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(20,16,11,0.85);
+      border: 1px solid rgba(201,146,42,0.45);
+      padding: 0.55rem 1.15rem;
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-family: 'Marcellus', serif;
+      font-size: 0.68rem; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dorado-claro);
+      z-index: 5;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: badgePulse 3.5s ease-in-out infinite, badgeFloat 6s ease-in-out infinite;
+      white-space: nowrap;
+    }
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,146,42,0.35); }
+      50% { box-shadow: 0 0 0 12px rgba(201,146,42,0); }
+    }
+    @keyframes badgeFloat {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-4px); }
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      background: #ef4444;
+      border-radius: 50%;
+      animation: dotBlink 1.4s ease-in-out infinite;
+      box-shadow: 0 0 0 0 rgba(239,68,68,0.7);
+    }
+    @keyframes dotBlink {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(239,68,68,0.7); }
+      50% { opacity: 0.6; transform: scale(1.25); box-shadow: 0 0 0 6px rgba(239,68,68,0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-badge { top: 4.7rem; font-size: 0.6rem; padding: 0.45rem 0.9rem; }
+    }
+
+    /* ============================================================
+       MARQUEE — DUOTONE EFFECT
+    ============================================================ */
+    .marquee-item {
+      background: linear-gradient(135deg, var(--dorado-claro) 0%, var(--dorado) 50%, var(--rojo) 120%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* ============================================================
+       SECTION DIVIDER ORNAMENT (entre secciones)
+    ============================================================ */
+    .section-divider {
+      background: var(--negro);
+      padding: 2.2rem 0;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .section-divider .ornament {
+      max-width: 360px; margin: 0;
+    }
+    .section-divider .ornament-icon { font-size: 1.4rem; }
+
+    /* ============================================================
+       FILOSOFÍA / MANIFIESTO — EDITORIAL CINEMATOGRÁFICO
+    ============================================================ */
+    #filosofia {
+      background: var(--negro);
+      padding: 9rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #filosofia::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 18% 50%, rgba(139,26,26,0.16) 0%, transparent 55%),
+        radial-gradient(circle at 82% 80%, rgba(201,146,42,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .filo-watermark {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 700;
+      font-size: clamp(8rem, 28vw, 32rem);
+      color: rgba(201,146,42,0.04);
+      z-index: 1; pointer-events: none;
+      user-select: none; white-space: nowrap;
+      letter-spacing: -0.03em; line-height: 0.85;
+    }
+    .filo-content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 1100px; margin: 0 auto;
+    }
+    .filo-label {
+      display: inline-block;
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem; letter-spacing: 0.45em;
+      text-transform: uppercase; color: var(--dorado);
+      margin-bottom: 3.5rem; position: relative;
+      padding: 0 0;
+    }
+    .filo-label::before, .filo-label::after {
+      content: ''; position: absolute;
+      top: 50%; width: 40px; height: 1px;
+      background: var(--dorado); opacity: 0.45;
+    }
+    .filo-label::before { right: calc(100% + 1.2rem); }
+    .filo-label::after  { left:  calc(100% + 1.2rem); }
+
+    .filo-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5.5vw, 4.7rem);
+      font-weight: 500;
+      line-height: 1.18;
+      color: var(--blanco);
+      letter-spacing: -0.01em;
+    }
+    .filo-quote .filo-line {
+      display: block; overflow: hidden; padding: 0.05em 0;
+    }
+    .filo-quote .filo-line > span {
+      display: inline-block;
+      transform: translateY(105%);
+      transition: transform 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .filo-quote.visible .filo-line:nth-child(1) > span { transition-delay: 0.05s; transform: translateY(0); }
+    .filo-quote.visible .filo-line:nth-child(2) > span { transition-delay: 0.32s; transform: translateY(0); }
+    .filo-quote.visible .filo-line:nth-child(3) > span { transition-delay: 0.59s; transform: translateY(0); }
+    .filo-quote .filo-accent {
+      font-style: italic; color: var(--dorado-claro);
+      position: relative;
+    }
+    .filo-quote .filo-accent::after {
+      content: ''; position: absolute;
+      bottom: -0.05em; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, var(--rojo), transparent);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform 0.8s ease 1.4s;
+    }
+    .filo-quote.visible .filo-accent::after { transform: scaleX(1); }
+
+    .filo-firma {
+      margin-top: 4rem;
+      font-family: 'Marcellus', serif;
+      font-size: 0.82rem; letter-spacing: 0.5em;
+      color: var(--dorado); text-transform: uppercase;
+    }
+
+    /* ============================================================
+       DÍA A DÍA — TIMELINE
+    ============================================================ */
+    #dia-a-dia {
+      background: var(--antracita);
+      padding: 7rem 0;
+      position: relative; overflow: hidden;
+    }
+    #dia-a-dia::before {
+      content: ''; position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,146,42,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .dia-header {
+      text-align: center; margin-bottom: 4rem;
+      max-width: 720px; margin-left: auto; margin-right: auto;
+      position: relative; z-index: 2;
+    }
+    .dia-header h2 { color: var(--blanco); }
+    .dia-header h2 em { color: var(--dorado-claro); font-style: italic; }
+    .dia-header > p {
+      color: rgba(255,249,240,0.72);
+      margin-top: 1rem; font-size: 1.02rem;
+    }
+    .dia-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative; z-index: 2;
+    }
+    .dia-timeline::before {
+      content: ''; position: absolute;
+      top: 40px; left: 5%; right: 5%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--dorado), transparent);
+      opacity: 0.4; z-index: 1;
+    }
+    .dia-item {
+      text-align: center;
+      position: relative; z-index: 2;
+      padding: 0 0.5rem;
+      transition: transform 0.4s ease;
+    }
+    .dia-item:hover { transform: translateY(-6px); }
+    .dia-icon-wrap {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--negro-suave);
+      border: 1px solid rgba(201,146,42,0.5);
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      margin-bottom: 1.4rem; font-size: 1.8rem;
+      position: relative; z-index: 2;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .dia-icon-wrap::after {
+      content: ''; position: absolute; inset: -6px;
+      border: 1px solid var(--dorado);
+      border-radius: 50%; opacity: 0;
+      transition: opacity 0.4s ease, inset 0.4s ease;
+    }
+    .dia-item:hover .dia-icon-wrap {
+      background: var(--rojo-vino);
+      border-color: var(--dorado);
+      box-shadow: 0 12px 32px rgba(139,26,26,0.4);
+    }
+    .dia-item:hover .dia-icon-wrap::after { opacity: 1; inset: -10px; }
+
+    .dia-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: var(--dorado-claro);
+      margin-bottom: 0.4rem; letter-spacing: 0.05em;
+    }
+    .dia-item h3 {
+      color: var(--blanco); font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+    .dia-item p {
+      color: rgba(255,249,240,0.72);
+      font-size: 0.93rem; line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .dia-timeline { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1rem; }
+      .dia-timeline::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      .dia-timeline { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       ESPECIALIDADES DE LA CASA — FEATURED CARDS
+    ============================================================ */
+    #especialidades {
+      background: var(--crema);
+      padding: 7rem 0;
+      color: var(--texto-oscuro);
+      position: relative;
+    }
+    #especialidades::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,146,42,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,146,42,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .especi-header {
+      text-align: center; margin-bottom: 4rem;
+      position: relative; z-index: 2;
+    }
+    .especi-header h2 { color: var(--rojo-vino); }
+    .especi-header h2 em { color: var(--dorado); font-style: italic; }
+    .especi-header .label { color: var(--rojo); }
+    .especi-header > p {
+      color: var(--texto-gris);
+      max-width: 640px; margin: 1.25rem auto 0;
+      font-size: 1.05rem;
+    }
+
+    .especi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      position: relative; z-index: 2;
+    }
+    @media (max-width: 1100px) {
+      .especi-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .especi-card {
+      background: var(--blanco);
+      border: 1px solid rgba(201,146,42,0.25);
+      overflow: hidden; position: relative;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s ease, border-color 0.4s ease;
+    }
+    .especi-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(to right, var(--dorado), var(--rojo), var(--dorado));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.55s ease;
+      z-index: 3;
+    }
+    .especi-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(20,16,11,0.18);
+      border-color: rgba(201,146,42,0.5);
+    }
+    .especi-card:hover::before { transform: scaleX(1); }
+
+    .especi-img {
+      height: 230px;
+      overflow: hidden; position: relative;
+      background: var(--antracita);
+    }
+    .especi-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      /* Tratamiento "menú profesional": calidez, saturación y contraste */
+      filter: saturate(1.12) contrast(1.06) brightness(1.03);
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                  filter 0.5s ease;
+    }
+    .especi-card:hover .especi-img img {
+      transform: scale(1.06);
+      filter: saturate(1.2) contrast(1.1) brightness(1.07);
+    }
+    /* Viñeta editorial (sólo en cards normales, no en la "feature") */
+    .especi-card:not(.especi-card-feature) .especi-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at center, transparent 55%, rgba(20,16,11,0.18) 100%),
+        linear-gradient(180deg, transparent 60%, rgba(20,16,11,0.22) 100%);
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: multiply;
+      opacity: 0.85;
+      transition: opacity 0.4s ease;
+    }
+    .especi-card:hover .especi-img::before { opacity: 0.6; }
+    /* Borde dorado interno que se revela en hover (excepto en la card destacada) */
+    .especi-card:not(.especi-card-feature) .especi-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      border: 1px solid transparent;
+      pointer-events: none; z-index: 2;
+      transition: border-color 0.4s ease, inset 0.4s ease;
+    }
+    .especi-card:not(.especi-card-feature):hover .especi-img::after {
+      border-color: rgba(201,146,42,0.55);
+      inset: 8px;
+    }
+    .especi-img-icon {
+      font-size: 4.5rem;
+      color: var(--dorado-claro);
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.5));
+      z-index: 2; position: relative;
+    }
+    .especi-img-num {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--rojo-vino);
+      color: var(--dorado-claro);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 0.95rem;
+      padding: 0.4rem 0.9rem;
+      letter-spacing: 0.1em;
+      z-index: 2;
+      border: 1px solid rgba(201,146,42,0.4);
+    }
+    .especi-body {
+      padding: 1.85rem 1.6rem 1.85rem;
+    }
+    .especi-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--rojo-vino);
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
+    }
+    .especi-body h3 em { color: var(--dorado); font-style: italic; }
+    .especi-body p {
+      color: var(--texto-gris);
+      font-size: 0.93rem; line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .especi-tag {
+      display: inline-block;
+      font-family: 'Marcellus', serif;
+      font-size: 0.65rem; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(201,146,42,0.25);
+      margin-top: 0.25rem;
+    }
+
+    /* Badge especial "Solo jueves" para arroz caldoso */
+    .especi-feature-badge {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--dorado);
+      color: var(--negro);
+      font-family: 'Marcellus', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      z-index: 3;
+      box-shadow: 0 4px 12px rgba(201,146,42,0.35);
+      animation: featurePulse 2.5s ease-in-out infinite;
+    }
+    @keyframes featurePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    /* Tarjeta destacada con borde dorado */
+    .especi-card-feature {
+      border-color: rgba(201,146,42,0.5) !important;
+      background: linear-gradient(180deg, var(--blanco) 0%, #FFFAEC 100%);
+    }
+    .especi-card-feature::before {
+      transform: scaleX(1) !important;
+      background: linear-gradient(to right, var(--dorado), var(--rojo-vino), var(--dorado)) !important;
+    }
+    .especi-card-feature .especi-img {
+      background: linear-gradient(135deg, rgba(74,8,8,0.8), rgba(20,16,11,0.95));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .especi-card-feature .especi-img-icon {
+      font-size: 4.5rem;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.5));
+    }
+    .especi-card-feature .especi-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at center, transparent 30%, rgba(201,146,42,0.15) 80%);
+      pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      .especi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .especi-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       STATS — CIFRAS HONESTAS
+    ============================================================ */
+    #stats {
+      background: var(--rojo-oscuro);
+      padding: 5rem 0;
+      position: relative;
+      border-top: 1px solid rgba(201,146,42,0.3);
+      border-bottom: 1px solid rgba(201,146,42,0.3);
+      overflow: hidden;
+    }
+    #stats::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, var(--dorado), transparent);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+    .stat-item {
+      text-align: center;
+      position: relative;
+      padding: 0 1rem;
+    }
+    .stat-item:not(:last-child)::after {
+      content: ''; position: absolute;
+      right: 0; top: 25%; bottom: 25%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(201,146,42,0.4), transparent);
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 600;
+      color: var(--dorado-claro);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .stat-num em { font-style: italic; color: var(--blanco); }
+    .stat-num small { font-size: 0.45em; color: var(--dorado); margin-left: 0.05em; }
+    .stat-label {
+      font-family: 'Marcellus', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blanco);
+      opacity: 0.88;
+    }
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1rem; }
+      .stat-item:not(:last-child)::after { display: none; }
+    }
+
+    /* ============================================================
+       MEGA CTA — ANTES DEL FOOTER
+    ============================================================ */
+    #mega-cta {
+      background:
+        linear-gradient(135deg, rgba(20,16,11,0.94) 0%, rgba(74,8,8,0.85) 100%),
+        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85') center/cover;
+      padding: 8rem 0;
+      position: relative; overflow: hidden;
+    }
+    #mega-cta::before, #mega-cta::after {
+      content: ''; position: absolute;
+      width: 36px; height: 36px;
+      border: 1.5px solid var(--dorado);
+    }
+    #mega-cta::before { top: 2rem; left: 2rem; border-right: none; border-bottom: none; }
+    #mega-cta::after  { bottom: 2rem; right: 2rem; border-left: none; border-top: none; }
+    .mega-cta-watermark {
+      position: absolute;
+      bottom: -3vw; left: -1vw;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 700;
+      font-size: clamp(7rem, 22vw, 26rem);
+      color: rgba(201,146,42,0.05);
+      line-height: 0.85; letter-spacing: -0.03em;
+      pointer-events: none; user-select: none;
+      white-space: nowrap; z-index: 1;
+    }
+    .mega-cta-inner {
+      text-align: center;
+      max-width: 920px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .mega-cta-eyebrow {
+      font-family: 'Marcellus', serif;
+      font-size: 0.78rem; letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--dorado-claro);
+      margin-bottom: 1.25rem;
+      display: inline-flex; align-items: center; gap: 0.75rem;
+    }
+    .mega-cta-eyebrow::before, .mega-cta-eyebrow::after {
+      content: ''; width: 30px; height: 1px;
+      background: var(--dorado); opacity: 0.5;
+    }
+    .mega-cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 600;
+      color: var(--blanco);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .mega-cta-title em {
+      color: var(--dorado-claro);
+      font-style: italic;
+    }
+    .mega-cta-desc {
+      color: rgba(255,249,240,0.82);
+      font-size: 1.1rem; line-height: 1.65;
+      max-width: 600px; margin: 0 auto 2.5rem;
+    }
+    .mega-cta-btns {
+      display: flex; flex-wrap: wrap;
+      gap: 0.85rem; justify-content: center;
+    }
+    @media (max-width: 768px) {
+      #mega-cta { padding: 6rem 0; }
+      #mega-cta::before { top: 1rem; left: 1rem; width: 24px; height: 24px; }
+      #mega-cta::after { bottom: 1rem; right: 1rem; width: 24px; height: 24px; }
+    }
+
+    /* ============================================================
+       FLOATING WHATSAPP — DESKTOP ONLY (sutil)
+    ============================================================ */
+    .float-wa {
+      position: fixed;
+      bottom: 1.75rem; right: 1.75rem;
+      width: 60px; height: 60px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      text-decoration: none;
+      z-index: 150;
+      box-shadow: 0 12px 32px rgba(37,211,102,0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: floatWaPulse 2.5s ease-in-out infinite;
+    }
+    .float-wa:hover {
+      transform: scale(1.08);
+      box-shadow: 0 16px 40px rgba(37,211,102,0.6);
+    }
+    @keyframes floatWaPulse {
+      0%, 100% { box-shadow: 0 12px 32px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.6); }
+      50% { box-shadow: 0 12px 32px rgba(37,211,102,0.45), 0 0 0 12px rgba(37,211,102,0); }
+    }
+    @media (max-width: 768px) {
+      .float-wa { display: none; }
+    }
+
+    /* ============================================================
+       BUTTON HOVER UPGRADE — SUTIL MAGNETIC
+    ============================================================ */
+    .btn { will-change: transform; }
+    .btn:active { transform: scale(0.98) translateY(0); }
+
+    /* ============================================================
+       LOADER — VERSIÓN UPGRADED
+    ============================================================ */
+    .loader-content {
+      animation: loaderPulse 1.6s ease-in-out infinite;
+      position: relative;
+    }
+    .loader-content::after {
+      content: ''; position: absolute;
+      bottom: -24px; left: 50%;
+      transform: translateX(-50%);
+      width: 60px; height: 60px;
+      border: 2px solid transparent;
+      border-top-color: var(--dorado);
+      border-right-color: var(--rojo);
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    /* ============================================================
+       SMOOTH FADE-IN VARIATIONS
+    ============================================================ */
+    .fade-up   { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.4,0,0.2,1); }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.4,0,0.2,1); }
+    .fade-left.visible { opacity: 1; transform: none; }
+    .fade-right{ opacity: 0; transform: translateX(40px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.4,0,0.2,1); }
+    .fade-right.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       MOBILE POLISH — padding, spacing, typography
+    ============================================================ */
+    @media (max-width: 768px) {
+      /* ── Secciones: reducir padding vertical ── */
+      #filosofia    { padding: 5rem 0; }
+      #experiencia  { padding: 5rem 0; }
+      #menu         { padding: 5rem 0; }
+      #cocina       { padding: 5rem 0; }
+      #eventos      { padding: 5rem 0; }
+      #galeria      { padding: 4rem 0; }
+      #testimonios  { padding: 5rem 0; }
+      #reservas     { padding: 5rem 0; }
+      #ubicacion    { padding: 5rem 0; }
+      #dia-a-dia    { padding: 5rem 0; }
+      #especialidades { padding: 5rem 0; }
+
+      /* ── Cabeceras de sección: reducir margen inferior ── */
+      .especi-header  { margin-bottom: 2.5rem; }
+      .galeria-header { margin-bottom: 2rem; }
+      .dia-header     { margin-bottom: 2.5rem; }
+      .testimonios-header { margin-bottom: 2.5rem; }
+      .exp-header     { margin-bottom: 3rem; }
+      .eventos-cards  { margin-top: 2.5rem; margin-bottom: 2rem; }
+
+      /* ── Filosofía: líneas laterales del label ── */
+      .filo-label::before { width: 20px; right: calc(100% + 0.75rem); }
+      .filo-label::after  { width: 20px; left:  calc(100% + 0.75rem); }
+      .filo-label         { margin-bottom: 2.5rem; }
+
+      /* ── Eventos propuesta: ajustar padding ── */
+      .eventos-propuesta { padding: 2rem 1.5rem; }
+      .propuesta-texto h3 { font-size: 1.6rem; }
+      .propuesta-nota { font-size: 0.95rem; }
+
+      /* ── Hero card: más compacta en móvil ── */
+      .hero-card { padding: 1.75rem 1.5rem; margin-left: 0; }
+      .hero-grid { padding-top: 2rem; padding-bottom: 1rem; }
+      #hero { padding-bottom: 3rem; }
+
+      /* ── Cocina: imagen visual más compacta ── */
+      .cocina-visual { grid-template-rows: 180px 150px 140px; }
+
+      /* ── Stats: tipografía ── */
+      .stat-num { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+
+      /* ── Testimonios: padding tarjeta ── */
+      .testimonio { padding: 1.5rem 1rem; }
+
+      /* ── Formulario reservas: alinear al inicio ── */
+      .reservas-info > p { margin-bottom: 1.5rem; }
+
+      /* ── Ubicación: mapa altura ── */
+      .ubic-map { min-height: 280px; }
+      .ubic-map iframe { min-height: 280px; }
+    }
+
+    @media (max-width: 480px) {
+      /* ── Secciones: reducir aún más en pantallas pequeñas ── */
+      #filosofia    { padding: 3.5rem 0; }
+      #experiencia  { padding: 3.5rem 0; }
+      #menu         { padding: 3.5rem 0; }
+      #cocina       { padding: 3.5rem 0; }
+      #eventos      { padding: 3.5rem 0; }
+      #galeria      { padding: 3rem 0; }
+      #testimonios  { padding: 3.5rem 0; }
+      #reservas     { padding: 3.5rem 0; }
+      #ubicacion    { padding: 3.5rem 0; }
+      #dia-a-dia    { padding: 3.5rem 0; }
+      #especialidades { padding: 3.5rem 0; }
+      #stats        { padding: 3rem 0; }
+
+      /* ── Cabeceras de sección ── */
+      .especi-header  { margin-bottom: 2rem; }
+      .galeria-header { margin-bottom: 1.5rem; }
+      .dia-header     { margin-bottom: 2rem; }
+      .testimonios-header { margin-bottom: 2rem; }
+      .exp-header     { margin-bottom: 2.5rem; }
+      .eventos-cards  { margin-top: 2rem; margin-bottom: 1.5rem; }
+
+      /* ── Filosofía ── */
+      .filo-firma { margin-top: 2.5rem; }
+
+      /* ── Menu card ── */
+      .menu-precio-sello .num { font-size: 2.4rem; }
+      .menu-incluye { margin-bottom: 2rem; }
+
+      /* ── Botones en secciones ── */
+      .mega-cta-btns .btn { width: 100%; justify-content: center; }
+      .propuesta-ctas .btn { width: 100%; }
+
+      /* ── Stats ── */
+      .stats-grid { gap: 2rem 0.75rem; }
+      .stat-label { font-size: 0.68rem; }
+
+      /* ── Reservas ── */
+      .contacto-card { padding: 1rem 1.25rem; }
+    }
+
   </style>
 </head>
 
@@ -1919,6 +2732,13 @@
       aria-label="Reservar mesa en Restaurante O'Noso"
     ></a>
   </div>
+
+  <!-- Badge flotante "live" -->
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Cocina española · Sants · Barcelona
+  </div>
+
   <!-- Watermark editorial gigante -->
   <div class="hero-watermark">O'Noso</div>
 
@@ -2049,6 +2869,23 @@
 </section>
 
 
+<!-- FILOSOFÍA / MANIFIESTO -->
+<section id="filosofia">
+  <div class="filo-watermark">O'Noso</div>
+  <div class="container">
+    <div class="filo-content">
+      <span class="filo-label">Manifiesto</span>
+      <div class="filo-quote fade-in">
+        <span class="filo-line"><span>Cocinamos con <em class="filo-accent">producto.</em></span></span>
+        <span class="filo-line"><span>Servimos con <em class="filo-accent">tiempo.</em></span></span>
+        <span class="filo-line"><span>Recibimos como <em class="filo-accent">en casa.</em></span></span>
+      </div>
+      <p class="filo-firma">— O'Noso · Sants, Barcelona —</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- EXPERIENCIA -->
 <section id="experiencia">
   <div class="container">
@@ -2111,6 +2948,50 @@
         <span class="exp-icon">🎉</span>
         <h3>Para cada ocasión</h3>
         <p>Menú diario entre semana, comida especial el finde, vermut con amigos o celebración con tu grupo. O'Noso se adapta a ti con propuestas a medida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DÍA A DÍA EN O'NOSO -->
+<section id="dia-a-dia">
+  <div class="container">
+    <div class="dia-header fade-in">
+      <span class="label">Cualquier momento es bueno</span>
+      <div class="ornament">
+        <span class="ornament-line"></span>
+        <span class="ornament-icon">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+      <h2>El día a día <em>en O'Noso</em></h2>
+      <p>Desayuno, comida, vermut o evento. Un lugar al que volver a cualquier hora del día, en pleno barrio de Sants.</p>
+    </div>
+
+    <div class="dia-timeline fade-in delay-1">
+      <div class="dia-item">
+        <div class="dia-icon-wrap">☕</div>
+        <div class="dia-time italic">Mañana</div>
+        <h3>Desayuno y café</h3>
+        <p>Empieza el día con buen café, tostadas y la calma de la mañana en Sants.</p>
+      </div>
+      <div class="dia-item">
+        <div class="dia-icon-wrap">🍽️</div>
+        <div class="dia-time italic">Mediodía</div>
+        <h3>Menú del día</h3>
+        <p>Cocina española de mercado a buen precio. Carnes, pescado y postre casero.</p>
+      </div>
+      <div class="dia-item">
+        <div class="dia-icon-wrap">🍷</div>
+        <div class="dia-time italic">Tarde</div>
+        <h3>Vermut y aperitivo</h3>
+        <p>El ritual español del aperitivo: vermut, conservas, tapas y barra animada.</p>
+      </div>
+      <div class="dia-item">
+        <div class="dia-icon-wrap">🎉</div>
+        <div class="dia-time italic">Cuando quieras</div>
+        <h3>Grupos y eventos</h3>
+        <p>Comidas, cenas y celebraciones a medida. Dos propuestas para que elijas.</p>
       </div>
     </div>
   </div>
@@ -2233,6 +3114,157 @@
           <div class="cocina-img-label">Barra & sobremesa</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ESPECIALIDADES DE LA CASA -->
+<section id="especialidades">
+  <div class="container">
+    <div class="especi-header fade-in">
+      <span class="label">Lo que se cocina</span>
+      <div class="ornament" style="max-width:200px;">
+        <span class="ornament-line" style="background:var(--rojo);"></span>
+        <span class="ornament-icon" style="color:var(--rojo);">✦</span>
+        <span class="ornament-line" style="background:var(--rojo);"></span>
+      </div>
+      <h2>Especialidades <em>de la casa</em></h2>
+      <p>Una selección de los sabores que mejor representan la cocina de O'Noso. Producto, tradición y mimo en cada plato.</p>
+    </div>
+
+    <div class="especi-grid">
+
+      <!-- 01 · CARNES A LA PARRILLA — foto real entrecot -->
+      <div class="especi-card fade-in">
+        <div class="especi-img">
+          <span class="especi-img-num">— 01 —</span>
+          <img src="assets/images/entrecot-onoso.webp"
+               alt="Entrecot a la parrilla con patatas fritas en Restaurante O'Noso Sants Barcelona"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Carnes <em>a la parrilla</em></h3>
+          <p>Entrecot al punto, marcas de parrilla, patatas crujientes y pan recién hecho. Sabor directo, producto cuidado.</p>
+          <span class="especi-tag">Plato fuerte</span>
+        </div>
+      </div>
+
+      <!-- 02 · PESCADO DEL DÍA — se mantiene la foto actual (el cliente quiere conservarla) -->
+      <div class="especi-card fade-in delay-1">
+        <div class="especi-img">
+          <span class="especi-img-num">— 02 —</span>
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=85"
+               alt="Pescado fresco en Restaurante O'Noso cocina española Sants"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Pescado <em>del día</em></h3>
+          <p>Bacalao, merluza y pescados de temporada con preparaciones tradicionales: a la llauna, a la romana o al horno.</p>
+          <span class="especi-tag">De mercado</span>
+        </div>
+      </div>
+
+      <!-- 03 · ARROZ CALDOSO LOS JUEVES — destacada con badge dorado.
+           Imagen temporal de Unsplash (arroz/paella tradicional).
+           TODO: Cuando tengas la foto REAL del arroz caldoso de O'Noso EN CAZUELA DE BARRO,
+                 guárdala como: assets/images/arroz-caldoso-onoso.webp
+                 y sustituye la URL de Unsplash por esa ruta.
+           Alternativas Unsplash en cazuela / arroz tradicional:
+             · https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=600&q=85  (paella en cazuela)
+             · https://images.unsplash.com/photo-1518516842543-22f95df5fb19?w=600&q=85  (paella tradicional)
+             · https://images.unsplash.com/photo-1604152135912-04a022e23696?w=600&q=85  (arroz amarillo)
+      -->
+      <div class="especi-card especi-card-feature fade-in delay-2">
+        <div class="especi-img">
+          <span class="especi-feature-badge">Solo jueves</span>
+          <span class="especi-img-num">— 03 —</span>
+          <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=600&q=85"
+               alt="Arroz caldoso en cazuela de barro tradicional · Cocina española en Restaurante O'Noso Sants Barcelona"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Arroz caldoso <em>los jueves</em></h3>
+          <p>Cada jueves, el arroz caldoso es el protagonista de la mesa. Caldo sabroso, producto del día y la receta de toda la vida.</p>
+          <span class="especi-tag">Cita semanal</span>
+        </div>
+      </div>
+
+      <!-- 04 · ESCALIBADA CON ATÚN — foto real -->
+      <div class="especi-card fade-in">
+        <div class="especi-img">
+          <span class="especi-img-num">— 04 —</span>
+          <img src="assets/images/escalibada-onoso.webp"
+               alt="Escalibada con atún, pimiento rojo y aceitunas en Restaurante O'Noso Sants"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Escalibada <em>con atún</em></h3>
+          <p>Pimiento rojo, berenjena y cebolla escalibadas, atún en aceite y aceitunas. Un clásico de la cocina catalana.</p>
+          <span class="especi-tag">Entrante</span>
+        </div>
+      </div>
+
+      <!-- 05 · TOMATE Y MOZZARELLA — foto real torre caprese -->
+      <div class="especi-card fade-in delay-1">
+        <div class="especi-img">
+          <span class="especi-img-num">— 05 —</span>
+          <img src="assets/images/tomate-mozzarella-onoso.webp"
+               alt="Tomate, mozzarella, albahaca y aceitunas con salsa de pesto en Restaurante O'Noso"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Tomate, mozzarella <em>y albahaca</em></h3>
+          <p>Tomate y mozzarella fresca con aceitunas negras, albahaca y un toque suave de pesto. Frescura y producto en cada bocado.</p>
+          <span class="especi-tag">Frescura</span>
+        </div>
+      </div>
+
+      <!-- 06 · VINOS SELECCIONADOS — se mantiene la foto actual (al cliente le gusta) -->
+      <div class="especi-card fade-in delay-2">
+        <div class="especi-img">
+          <span class="especi-img-num">— 06 —</span>
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=85"
+               alt="Vinos seleccionados en Restaurante O'Noso"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Vinos <em>seleccionados</em></h3>
+          <p>Carta cuidada con referencias nacionales para acompañar cada plato. Tintos, blancos y rosados con criterio.</p>
+          <span class="especi-tag">Bodega</span>
+        </div>
+      </div>
+
+      <!-- 07 · TARTA DE QUESO CASERA — foto real -->
+      <div class="especi-card fade-in">
+        <div class="especi-img">
+          <span class="especi-img-num">— 07 —</span>
+          <img src="assets/images/tarta-queso-onoso.webp"
+               alt="Tarta de queso casera con coulis de frutos rojos en Restaurante O'Noso Sants"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Tarta de queso <em>casera</em></h3>
+          <p>Cremosa y suave, con su coulis de frutos rojos. Una de las favoritas para terminar la sobremesa con buen sabor de boca.</p>
+          <span class="especi-tag">Postre</span>
+        </div>
+      </div>
+
+      <!-- 08 · YOGUR CON FRESAS — foto real -->
+      <div class="especi-card fade-in delay-1">
+        <div class="especi-img">
+          <span class="especi-img-num">— 08 —</span>
+          <img src="assets/images/yogur-fresas-onoso.webp"
+               alt="Yogur con fresas frescas y coulis en Restaurante O'Noso Sants Barcelona"
+               loading="lazy" />
+        </div>
+        <div class="especi-body">
+          <h3>Yogur <em>con fresas</em></h3>
+          <p>Yogur natural, fresas frescas y un hilo de coulis. Un postre fresco y ligero para cerrar bien la mesa.</p>
+          <span class="especi-tag">Postre ligero</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2470,6 +3502,31 @@
 </section>
 
 
+<!-- STATS — CIFRAS HONESTAS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid fade-in">
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Días abiertos</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><em>1</em></span>
+        <span class="stat-label">Menú nuevo cada día</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100<small>%</small></span>
+        <span class="stat-label">Producto de mercado</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><em>∞</em></span>
+        <span class="stat-label">Momentos compartidos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- RESERVAS -->
 <section id="reservas">
   <div class="container">
@@ -2669,6 +3726,27 @@
 </section>
 
 
+<!-- MEGA CTA · ANTES DEL FOOTER -->
+<section id="mega-cta">
+  <div class="mega-cta-watermark">O'Noso</div>
+  <div class="container">
+    <div class="mega-cta-inner fade-in">
+      <div class="mega-cta-eyebrow">Te esperamos en Sants</div>
+      <h2 class="mega-cta-title">¿Nos vemos <em>pronto?</em></h2>
+      <p class="mega-cta-desc">
+        Reserva tu mesa, consulta el menú del día o pregúntanos por tu próximo evento.
+        En Carrer de Galileu, 173, junto a calle Madrid.
+      </p>
+      <div class="mega-cta-btns">
+        <a href="#reservas" class="btn btn-dorado">Reservar mesa</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Galileu+173+Barcelona" target="_blank" rel="noopener" class="btn btn-blanco">📍 Cómo llegar</a>
+        <a href="#eventos" class="btn btn-outline">Pedir presupuesto</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- FOOTER -->
 <footer id="footer">
   <div class="container">
@@ -2739,6 +3817,14 @@
     </div>
   </div>
 </footer>
+
+
+<!-- WHATSAPP FLOTANTE (solo desktop) -->
+<!-- TODO: Sustituir XXXXXXXXXX por el número real de WhatsApp (formato: 34612345678) -->
+<a href="https://wa.me/XXXXXXXXXX?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20una%20reserva%20en%20O%27Noso"
+   class="float-wa" aria-label="Contactar por WhatsApp con Restaurante O'Noso">
+  💬
+</a>
 
 
 <!-- BARRA MÓVIL -->
