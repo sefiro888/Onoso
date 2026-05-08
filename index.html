@@ -1386,7 +1386,7 @@
     .loader-smoke-image {
       position: absolute;
       inset: -12%;
-      background: url('assets/images/humo-parrilla-onoso.png') center 58% / cover no-repeat;
+      background: url('assets/images/humo-parrilla-onoso.webp') center 58% / cover no-repeat;
       opacity: 0.92;
       filter: saturate(0.85) contrast(1.22) brightness(0.92);
       transform: scale(1.06);
@@ -2719,9 +2719,9 @@
 <section id="hero">
   <div class="hero-fachada">
     <picture>
-      <source media="(max-width: 768px)" srcset="assets/images/fachada-onoso.png">
+      <source media="(max-width: 768px)" srcset="assets/images/fachada-onoso.webp">
       <img
-        src="assets/images/foto-paraheader.png"
+        src="assets/images/foto-paraheader.webp"
         alt="Fachada del Restaurante O'Noso en Carrer de Galileu, 173, Sants Barcelona"
         class="hero-fachada-img"
       />
@@ -3357,7 +3357,7 @@
       <!-- FOTO 1: Fachada — TODO: sustituir por foto real de la fachada del restaurante -->
       <div class="galeria-onoso-item galeria-fachada-real">
         <img
-          src="assets/images/fachada-onoso.png"
+          src="assets/images/fachada-onoso.webp"
           alt="Fachada del Restaurante O'Noso en Carrer de Galileu, 173, Sants Barcelona"
           loading="lazy" decoding="async" />
         <div class="galeria-onoso-label">Fachada · Carrer de Galileu, 173</div>
@@ -3467,26 +3467,26 @@
          Incluir nombre real del cliente y plataforma (ej: "María G. — Google").
          NO publicar reseñas inventadas. -->
     <div class="testimonios-grid">
-      <!-- TODO: Sustituir por reseña real (nombre + fuente: Google, TripAdvisor...) -->
+      <!-- Reseña real — Google -->
       <div class="testimonio fade-in">
         <span class="testimonio-quote-mark italic">"</span>
-        <p class="testimonio-texto">Trato cercano, comida casera y precios honestos. Repito siempre que puedo.</p>
+        <p class="testimonio-texto">Una experiencia muy buena en O'Noso. Comida rica, precios justos y un trato excelente por parte de Yuliana y Diego. Tuve un pequeño accidente con el café y fueron súper amables y atentos, me ayudaron en todo.</p>
         <div class="testimonio-stars">★ ★ ★ ★ ★</div>
-        <div class="testimonio-autor">Cliente habitual · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em></div>
+        <div class="testimonio-autor">Alice Pereira · <em style="font-style:italic; opacity:0.75; text-transform:none; letter-spacing:0;">Google</em></div>
       </div>
-      <!-- TODO: Sustituir por reseña real (nombre + fuente: Google, TripAdvisor...) -->
+      <!-- Reseña real — Google Local Guide -->
       <div class="testimonio fade-in delay-1">
         <span class="testimonio-quote-mark italic">"</span>
-        <p class="testimonio-texto">Hicimos una comida de empresa y todo salió perfecto. Atención excelente.</p>
+        <p class="testimonio-texto">Pocas veces doy 5 estrellas, pero este restaurante las merece. Su comida es genial, todo fresco y del día, buen servicio y simpatía. Si quieres comer bien de lunes a sábado, este es tu restaurante. Y además es económico.</p>
         <div class="testimonio-stars">★ ★ ★ ★ ★</div>
-        <div class="testimonio-autor">Comida de empresa · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em></div>
+        <div class="testimonio-autor">Juan José González · <em style="font-style:italic; opacity:0.75; text-transform:none; letter-spacing:0;">Google Local Guide · 167 reseñas</em></div>
       </div>
-      <!-- TODO: Sustituir por reseña real (nombre + fuente: Google, TripAdvisor...) -->
+      <!-- Reseña real — Google -->
       <div class="testimonio fade-in delay-2">
         <span class="testimonio-quote-mark italic">"</span>
-        <p class="testimonio-texto">Celebramos el cumple de mi madre y nos prepararon dos opciones increíbles.</p>
+        <p class="testimonio-texto">Entramos de casualidad y fue todo un acierto. Llevamos toda la semana comiendo aquí y no ha fallado nunca. La chica que atiende es súper agradable y atenta, y el sitio es tranquilo y se está como en casa.</p>
         <div class="testimonio-stars">★ ★ ★ ★ ★</div>
-        <div class="testimonio-autor">Celebración familiar · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em></div>
+        <div class="testimonio-autor">Alex Rangel Romero · <em style="font-style:italic; opacity:0.75; text-transform:none; letter-spacing:0;">Google · Comida 5/5 · Servicio 5/5 · Ambiente 5/5</em></div>
       </div>
     </div>
   </div>
@@ -3529,7 +3529,7 @@
           <span class="ornament-line" style="background:var(--rojo);"></span>
         </div>
         <h2>¿Nos vemos <em class="italic">pronto?</em></h2>
-        <p>Rellena el formulario y te confirmamos la reserva. También puedes contactarnos directamente.</p>
+        <p>Rellena el formulario y se abrirá WhatsApp con tu solicitud ya escrita. Solo tienes que enviarlo.</p>
 
         <a href="tel:+34680778903" class="contacto-card">
           <span class="contacto-card-icon">📞</span>
@@ -3638,11 +3638,9 @@
             <label for="notas">Notas, alergias o preferencias</label>
             <textarea id="notas" name="notas" placeholder="Cuéntanos lo que necesites: alergias, ocasión especial, peticiones..."></textarea>
           </div>
-          <button type="submit" class="form-submit">Solicitar reserva</button>
-          <!-- Nota: este formulario NO envía datos automáticamente. Es una pre-reserva visual.
-               Para activar el envío real conectar a Formspree, Netlify Forms o similar. -->
+          <button type="submit" class="form-submit">💬 Enviar reserva por WhatsApp</button>
           <div class="form-mensaje" id="form-mensaje">
-            ✦ Solicitud recibida. Confírmala por WhatsApp o llama al restaurante para completar la reserva. ✦
+            ✦ Abriendo WhatsApp con tu solicitud… ✦
           </div>
         </form>
       </div>
@@ -3906,9 +3904,9 @@
       galleryText: 'Ambiente, cocina y detalles que invitan a volver. Un espacio cálido y acogedor donde la luz, la mesa, los platos y el vino forman parte de la experiencia.',
       galleryFacade: 'Fachada · Carrer de Galileu, 173', galleryBar: 'La barra', galleryTable: 'Mesa preparada', galleryServed: 'La mesa servida', galleryMeat: 'Carnes', galleryProduct: 'Producto de mercado', galleryGroup: 'Ambiente de grupo',
       testimonialsLabel: 'Lo que dicen', testimonialsTitle: 'De la mesa <em>al corazón</em>',
-      t1: 'Trato cercano, comida casera y precios honestos. Repito siempre que puedo.', t1a: 'Cliente habitual · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em>',
-      t2: 'Hicimos una comida de empresa y todo salió perfecto. Atención excelente.', t2a: 'Comida de empresa · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em>',
-      t3: 'Celebramos el cumple de mi madre y nos prepararon dos opciones increíbles.', t3a: 'Celebración familiar · <em style="font-size:0.7rem; opacity:0.6;">pendiente de confirmar</em>',
+      t1: 'Una experiencia muy buena en O\'Noso. Comida rica, precios justos y un trato excelente por parte de Yuliana y Diego. Fueron súper amables y atentos en todo momento.', t1a: 'Alice Pereira · <em style="font-style:italic; opacity:0.75; text-transform:none; letter-spacing:0;">Google</em>',
+      t2: 'Pocas veces doy 5 estrellas, pero este restaurante las merece. Su comida es genial, todo fresco y del día, buen servicio y simpatía. Si quieres comer bien de lunes a sábado, este es tu restaurante. Y además es económico.', t2a: 'Juan José González · <em style="font-style:italic; opacity:0.75; text-transform:none; letter-spacing:0;">Google Local Guide · 167 reseñas</em>',
+      t3: 'Entramos de casualidad y fue todo un acierto. Llevamos toda la semana comiendo aquí y no ha fallado nunca. La chica que atiende es súper agradable y atenta, y el sitio es tranquilo y se está como en casa.', t3a: 'Alex Rangel Romero · <em style="font-style:italic; opacity:0.75; text-transform:none; letter-spacing:0;">Google · Comida 5/5 · Servicio 5/5 · Ambiente 5/5</em>',
       bookingLabel: 'Reserva fácil', bookingTitle: '¿Nos vemos <em class="italic">pronto?</em>',
       bookingText: 'Rellena el formulario y te confirmamos la reserva. También puedes contactarnos directamente.',
       call: 'Llamar', writeDirect: 'Escríbenos directamente', address: 'Dirección',
@@ -4201,7 +4199,7 @@
     if (event.key === 'Escape') setMobileMenuOpen(false);
   });
 
-  // ── Formulario de reservas ─────────────────────────────────
+  // ── Formulario de reservas → WhatsApp ──────────────────────
   const form = document.getElementById('reserva-form');
   const fechaInput = document.getElementById('fecha');
   const msg  = document.getElementById('form-mensaje');
@@ -4212,11 +4210,52 @@
   }
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    // Recoge los valores del formulario
+    const tipo       = document.getElementById('tipo').value;
+    const nombre     = document.getElementById('nombre').value.trim();
+    const telefono   = document.getElementById('telefono').value.trim();
+    const fecha      = document.getElementById('fecha').value;
+    const hora       = document.getElementById('hora').value;
+    const personas   = document.getElementById('personas').value;
+    const formato    = document.getElementById('formato').value;
+    const presupuesto= document.getElementById('presupuesto').value;
+    const notas      = document.getElementById('notas').value.trim();
+
+    // Formatea la fecha en español (dd/mm/aaaa)
+    const fechaFormateada = fecha
+      ? new Date(fecha + 'T12:00:00').toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' })
+      : '—';
+
+    // Construye el mensaje de WhatsApp
+    let mensaje = `Hola, quiero hacer una reserva en O'Noso:\n\n`;
+    mensaje += `📋 *Tipo:* ${tipo}\n`;
+    mensaje += `👤 *Nombre:* ${nombre}\n`;
+    mensaje += `📞 *Teléfono:* ${telefono}\n`;
+    mensaje += `📅 *Fecha:* ${fechaFormateada}\n`;
+    mensaje += `🕐 *Hora:* ${hora}\n`;
+    mensaje += `👥 *Personas:* ${personas}\n`;
+    if (formato)     mensaje += `🍽️ *Formato:* ${formato}\n`;
+    if (presupuesto) mensaje += `💶 *Presupuesto:* ${presupuesto}\n`;
+    if (notas)       mensaje += `📝 *Notas:* ${notas}\n`;
+
+    // Abre WhatsApp con el mensaje
+    const url = 'https://wa.me/34680778903?text=' + encodeURIComponent(mensaje);
+    window.open(url, '_blank');
+
+    // Confirmación visual
     msg.style.display = 'block';
-    form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
-    form.querySelector('.form-submit').textContent = i18n[document.documentElement.lang]?.formSent || i18n.es.formSent;
-    form.querySelector('.form-submit').style.background = '#4caf50';
     msg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Resetea el botón tras 3 segundos
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = '✓ Abriendo WhatsApp…';
+    btn.style.background = '#25D366';
+    setTimeout(() => {
+      btn.textContent = '💬 Enviar reserva por WhatsApp';
+      btn.style.background = '';
+      msg.style.display = 'none';
+    }, 3000);
   });
 
   // ── Fade-in al hacer scroll ────────────────────────────────
